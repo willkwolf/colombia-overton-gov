@@ -23,7 +23,7 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1); /* expo out */
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   
-  --container-max-w: 1200px;
+  --container-max-w: 1100px;
   --section-pad: clamp(40px, 8vw, 120px);
 }
 
@@ -196,7 +196,7 @@ p {
 .section-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   margin-bottom: 24px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .section-text {
@@ -409,96 +409,443 @@ p {
   justify-content: center;
 }
 
-/* Quote styling */
+/* ==========================================================================
+   METODOLOGÍA (RÚBRICA DE OVERTON)
+   ========================================================================== */
+.methodology-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.methodology-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 36px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.methodology-card-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.methodology-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   FORMULACIÓN DE LA HIPÓTESIS
+   ========================================================================== */
+.hypothesis-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-novelty);
+  margin-bottom: 20px;
+}
+
 .editorial-quote {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.8rem);
-  line-height: 1.1;
+  font-size: clamp(1.8rem, 5.5vw, 3.4rem);
+  line-height: 1.15;
   text-align: center;
   margin-bottom: 32px;
   color: var(--text-primary);
   font-style: italic;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ==========================================================================
-   COMPARATIVE CHARTS
+   LÍNEA DE TIEMPO INTERACTIVA COLAPSABLE
    ========================================================================== */
-.charts-grid {
+#timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+  padding-left: 32px;
+}
+
+/* La línea guía vertical */
+#timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  width: 1px;
+  height: calc(100% - 20px);
+  background-color: var(--border);
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+/* Nodo temporal en la línea */
+.timeline-badge {
+  position: absolute;
+  left: -32px;
+  top: 16px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  border: 2px solid var(--border);
+  z-index: 5;
+  transition: all 0.3s var(--ease);
+}
+
+.timeline-item.active-item .timeline-badge {
+  border-color: var(--accent-novelty);
+  background-color: var(--accent-novelty);
+  box-shadow: 0 0 10px var(--accent-novelty);
+  transform: scale(1.25);
+}
+
+.timeline-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.timeline-card-header {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.timeline-card-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-novelty);
+}
+
+.timeline-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  transition: color 0.3s var(--ease);
+}
+.timeline-card-header:hover .timeline-title {
+  color: var(--text-primary);
+}
+
+.timeline-president-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline-badge-president {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Colores presidenciales */
+.timeline-badge-president.URIBE { color: #ef4444; }
+.timeline-badge-president.SANTOS { color: #3b82f6; }
+.timeline-badge-president.DUQUE { color: #f59e0b; }
+.timeline-badge-president.PETRO { color: #10b981; }
+.timeline-badge-president.ESTADO { color: #8b5cf6; }
+
+.timeline-arrow {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  transition: transform 0.4s var(--ease);
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor expandible/colapsable (Acordeón) */
+.timeline-card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-in-out);
+}
+
+/* Estado Expandido */
+.timeline-item.active-item .timeline-card {
+  border-color: var(--border-focus);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.timeline-item.active-item .timeline-arrow {
+  transform: rotate(180deg);
+  color: var(--text-primary);
+}
+
+.timeline-card-body {
+  padding: 0 24px 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.timeline-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.timeline-meta-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 12px 24px;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.timeline-meta-grid strong {
+  color: var(--text-primary);
+}
+
+.timeline-subnote {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.01);
+  padding: 12px;
+  border-left: 2px solid var(--accent-novelty);
+  margin-bottom: 20px;
+}
+
+.timeline-tags-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tag-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.art-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  background-color: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.15);
+  color: var(--accent-info);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.actor-tag {
+  font-size: 0.68rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.noscript-warning {
+  color: var(--accent-gravity);
+  text-align: center;
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   EVIDENCIA: RADAR CHART SVG COMPARATIVO
+   ========================================================================== */
+.radar-layout {
+  display: flex;
+  gap: 40px;
+  align-items: center;
   margin-top: 40px;
 }
 
-.chart-card {
+.radar-controls {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.radar-controls h4 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.radar-help-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.radar-legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.85rem;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: all 0.2s var(--ease);
+}
+.radar-legend-item:hover {
+  background-color: rgba(255, 255, 255, 0.01);
+  border-color: var(--border);
+}
+
+.radar-checkbox {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent-novelty);
+}
+
+.legend-color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-URIBE { background-color: #ef4444; box-shadow: 0 0 6px #ef4444; }
+.dot-SANTOS { background-color: #3b82f6; box-shadow: 0 0 6px #3b82f6; }
+.dot-DUQUE { background-color: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
+.dot-PETRO { background-color: #10b981; box-shadow: 0 0 6px #10b981; }
+.dot-ESTADO { background-color: #8b5cf6; box-shadow: 0 0 6px #8b5cf6; }
+
+.legend-name {
+  color: var(--text-muted);
+  transition: color 0.2s var(--ease);
+}
+.radar-legend-item input:checked ~ .legend-name {
+  color: var(--text-primary);
+  font-weight: 550;
+}
+
+.radar-chart-card {
+  flex-grow: 1;
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.chart-card h4 {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  margin-bottom: 32px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 12px;
-}
-
-.bar-chart-container {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.bar-row {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.bar-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-
-.bar-name {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.bar-val {
-  font-family: var(--font-mono);
-  color: var(--text-muted);
-}
-
-.bar-track {
-  height: 8px;
-  background: var(--border);
-  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+}
+
+.svg-wrapper {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
-.bar-fill {
-  height: 100%;
-  border-radius: 4px;
-  width: 0%;
-  transition: width 1s var(--ease);
+/* Radar SVG Elements styling */
+.radar-grid-circle {
+  stroke: var(--border);
+  stroke-width: 1px;
+  fill: none;
 }
 
-.bg-URIBE { background: #ef4444; box-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
-.bg-SANTOS { background: #3b82f6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
-.bg-DUQUE { background: #f59e0b; box-shadow: 0 0 10px rgba(245, 158, 11, 0.3); }
-.bg-PETRO { background: #10b981; box-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
-.bg-ESTADO { background: #8b5cf6; box-shadow: 0 0 10px rgba(139, 92, 246, 0.3); }
-.bg-info { background: var(--accent-info); box-shadow: 0 0 10px rgba(14, 165, 233, 0.3); }
+.radar-axis-line {
+  stroke: var(--border);
+  stroke-width: 1px;
+}
+
+.radar-axis-text {
+  font-family: var(--font-body);
+  font-size: 9px;
+  fill: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.radar-polygon {
+  stroke-width: 2px;
+  transition: opacity 0.4s var(--ease), stroke-width 0.4s var(--ease);
+}
+
+.poly-URIBE { stroke: #ef4444; fill: rgba(239, 68, 68, 0.18); }
+.poly-SANTOS { stroke: #3b82f6; fill: rgba(59, 130, 246, 0.18); }
+.poly-DUQUE { stroke: #f59e0b; fill: rgba(245, 158, 11, 0.18); }
+.poly-PETRO { stroke: #10b981; fill: rgba(16, 185, 129, 0.18); }
+.poly-ESTADO { stroke: #8b5cf6; fill: rgba(139, 92, 246, 0.18); }
+
+.radar-vertex-dot {
+  transition: r 0.2s var(--ease);
+  cursor: pointer;
+}
+.radar-vertex-dot:hover {
+  r: 5px;
+}
 
 /* ==========================================================================
    SECCIÓN AD: ISAIAH BERLIN (ANATOMÍA DE LA LIBERTAD)
@@ -553,120 +900,6 @@ p {
   color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: 0 15px 40px rgba(244, 239, 230, 0.15);
-}
-
-/* ==========================================================================
-   SECCIÓN DESCARGO LEGAL & AVISO
-   ========================================================================== */
-.legal-box {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-}
-
-.legal-box p {
-  font-weight: 300;
-}
-
-/* ==========================================================================
-   MODAL DE DESCARGO LEGAL
-   ========================================================================== */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(9, 9, 9, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 2000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  opacity: 0;
-  transition: opacity 0.3s var(--ease);
-}
-
-.modal-overlay.active {
-  opacity: 1;
-}
-
-.modal-card {
-  background-color: var(--surface);
-  border: 1px solid var(--border-focus);
-  max-width: 600px;
-  width: 100%;
-  max-height: 80vh;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-  transform: scale(0.95);
-  transition: transform 0.3s var(--ease);
-}
-
-.modal-overlay.active .modal-card {
-  transform: scale(1);
-}
-
-.modal-header {
-  padding: 24px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-header h3 {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-}
-
-.close-modal-btn {
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  font-size: 2rem;
-  cursor: pointer;
-  line-height: 0.5;
-  transition: color 0.3s var(--ease);
-}
-.close-modal-btn:hover {
-  color: var(--text-primary);
-}
-
-.modal-body {
-  padding: 24px;
-  overflow-y: auto;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.modal-body h4 {
-  font-family: var(--font-body);
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-  margin-top: 10px;
-}
-
-.modal-body p {
-  font-weight: 300;
 }
 
 /* ==========================================================================
@@ -754,6 +987,16 @@ p {
   color: var(--text-primary);
 }
 
+.footer-legal-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 800px;
+}
+.footer-legal-note strong {
+  color: var(--text-primary);
+}
+
 .footer-copyright {
   font-size: 0.7rem;
   color: var(--text-muted);
@@ -778,6 +1021,12 @@ p {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   max-width: 250px;
   line-height: 1.4;
+}
+
+.tooltip-container strong {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
 }
 
 /* ==========================================================================
@@ -805,18 +1054,67 @@ p {
     gap: 16px;
   }
   
-  .nav-links a:not(.nav-cta) {
-    display: none; /* Oculta enlaces secundarios en mobile */
+  .nav-links a {
+    font-size: 0.75rem;
   }
   
-  .charts-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .radar-layout {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 32px;
+  }
+  
+  .radar-controls {
+    width: 100%;
+  }
+  
+  .radar-legend-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   
   .footer-top {
     flex-direction: column;
     gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  #timeline-container {
+    padding-left: 20px;
+  }
+  
+  #timeline-container::before {
+    left: 4px;
+  }
+  
+  .timeline-badge {
+    left: -20px;
+    width: 9px;
+    height: 9px;
+    top: 18px;
+  }
+  
+  .timeline-card-header {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .timeline-president-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .timeline-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .radar-legend-list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -837,10 +1135,6 @@ p {
   
   .simulator-card {
     padding: 20px 16px;
-  }
-  
-  .legal-box {
-    padding: 24px;
   }
 }
 
