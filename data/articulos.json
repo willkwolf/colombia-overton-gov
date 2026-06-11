@@ -1,0 +1,142 @@
+{
+  "1": {
+    "titulo": "Colombia: Estado Social de Derecho",
+    "categoria": "Principios Fundamentales",
+    "descripcion": "Define a Colombia como un Estado social de derecho, organizado en forma de República unitaria, descentralizada, democrática, participativa y pluralista, fundada en el respeto de la dignidad humana, el trabajo y la solidaridad."
+  },
+  "2": {
+    "titulo": "Fines esenciales del Estado",
+    "categoria": "Principios Fundamentales",
+    "descripcion": "Garantizar la efectividad de los principios, derechos y deberes consagrados en la Constitución; facilitar la participación de todos; y defender la independencia nacional y vigencia de un orden justo."
+  },
+  "3": {
+    "titulo": "Soberanía popular",
+    "categoria": "Principios Fundamentales",
+    "descripcion": "La soberanía reside exclusivamente en el pueblo, del cual emana el poder público. El pueblo la ejerce en forma directa o por medio de sus representantes."
+  },
+  "11": {
+    "titulo": "Derecho a la vida",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "El derecho a la vida es inviolable. No habrá pena de muerte."
+  },
+  "12": {
+    "titulo": "Prohibición de desaparición forzada y tortura",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Nadie será sometido a desaparición forzada, a torturas ni a tratos o penas crueles, inhumanos o degradantes."
+  },
+  "13": {
+    "titulo": "Derecho a la igualdad",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Todas las personas nacen libres e iguales ante la ley, recibirán la misma protección y trato de las autoridades y gozarán de los mismos derechos, libertades y oportunidades sin ninguna discriminación."
+  },
+  "15": {
+    "titulo": "Derecho a la intimidad y al buen nombre",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Todas las personas tienen derecho a su intimidad personal y familiar y a su buen nombre, y el Estado debe respetarlos y hacerlos respetar. Correspondencia y comunicaciones privadas son inviolables."
+  },
+  "20": {
+    "titulo": "Libertad de expresión y prensa",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Se garantiza a toda persona la libertad de expresar y difundir su pensamiento y opiniones, la de informar y recibir información veraz e imparcial, y la de fundar medios masivos de comunicación."
+  },
+  "21": {
+    "titulo": "Derecho a la honra",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Se garantiza el derecho a la honra. La ley señalará la forma de su protección."
+  },
+  "28": {
+    "titulo": "Derecho a la libertad personal",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Toda persona es libre. Nadie puede ser molestado en su persona o familia, ni reducido a prisión o arresto, ni detenido, sino en virtud de mandamiento escrito de autoridad judicial competente."
+  },
+  "29": {
+    "titulo": "Derecho al debido proceso",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "El debido proceso se aplicará a toda clase de actuaciones judiciales y administrativas. Nadie podrá ser juzgado sino conforme a leyes preexistentes al acto que se le imputa."
+  },
+  "37": {
+    "titulo": "Derecho a la protesta y reunión",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Toda parte del pueblo puede reunirse y manifestarse pública y pacíficamente. Sólo la ley podrá establecer de manera expresa los casos en los cuales se podrá limitar este derecho."
+  },
+  "40": {
+    "titulo": "Derechos políticos y de participación",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Todo ciudadano tiene derecho a participar en la conformación, ejercicio y control del poder público. Incluye el derecho a elegir y ser elegido."
+  },
+  "44": {
+    "titulo": "Derechos fundamentales de los niños",
+    "categoria": "Derechos Sociales, Económicos y Culturales",
+    "descripcion": "Son derechos fundamentales de los niños: la vida, la integridad física, la salud y la seguridad social, la alimentación equilibrada, su nombre y nacionalidad, tener una familia y no ser separados de ella, el cuidado y amor, la educación y la cultura."
+  },
+  "64": {
+    "titulo": "Deber de promover el acceso a la tierra",
+    "categoria": "Derechos Sociales, Económicos y Culturales",
+    "descripcion": "Es deber del Estado promover el acceso progresivo a la propiedad de la tierra de los trabajadores agrarios, en forma individual o asociativa, con el fin de mejorar el ingreso y calidad de vida de la población campesina."
+  },
+  "65": {
+    "titulo": "Protección de las actividades agrícolas",
+    "categoria": "Derechos Sociales, Económicos y Culturales",
+    "descripcion": "La producción de alimentos gozará de la especial protección del Estado. Para tal efecto, se otorgará prioridad al desarrollo integral de las actividades agrícolas, pecuarias, pesqueras, forestales y agroindustriales."
+  },
+  "67": {
+    "titulo": "Derecho a la educación",
+    "categoria": "Derechos Sociales, Económicos y Culturales",
+    "descripcion": "La educación es un derecho de la persona y un servicio público que tiene una función social; con ella se busca el acceso al conocimiento, a la ciencia, a la técnica, y a los demás bienes y valores de la cultura."
+  },
+  "93": {
+    "titulo": "Bloque de constitucionalidad",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "Los tratados y convenios internacionales ratificados por el Congreso, que reconocen los derechos humanos y que prohíben su limitación en los estados de excepción, prevalecen en el orden interno."
+  },
+  "95": {
+    "titulo": "Deberes del ciudadano",
+    "categoria": "Deberes",
+    "descripcion": "La calidad de ciudadano enaltece a todos los miembros de la comunidad nacional. Todos están en el deber de engrandecerla y dignificarla. El ejercicio de los derechos y libertades implica responsabilidades."
+  },
+  "107": {
+    "titulo": "Partidos políticos y personería jurídica",
+    "categoria": "Organización del Estado",
+    "descripcion": "Se garantiza a todos los ciudadanos el derecho a fundar, organizar y desarrollar partidos y movimientos políticos, y la libertad de afiliarse a ellos o de retirarse."
+  },
+  "109": {
+    "titulo": "Financiación de campañas electorales",
+    "categoria": "Organización del Estado",
+    "descripcion": "El Estado contribuirá a la financiación de los partidos y movimientos políticos con personería jurídica, de conformidad con la ley. Las campañas electorales serán financiadas con recursos estatales y aportes privados bajo topes regulados."
+  },
+  "113": {
+    "titulo": "Separación y colaboración de poderes",
+    "categoria": "Estructura del Estado",
+    "descripcion": "Son ramas del poder público: la legislativa, la ejecutiva, y la judicial. Además de los órganos que las integran existen otros, autónomos e independientes, para el cumplimiento de las demás funciones del Estado."
+  },
+  "114": {
+    "titulo": "Funciones del Congreso",
+    "categoria": "Estructura del Estado",
+    "descripcion": "Corresponde al Congreso de la República reformar la Constitución, hacer las leyes y ejercer control político sobre el gobierno y la administración."
+  },
+  "122": {
+    "titulo": "Prohibición de empleo público sin funciones y moralidad",
+    "categoria": "Función Pública",
+    "descripcion": "No habrá empleo público que no tenga funciones detalladas en ley o reglamento. Prohíbe el ejercicio de cargos públicos a quienes hayan sido condenados por delitos contra el patrimonio del Estado o de corrupción."
+  },
+  "123": {
+    "titulo": "Servidores públicos",
+    "categoria": "Función Pública",
+    "descripcion": "Los miembros de las corporaciones públicas, los empleados y trabajadores del Estado y de sus entidades descentralizadas territorialmente y por servicios son servidores públicos al servicio del Estado y de la comunidad."
+  },
+  "356": {
+    "titulo": "Sistema General de Participaciones (SGP)",
+    "categoria": "Régimen Económico",
+    "descripcion": "Define el Sistema General de Participaciones de los departamentos, distritos y municipios para la financiación de los servicios a su cargo, dando prioridad a salud, educación, agua potable y saneamiento básico."
+  },
+  "363": {
+    "titulo": "Principios del sistema tributario y gasto",
+    "categoria": "Régimen Económico",
+    "descripcion": "El sistema tributario se funda en los principios de equidad, eficiencia y progresividad. Las leyes tributarias no se aplicarán con retroactividad."
+  },
+  "366": {
+    "titulo": "Bienestar general y gasto social",
+    "categoria": "Régimen Económico",
+    "descripcion": "El bienestar general y el mejoramiento de la calidad de vida de la población son fines sociales del Estado. Será objetivo fundamental de su actividad la solución de las necesidades insatisfechas de salud, educación, saneamiento ambiental y agua potable."
+  }
+}

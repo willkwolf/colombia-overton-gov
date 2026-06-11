@@ -1,0 +1,30 @@
+# Archivos excluidos por petición del usuario
+Seed.md
+Diccionario.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+
+# IDE / Editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Sistema / Logs
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.log
+.DS_Store
