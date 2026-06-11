@@ -125,11 +125,11 @@ def validate_caso(row, row_idx):
         except ValueError:
             raise ValueError(f"Fila {row_idx} ({caso_id}): Artículo constitucional '{art}' no es un número válido.")
             
-    print(f"✓ Caso {caso_id} validado correctamente.")
+    print(f"Caso {caso_id} validado correctamente.")
 
 
 def build_pipeline():
-    print("--- INICIANDO COMPILACIÓN DE DATOS ---")
+    print("--- INICIANDO COMPILACION DE DATOS ---")
     
     # Asegurar que existe la carpeta dist
     if not os.path.exists(DIST_DIR):
@@ -142,7 +142,7 @@ def build_pipeline():
         
     with open(ARTICULOS_JSON, 'r', encoding='utf-8') as f:
         articulos_ref = json.load(f)
-    print(f"Cargados {len(articulos_ref)} artículos constitucionales del catálogo.")
+    print(f"Cargados {len(articulos_ref)} articulos constitucionales del catalogo.")
 
     # 2. Leer y validar Casos Fuente
     if not os.path.exists(CSV_FUENTE):
@@ -192,7 +192,7 @@ def build_pipeline():
             }
             casos_procesados.append(caso_dict)
 
-    print(f"Procesados {len(casos_procesados)} casos con éxito.")
+    print(f"Procesados {len(casos_procesados)} casos con exito.")
 
     # 3. Compilar Base de Datos SQLite (Normalizada)
     if os.path.exists(SQLITE_DB):
@@ -310,7 +310,7 @@ def build_pipeline():
             
     conn.commit()
     conn.close()
-    print(f"✓ Base de datos SQLite creada en: {SQLITE_DB}")
+    print(f"Base de datos SQLite creada en: {SQLITE_DB}")
 
     # 4. Generar JSON enriquecido denormalizado para el Scrollytelling
     json_output = []
@@ -341,7 +341,7 @@ def build_pipeline():
         
     with open(JSON_CLEAN, 'w', encoding='utf-8') as f:
         json.dump(json_output, f, indent=2, ensure_ascii=False)
-    print(f"✓ JSON enriquecido para frontend creado en: {JSON_CLEAN}")
+    print(f"JSON enriquecido para frontend creado en: {JSON_CLEAN}")
 
     # 5. Generar CSV limpio para analistas (Tipos puros con listas delimitadas simples)
     with open(CSV_CLEAN, 'w', newline='', encoding='utf-8') as f:
@@ -379,8 +379,8 @@ def build_pipeline():
                 c['overton_novedad']
             ])
             
-    print(f"✓ CSV limpio para analistas creado en: {CSV_CLEAN}")
-    print("--- COMPILACIÓN FINALIZADA CON ÉXITO ---")
+    print(f"CSV limpio para analistas creado en: {CSV_CLEAN}")
+    print("--- COMPILACION FINALIZADA CON EXITO ---")
 
 
 if __name__ == '__main__':

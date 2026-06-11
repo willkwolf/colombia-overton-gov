@@ -1,6 +1,7 @@
 # Archivos excluidos por petición del usuario
 Seed.md
 Diccionario.md
+dist/
 
 # Python
 __pycache__/
