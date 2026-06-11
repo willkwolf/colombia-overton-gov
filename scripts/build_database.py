@@ -14,7 +14,7 @@ JSON_CLEAN = os.path.join(DIST_DIR, 'data_clean.json')
 CSV_CLEAN = os.path.join(DIST_DIR, 'data_clean.csv')
 
 # Vocabularios controlados
-PRESIDENTES_VALIDOS = ["Álvaro Uribe", "Juan Manuel Santos", "Iván Duque", "Gustavo Petro"]
+PRESIDENTES_VALIDOS = ["Álvaro Uribe", "Juan Manuel Santos", "Iván Duque", "Gustavo Petro", "Estado Colombiano"]
 AMBITOS_VALIDOS = [
     "Democracia / poder público",
     "Libertad / privacidad",
@@ -39,7 +39,8 @@ DATOS_PRESIDENTES = {
     "Álvaro Uribe": {"id": "URIBE", "periodo": "2002–2010"},
     "Juan Manuel Santos": {"id": "SANTOS", "periodo": "2010–2018"},
     "Iván Duque": {"id": "DUQUE", "periodo": "2018–2022"},
-    "Gustavo Petro": {"id": "PETRO", "periodo": "2022–2026"}
+    "Gustavo Petro": {"id": "PETRO", "periodo": "2022–2026"},
+    "Estado Colombiano": {"id": "ESTADO", "periodo": "2002–2026"}
 }
 
 
