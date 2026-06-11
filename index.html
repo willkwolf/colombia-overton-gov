@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Análisis visual interactivo del impacto institucional sobre la Constitución de 1991 mediante el lente de la Ventana de Overton (2002–2026).">
+  <title>Colombia Overton Gov — La Fractura del Pacto Social</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra de progreso superior -->
+  <div id="progress-bar-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Navegación Flotante -->
+  <nav id="main-nav" aria-label="Navegación principal">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">COLOMBIA <span>OVERTON</span></a>
+      <div class="nav-links">
+        <a href="#conceptual-window">El Lente</a>
+        <a href="#scrollytelling-archive">El Archivo</a>
+        <a href="#comparative-charts">Comparativa</a>
+        <a href="#download" class="nav-cta">Descargar Data</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero-section" class="hero-container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Constitución de 1991 y Daño Democrático</p>
+      <h1 class="hero-title">La Fractura<br>del Pacto Social</h1>
+      <p class="hero-lead">Un análisis histórico e interactivo de cómo la ventana de lo políticamente aceptable se ha desplazado en Colombia entre 2002 y 2026.</p>
+      <div class="hero-scroll-indicator">
+        <span>Desliza para explorar</span>
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Lente Analítico (Simulador Ventana de Overton) -->
+  <section id="conceptual-window" class="section-container">
+    <div class="container-narrow">
+      <h2 class="section-title">La Ventana de Overton</h2>
+      <p class="section-text">
+        La <strong>Ventana de Overton</strong> es un modelo político que describe el rango de ideas y políticas públicas consideradas aceptables por la sociedad en un momento dado. Aquellas ideas que están dentro de la ventana se perciben como normales y legítimas; las que quedan fuera son consideradas radicales, absurdas o impensables.
+      </p>
+      
+      <!-- Simulador Interactivo -->
+      <div class="simulator-card">
+        <h3 class="simulator-title">Simulador de Desplazamiento de la Ventana</h3>
+        <p class="simulator-help">Arrastra el control para mover la ventana de aceptación social y ver cómo se normalizan ciertas conductas estatales.</p>
+        
+        <div class="overton-scale-container">
+          <div class="overton-zone" id="zone-impensable">Impensable</div>
+          <div class="overton-zone" id="zone-radical">Radical</div>
+          <div class="overton-zone" id="zone-aceptable">Aceptable</div>
+          <div class="overton-zone" id="zone-politica">Política Pública</div>
+        </div>
+
+        <div class="slider-container">
+          <input type="range" id="overton-slider" min="0" max="100" value="50" aria-label="Control deslizante de la Ventana de Overton">
+          <div class="slider-track-highlight" id="slider-window"></div>
+        </div>
+
+        <div class="simulator-state" id="simulator-state-desc">
+          El debate se mantiene en rangos democráticos normales. El poder público opera bajo el principio de autocontrol.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ética Ciudadana y Esfera Pública -->
+  <section id="esfera-publica" class="section-container bg-muted">
+    <div class="container-narrow">
+      <blockquote class="editorial-quote">
+        "Cuando la violencia del Estado o el desvío de recursos públicos para la compra de reformas constitucionales se normalizan, la esfera pública de debate racional se degrada."
+      </blockquote>
+      <p class="section-text text-center text-muted">
+        Inspirado en la teoría de Jürgen Habermas, este archivo demuestra que la democracia es más que votar: consiste en la deliberación y el respeto estricto a las garantías y límites constitucionales. Al mover la ventana hacia la normalización del abuso, se tensiona el pacto social de 1991.
+      </p>
+    </div>
+  </section>
+
+  <!-- El Archivo: Scrollytelling Section -->
+  <section id="scrollytelling-archive" class="scrolly-section">
+    <div class="scrolly-container">
+      
+      <!-- Columna Izquierda: Tarjetas de Casos (Scroll) -->
+      <div id="scroll-content" class="scroll-column">
+        <!-- Render dinámico desde JS, fallback por si falla JS -->
+        <noscript>
+          <div class="case-card">
+            <h3>Por favor habilita JavaScript</h3>
+            <p>Este sitio web requiere JavaScript para mostrar la visualización interactiva del archivo de casos.</p>
+          </div>
+        </noscript>
+      </div>
+
+      <!-- Columna Derecha: Gráfico Fijo (Sticky) -->
+      <div id="sticky-visual" class="visual-column">
+        <div class="sticky-card">
+          <div class="visual-header">
+            <h3 class="visual-title">Métricas de Overton: Gravedad vs Novedad</h3>
+            <p class="visual-subtitle">Los puntos representan los casos. El tamaño y brillo indican el caso actual en pantalla.</p>
+          </div>
+          
+          <!-- Contenedor del Gráfico SVG -->
+          <div class="svg-wrapper" id="scatter-plot-container">
+            <svg id="scatter-plot" viewBox="0 0 500 400" width="100%" height="100%">
+              <!-- Ejes y rejillas dibujados dinámicamente -->
+            </svg>
+          </div>
+
+          <!-- Caja de información flotante del caso destacado -->
+          <div id="active-case-detail" class="detail-panel">
+            <div class="detail-header">
+              <span id="detail-id" class="badge">SELECCIONA UN CASO</span>
+              <span id="detail-president" class="badge-secondary">-</span>
+            </div>
+            <h4 id="detail-title" class="detail-title">Explora los casos en la columna de lectura</h4>
+            <div id="detail-metrics" class="detail-metrics">
+              <div><strong>Gravedad:</strong> <span id="detail-gravity">-</span>/5</div>
+              <div><strong>Novedad:</strong> <span id="detail-novelty">-</span>/5</div>
+            </div>
+            <div class="detail-divider"></div>
+            <div class="detail-meta">
+              <p><strong>Artículos Afectados:</strong> <span id="detail-articles">-</span></p>
+              <p><strong>Responsabilidad:</strong> <span id="detail-responsibility">-</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Comparativa y Estadísticas -->
+  <section id="comparative-charts" class="section-container">
+    <div class="container-medium">
+      <h2 class="section-title text-center">Análisis de Agresiones al Pacto</h2>
+      <p class="section-text text-center">
+        Un análisis comparativo de la gravedad promedio de los casos por administración presidencial. Las barras demuestran que las tensiones institucionales se presentan bajo diferentes matices ideológicos.
+      </p>
+
+      <div class="charts-grid">
+        <!-- Gráfico 1: Gravedad Promedio -->
+        <div class="chart-card">
+          <h4>Gravedad de Afectación Promedio por Gobierno</h4>
+          <div class="bar-chart-container" id="gravity-bar-chart">
+            <!-- Render dinámico desde JS -->
+          </div>
+        </div>
+        
+        <!-- Gráfico 2: Frecuencia por Ámbito -->
+        <div class="chart-card">
+          <h4>Casos por Ámbito Constitucional Principal</h4>
+          <div class="bar-chart-container" id="category-bar-chart">
+            <!-- Render dinámico desde JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Descargas y Consola -->
+  <section id="download" class="section-container bg-muted">
+    <div class="container-narrow">
+      <h2 class="section-title">Acceso y Descarga del Archivo</h2>
+      <p class="section-text">
+        Este proyecto promueve los principios de ciencia abierta. Ponemos a disposición de investigadores y desarrolladores el dataset completo en múltiples formatos estructurados y limpios para su explotación local.
+      </p>
+
+      <div class="download-grid">
+        <a href="dist/data.db" class="download-btn" download>
+          <span class="btn-icon">💾</span>
+          <div class="btn-text">
+            <strong>Base de Datos SQLite</strong>
+            <span>dist/data.db</span>
+          </div>
+        </a>
+        <a href="dist/data_clean.json" class="download-btn" download>
+          <span class="btn-icon">📄</span>
+          <div class="btn-text">
+            <strong>JSON Enriquecido</strong>
+            <span>dist/data_clean.json</span>
+          </div>
+        </a>
+        <a href="dist/data_clean.csv" class="download-btn" download>
+          <span class="btn-icon">📊</span>
+          <div class="btn-text">
+            <strong>CSV Estandarizado</strong>
+            <span>dist/data_clean.csv</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="code-box-card">
+        <div class="code-box-header">
+          <span>Ejemplo de Consulta SQL</span>
+          <button class="copy-btn" id="copy-sql-btn">Copiar</button>
+        </div>
+        <pre><code id="sql-example">SELECT c.caso_nombre_corto, p.nombre AS presidente, c.overton_gravedad
+FROM casos c
+JOIN presidentes p ON c.presidente_id = p.presidente_id
+WHERE c.tiene_condenas_firmes = 1
+ORDER BY c.overton_gravedad DESC;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Colombia Overton Gov. Construido bajo principios de transparencia y rigor analítico.</p>
+      <p class="footer-sub">
+        Fuentas de datos: Sentencias de la Corte Suprema, Corte Constitucional, informes de la ONU y de la CIDH.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Tooltip global para gráficos -->
+  <div id="tooltip" class="tooltip-container" role="tooltip" aria-hidden="true"></div>
+
+  <!-- JavaScript logic -->
+  <script src="app.js"></script>
+</body>
+</html>
