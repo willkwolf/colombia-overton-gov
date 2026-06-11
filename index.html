@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Análisis visual interactivo del impacto institucional sobre la Constitución de 1991 mediante el lente de la Ventana de Overton (2002–2026).">
+  <meta name="description" content="Análisis conceptual del impacto institucional sobre la Constitución de 1991 mediante el lente de la Ventana de Overton (2002–2026).">
   <title>Colombia Overton Gov — La Fractura del Pacto Social</title>
   
   <!-- Google Fonts -->
@@ -27,9 +27,9 @@
       <a href="#" class="nav-logo">COLOMBIA <span>OVERTON</span></a>
       <div class="nav-links">
         <a href="#conceptual-window">El Lente</a>
-        <a href="#scrollytelling-archive">El Archivo</a>
         <a href="#comparative-charts">Comparativa</a>
-        <a href="#download" class="nav-cta">Descargar Data</a>
+        <a href="#liberty-infographic-ad">La Libertad</a>
+        <a href="#legal-disclaimer-section" class="nav-cta">Descargo Legal</a>
       </div>
     </div>
   </nav>
@@ -91,59 +91,6 @@
     </div>
   </section>
 
-  <!-- El Archivo: Scrollytelling Section -->
-  <section id="scrollytelling-archive" class="scrolly-section">
-    <div class="scrolly-container">
-      
-      <!-- Columna Izquierda: Tarjetas de Casos (Scroll) -->
-      <div id="scroll-content" class="scroll-column">
-        <!-- Render dinámico desde JS, fallback por si falla JS -->
-        <noscript>
-          <div class="case-card">
-            <h3>Por favor habilita JavaScript</h3>
-            <p>Este sitio web requiere JavaScript para mostrar la visualización interactiva del archivo de casos.</p>
-          </div>
-        </noscript>
-      </div>
-
-      <!-- Columna Derecha: Gráfico Fijo (Sticky) -->
-      <div id="sticky-visual" class="visual-column">
-        <div class="sticky-card">
-          <div class="visual-header">
-            <h3 class="visual-title">Métricas de Overton: Gravedad vs Novedad</h3>
-            <p class="visual-subtitle">Los puntos representan los casos. El tamaño y brillo indican el caso actual en pantalla.</p>
-          </div>
-          
-          <!-- Contenedor del Gráfico SVG -->
-          <div class="svg-wrapper" id="scatter-plot-container">
-            <svg id="scatter-plot" viewBox="0 0 500 400" width="100%" height="100%">
-              <!-- Ejes y rejillas dibujados dinámicamente -->
-            </svg>
-          </div>
-
-          <!-- Caja de información flotante del caso destacado -->
-          <div id="active-case-detail" class="detail-panel">
-            <div class="detail-header">
-              <span id="detail-id" class="badge">SELECCIONA UN CASO</span>
-              <span id="detail-president" class="badge-secondary">-</span>
-            </div>
-            <h4 id="detail-title" class="detail-title">Explora los casos en la columna de lectura</h4>
-            <div id="detail-metrics" class="detail-metrics">
-              <div><strong>Gravedad:</strong> <span id="detail-gravity">-</span>/5</div>
-              <div><strong>Novedad:</strong> <span id="detail-novelty">-</span>/5</div>
-            </div>
-            <div class="detail-divider"></div>
-            <div class="detail-meta">
-              <p><strong>Artículos Afectados:</strong> <span id="detail-articles">-</span></p>
-              <p><strong>Responsabilidad:</strong> <span id="detail-responsibility">-</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- Comparativa y Estadísticas -->
   <section id="comparative-charts" class="section-container">
     <div class="container-medium">
@@ -172,61 +119,85 @@
     </div>
   </section>
 
-  <!-- Descargas y Consola -->
-  <section id="download" class="section-container bg-muted">
-    <div class="container-narrow">
-      <h2 class="section-title">Acceso y Descarga del Archivo</h2>
-      <p class="section-text">
-        Este proyecto promueve los principios de ciencia abierta. Ponemos a disposición de investigadores y desarrolladores el dataset completo en múltiples formatos estructurados y limpios para su explotación local.
+  <!-- Sección Conexión: Anatomía de la Libertad (Isaiah Berlin AD) -->
+  <section id="liberty-infographic-ad" class="section-container bg-muted">
+    <div class="container-narrow text-center">
+      <span class="ad-badge">PASO 3 · RUTA DEL PENSAMIENTO CRÍTICO</span>
+      <h2 class="ad-title">Anatomía de la Libertad</h2>
+      <p class="ad-text">
+        Las tensiones institucionales sobre los derechos y el poder no surgen del vacío: nacen de conflictos filosóficos profundos. ¿Qué significa realmente ser libre? Conecta este análisis con la exploración interactiva sobre la <strong>libertad positiva</strong> y la <strong>libertad negativa</strong> de Isaiah Berlin, y comprende cómo un mismo valor genera dilemas irreconciliables independientes de banderas políticas.
       </p>
+      <a href="https://willkwolf.github.io/isaiah-berlin-liberty-infographic/" target="_blank" rel="noopener" class="btn-ad">
+        Explorar Infografía de la Libertad →
+      </a>
+    </div>
+  </section>
 
-      <div class="download-grid">
-        <a href="dist/data.db" class="download-btn" download>
-          <span class="btn-icon">💾</span>
-          <div class="btn-text">
-            <strong>Base de Datos SQLite</strong>
-            <span>dist/data.db</span>
-          </div>
-        </a>
-        <a href="dist/data_clean.json" class="download-btn" download>
-          <span class="btn-icon">📄</span>
-          <div class="btn-text">
-            <strong>JSON Enriquecido</strong>
-            <span>dist/data_clean.json</span>
-          </div>
-        </a>
-        <a href="dist/data_clean.csv" class="download-btn" download>
-          <span class="btn-icon">📊</span>
-          <div class="btn-text">
-            <strong>CSV Estandarizado</strong>
-            <span>dist/data_clean.csv</span>
-          </div>
-        </a>
-      </div>
-
-      <div class="code-box-card">
-        <div class="code-box-header">
-          <span>Ejemplo de Consulta SQL</span>
-          <button class="copy-btn" id="copy-sql-btn">Copiar</button>
-        </div>
-        <pre><code id="sql-example">SELECT c.caso_nombre_corto, p.nombre AS presidente, c.overton_gravedad
-FROM casos c
-JOIN presidentes p ON c.presidente_id = p.presidente_id
-WHERE c.tiene_condenas_firmes = 1
-ORDER BY c.overton_gravedad DESC;</code></pre>
+  <!-- Sección de Descargo Legal Accesible -->
+  <section id="legal-disclaimer-section" class="section-container">
+    <div class="container-narrow">
+      <h2 class="section-title text-center">Aviso & Descargo de Responsabilidad</h2>
+      <div class="legal-box">
+        <p>
+          Este sitio web y sus datos son un recurso académico e investigativo independiente. Las métricas relativas a la Ventana de Overton representan evaluaciones cualitativas interpretativas del marco metodológico establecido en este proyecto y no constituyen dictámenes legales, fallos judiciales ni señalamientos penales contra ninguna persona o entidad pública.
+        </p>
+        <p>
+          Toda la información empírica procede de documentos e informes de libre acceso provistos por altas cortes (Corte Suprema, Corte Constitucional), organismos multilaterales de derechos humanos (ONU, CIDH) o prensa especializada documentada.
+        </p>
+        <p>
+          Los autores no asumen responsabilidad civil, legal o comercial por las interpretaciones, adaptaciones o usos que terceros realicen del código o de los datos aquí compartidos de forma abierta.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer Técnico y Neutral -->
   <footer id="main-footer">
     <div class="footer-container">
-      <p>&copy; 2026 Colombia Overton Gov. Construido bajo principios de transparencia y rigor analítico.</p>
-      <p class="footer-sub">
-        Fuentas de datos: Sentencias de la Corte Suprema, Corte Constitucional, informes de la ONU y de la CIDH.
-      </p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">COLOMBIA OVERTON</span>
+          <p class="footer-tagline">Operacionalización de la ventana de aceptabilidad política frente al pacto constitucional de 1991.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/willkwolf/colombia-overton-gov" target="_blank" rel="noopener">Código en GitHub</a>
+          <a href="#" class="footer-modal-trigger" id="legal-trigger">Descargo Completo</a>
+        </div>
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <div class="footer-bottom">
+        <p class="footer-neutrality">
+          <strong>Declaración de Neutralidad:</strong> Este recurso evalúa objetivamente episodios de tensión bajo diferentes gobiernos bajo una misma métrica ordinal transparente, sin sesgo partidista ni adhesión a campañas electorales.
+        </p>
+        <p class="footer-copyright">&copy; 2026 Colombia Overton Gov. Licenciado bajo Creative Commons CC BY-NC-SA 4.0.</p>
+      </div>
     </div>
   </footer>
+
+  <!-- Modal de Descargo Completo -->
+  <div id="legal-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Descargo de Responsabilidad Legal</h3>
+        <button class="close-modal-btn" id="close-modal" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>1. Carácter Académico</h4>
+        <p>Este recurso web y su repositorio asociado constituyen un esfuerzo con propósitos educativos, pedagógicos e investigativos. Las estimaciones de Gravedad y Novedad de Overton representan criterios de análisis conceptual cuantitativo del equipo de investigación y no prejuzgan ni establecen responsabilidades legales.</p>
+        
+        <h4>2. Fuentes Oficiales Públicas</h4>
+        <p>Toda la información del conjunto de datos se basa estrictamente en sentencias ejecutoriadas de altas cortes, informes de entes de control o reportajes de medios masivos de comunicación consolidados. No se fabrican datos ni se ataca la reputación personal de ningún funcionario.</p>
+        
+        <h4>3. Exclusión de Responsabilidad por Terceros</h4>
+        <p>Los creadores excluyen cualquier responsabilidad de carácter legal derivada del uso indebido, interpretación sesgada o reutilización de los datos (formatos SQLite, CSV o JSON) que terceros lleven a cabo.</p>
+        
+        <h4>4. Neutralidad Metodológica</h4>
+        <p>El análisis abarca un marco temporal (2002–2026) que cruza cuatro periodos de gobierno con distintas corrientes partidistas. Los casos se evalúan de manera uniforme e imparcial bajo una rúbrica estructurada visible en el Diccionario de Datos.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Tooltip global para gráficos -->
   <div id="tooltip" class="tooltip-container" role="tooltip" aria-hidden="true"></div>
