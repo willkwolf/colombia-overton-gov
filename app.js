@@ -287,18 +287,31 @@ function initScatterPlot(casos) {
   yTitle.textContent = "Gravedad Constitucional (0–5)";
   scatterplotChart.appendChild(yTitle);
 
-  // 5. Dibujar los puntos (nodos)
-  casos.forEach(caso => {
+  // 5. Dibujar los puntos (nodos) con resolución de colisiones (beeswarm)
+  const scatterNodes = casos.map(caso => ({
+    caso: caso,
+    x: mapX(caso.overton_novedad),
+    y: mapY(caso.overton_gravedad),
+    x0: mapX(caso.overton_novedad),
+    y0: mapY(caso.overton_gravedad)
+  }));
+
+  resolveCollisions(scatterNodes, 6);
+
+  scatterNodes.forEach(node => {
+    const cx = Math.max(margin.left + 6, Math.min(width - margin.right - 6, node.x));
+    const cy = Math.max(margin.top + 6, Math.min(height - margin.bottom - 6, node.y));
+
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    circle.setAttribute("cx", mapX(caso.overton_novedad));
-    circle.setAttribute("cy", mapY(caso.overton_gravedad));
+    circle.setAttribute("cx", cx);
+    circle.setAttribute("cy", cy);
     circle.setAttribute("r", 6);
-    circle.setAttribute("class", `scatterplot-node poly-${caso.presidente_id}`);
-    circle.setAttribute("id", `node-${caso.caso_id}`);
+    circle.setAttribute("class", `scatterplot-node poly-${node.caso.presidente_id}`);
+    circle.setAttribute("id", `node-${node.caso.caso_id}`);
 
     // Eventos interactivos
     circle.addEventListener('mouseenter', (e) => {
-      showTooltip(e, caso.caso_nombre_corto, `Gravedad: ${caso.overton_gravedad} | Novedad: ${caso.overton_novedad} (${caso.anio_inicio})`);
+      showTooltip(e, node.caso.caso_nombre_corto, `Gravedad: ${node.caso.overton_gravedad} | Novedad: ${node.caso.overton_novedad} (${node.caso.anio_inicio})`);
     });
 
     circle.addEventListener('mouseleave', () => {
@@ -306,7 +319,7 @@ function initScatterPlot(casos) {
     });
 
     circle.addEventListener('click', () => {
-      const card = document.getElementById(`item-${caso.caso_id}`);
+      const card = document.getElementById(`item-${node.caso.caso_id}`);
       if (card) {
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         const header = card.querySelector('.timeline-card-header');
@@ -336,6 +349,16 @@ function initTimelineChart(casos) {
 
   const mapX = (year) => margin.left + ((year - 1991) / (2026 - 1991)) * (width - margin.left - margin.right);
   const mapY = (gravity) => (height - margin.bottom) - (gravity / 5) * (height - margin.bottom - margin.top);
+
+  // Pre-calcular posiciones colisionadas (beeswarm timeline layout)
+  const timelineNodes = casos.map(caso => ({
+    caso: caso,
+    x: mapX(caso.anio_inicio),
+    y: mapY(caso.overton_gravedad),
+    x0: mapX(caso.anio_inicio),
+    y0: mapY(caso.overton_gravedad)
+  }));
+  resolveCollisions(timelineNodes, 6);
 
   // 1. Dibujar líneas de grilla y escala de gravedad (Y: 0 a 5)
   for (let y = 0; y <= 5; y++) {
@@ -393,8 +416,12 @@ function initTimelineChart(casos) {
   bandRect.setAttribute("id", "overton-window-band");
   timelineChart.appendChild(bandRect);
 
-  // 3. Dibujar línea de tendencia cronológica (Dashed Trend Line)
-  const pointsStr = casos.map(c => `${mapX(c.anio_inicio)},${mapY(c.overton_gravedad)}`).join(' ');
+  // 3. Dibujar línea de tendencia cronológica (Dashed Trend Line) con coordenadas colisionadas
+  const pointsStr = timelineNodes.map(n => {
+    const cx = Math.max(margin.left + 6, Math.min(width - margin.right - 6, n.x));
+    const cy = Math.max(margin.top + 6, Math.min(height - margin.bottom - 6, n.y));
+    return `${cx},${cy}`;
+  }).join(' ');
   const trendLine = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
   trendLine.setAttribute("points", pointsStr);
   trendLine.setAttribute("class", "timeline-chart-trend-line");
@@ -436,17 +463,20 @@ function initTimelineChart(casos) {
   timelineChart.appendChild(yTitle);
 
   // 5. Dibujar los puntos (nodos)
-  casos.forEach(caso => {
+  timelineNodes.forEach(node => {
+    const cx = Math.max(margin.left + 6, Math.min(width - margin.right - 6, node.x));
+    const cy = Math.max(margin.top + 6, Math.min(height - margin.bottom - 6, node.y));
+
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    circle.setAttribute("cx", mapX(caso.anio_inicio));
-    circle.setAttribute("cy", mapY(caso.overton_gravedad));
+    circle.setAttribute("cx", cx);
+    circle.setAttribute("cy", cy);
     circle.setAttribute("r", 6);
-    circle.setAttribute("class", `timeline-chart-node poly-${caso.presidente_id}`);
-    circle.setAttribute("id", `time-node-${caso.caso_id}`);
+    circle.setAttribute("class", `timeline-chart-node poly-${node.caso.presidente_id}`);
+    circle.setAttribute("id", `time-node-${node.caso.caso_id}`);
 
     // Eventos interactivos
     circle.addEventListener('mouseenter', (e) => {
-      showTooltip(e, caso.caso_nombre_corto, `Gravedad: ${caso.overton_gravedad} | Año: ${caso.anio_inicio}`);
+      showTooltip(e, node.caso.caso_nombre_corto, `Gravedad: ${node.caso.overton_gravedad} | Año: ${node.caso.anio_inicio}`);
     });
 
     circle.addEventListener('mouseleave', () => {
@@ -454,7 +484,7 @@ function initTimelineChart(casos) {
     });
 
     circle.addEventListener('click', () => {
-      const card = document.getElementById(`item-${caso.caso_id}`);
+      const card = document.getElementById(`item-${node.caso.caso_id}`);
       if (card) {
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         const header = card.querySelector('.timeline-card-header');
@@ -588,6 +618,43 @@ function setupInteractions() {
 
     // Sincronizar estado inicial al cargar (100)
     handleSliderInput(parseInt(slider.value));
+  }
+}
+
+// Helper to resolve overlapping nodes using basic force relaxation (beeswarm layout)
+function resolveCollisions(nodes, radius, iterations = 80) {
+  const forceStrength = 0.15;
+  const collideStrength = 0.45;
+
+  for (let iter = 0; iter < iterations; iter++) {
+    // Pull nodes to original position
+    nodes.forEach(node => {
+      node.x += (node.x0 - node.x) * forceStrength;
+      node.y += (node.y0 - node.y) * forceStrength;
+    });
+
+    // Resolve collisions
+    for (let i = 0; i < nodes.length; i++) {
+      const nodeA = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const nodeB = nodes[j];
+        const dx = nodeB.x - nodeA.x;
+        const dy = nodeB.y - nodeA.y;
+        const distSq = dx * dx + dy * dy;
+        const minDist = radius * 2 + 1.5; // Radius * 2 plus 1.5px safety buffer
+        if (distSq < minDist * minDist) {
+          const dist = Math.sqrt(distSq) || 0.001;
+          const overlap = minDist - dist;
+          const pushX = (dx / dist) * overlap * collideStrength;
+          const pushY = (dy / dist) * overlap * collideStrength;
+
+          nodeA.x -= pushX;
+          nodeA.y -= pushY;
+          nodeB.x += pushX;
+          nodeB.y += pushY;
+        }
+      }
+    }
   }
 }
 
