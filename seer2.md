@@ -53,7 +53,14 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 * **Pregunta Editorial (Hipótesis):**
   > "¿Es posible que la pragmática del poder haya estirado la ventana de lo tolerable al punto de normalizar la erosión del pacto constitucional?"
 * **Cuerpo de Texto:**
-  > En ciencias sociales existe un concepto llamado **dependencia de la trayectoria (path dependency)**. Significa que las decisiones del pasado actúan como rieles para el futuro: si un gobierno recurre a la excepción o a la trampa burocrática para lograr sus fines, abre un precedente. El siguiente gobierno, enfrentado a tensiones similares, encontrará más fácil transitar por ese mismo riel que restaurar el pacto. Explora los casos a continuación no como escándalos aislados, sino como momentos críticos donde el riel se torció un poco más.
+  > En el estudio de las sociedades existe un concepto clave llamado **dependencia de la trayectoria**. Significa que las decisiones del pasado actúan como rieles invisibles que guían nuestro futuro. Imagina que el desarrollo del país es como un tren: una vez que decide meterse en una vía, es muy costoso y difícil dar marcha atrás para cambiar de rumbo.
+  >
+  > Esta inercia se mantiene en el tiempo debido a tres mecanismos cotidianos:
+  > * **El desvío conocido es más fácil que la reforma:** Corregir el rumbo o restaurar el pacto social es muy costoso y complejo, por lo que es más sencillo y cómodo seguir transitando por la vía que ya está pavimentada (costes de cambio).
+  > * **La gente se adapta a las malas reglas:** Los actores políticos aprenden a operar y a sobrevivir dentro del sistema tal y como funciona (incluso si está desviado o es corrupto), habituándose a esas dinámicas por miedo a que un cambio de reglas los perjudique (efecto aprendizaje).
+  > * **Decidimos asumiendo que nada cambiará:** Tomamos decisiones cotidianas convencidos de que las cosas seguirán funcionando de la misma manera que en el pasado, lo que termina asegurando que la inercia no se rompa (adaptación de expectativas).
+  >
+  > El investigador Rafael Vergara Varela (2020) demostró que esto es exactamente lo que ocurre en Colombia. Su análisis evidencia que, incluso tras hitos históricos tan grandes como la Constitución de 1991 o la apertura económica de 1990, las viejas costumbres de planear a corto plazo y de desviar recursos públicos no se detuvieron, sino que continuaron su misma trayectoria de declive. Esto nos enseña que una ley o un discurso nuevo no bastan si no cambiamos las costumbres y los rieles invisibles que nos guían.
 
 ---
 
@@ -86,7 +93,7 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 Para poder leer sin interactuar, se documenta la lógica de comportamiento y los textos contenidos en los elementos interactivos del frontend (definidos en [app.js](file:///c:/Dev/colombia-overton-gov/app.js) e [index.html](file:///c:/Dev/colombia-overton-gov/index.html)):
 
 ### 2.1. Artefacto: Lente de la Deriva (Panel de Estado Sticky y Termómetro de Gravedad Acumulada)
-La interfaz scrollytelling vincula el scroll continuo de la línea de tiempo cronológica con un panel de estado fijo (sticky) situado a la izquierda (en pantallas grandes) o fijado de forma compacta en la cabecera (en dispositivos móviles). Este panel ilustra de forma interactiva y acumulativa el fenómeno de **dependencia de la trayectoria** (path dependency).
+La interfaz scrollytelling vincula el scroll continuo de la línea de tiempo cronológica con un panel de estado fijo (sticky) situado a la izquierda (en pantallas grandes) o fijado de forma compacta en la cabecera (en dispositivos móviles). Este panel ilustra de forma interactiva y acumulativa el fenómeno de **dependencia de la trayectoria**.
 
 A medida que el lector se desplaza verticalmente y las tarjetas de la línea de tiempo se enfocan e iluminan sucesivamente, el panel de estado se actualiza en tiempo real de la siguiente manera:
 
@@ -97,7 +104,7 @@ A medida que el lector se desplaza verticalmente y las tarjetas de la línea de 
   * **RADICAL (Umbral 1 a 2):** Ciertas facciones políticas sugieren que el desvío constitucional moderado es tolerable bajo justificaciones de orden.
   * **ACEPTABLE / DISCUTIBLE (Umbral 3 a 4):** La esfera pública debate ampliamente sobre la conveniencia de desvíos graves para salvaguardar la gobernabilidad nacional.
   * **NORMALIZADO (Umbral = 5):** La conducta extrema se incorpora al quehacer corriente. Se asimilan violaciones a pilares constitucionales como el costo inevitable de hacer política.
-* **Inercia Acumulada (Reflexión de Path Dependency):** Un bloque de copy dinámico que resume el estado de equilibrio o erosión en la fecha actual, señalando el Lock-in (bucle cerrado) que restringe y condiciona el margen de maniobra de los siguientes gobiernos.
+* **Inercia Acumulada (Reflexión de Dependencia de la Trayectoria):** Un bloque de copy dinámico que resume el estado de equilibrio o erosión en la fecha actual, señalando el cierre institucional (bucle cerrado) que restringe y condiciona el margen de maniobra de los siguientes gobiernos.
 
 ---
 
