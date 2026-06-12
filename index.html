@@ -29,8 +29,7 @@
         <a href="#lente-overton">La Ventana</a>
         <a href="#anatomia-libertad">La Libertad</a>
         <a href="#pacto-social">El Pacto del 91</a>
-        <a href="#timeline-section">Casos</a>
-        <a href="#lente-analitico">La Evidencia</a>
+        <a href="#timeline-section">Lente de la Deriva</a>
       </div>
     </div>
   </nav>
@@ -59,27 +58,10 @@
         Cuando el Estado comete un abuso menor y la sociedad lo tolera bajo el pretexto del orden, la ventana se desliza. Con el tiempo, abusos más graves entran en la zona de "lo normal". Lo que antes nos indignaba, hoy se convierte en la rutina de gobernar. Entender este movimiento es el primer paso para no acostumbrarnos.
       </p>
       
-      <!-- Simulador Interactivo -->
-      <div class="simulator-card">
-        <h3 class="simulator-title">Simulador de Desplazamiento de la Ventana</h3>
-        <p class="simulator-help">Arrastra el control para mover la ventana de aceptación social y ver cómo se normalizan ciertas conductas estatales.</p>
-        
-        <div class="overton-scale-container">
-          <div class="overton-zone" id="zone-impensable">Impensable</div>
-          <div class="overton-zone" id="zone-radical">Radical</div>
-          <div class="overton-zone" id="zone-aceptable">Aceptable</div>
-          <div class="overton-zone" id="zone-politica">Política Pública</div>
-        </div>
-
-        <div class="slider-container">
-          <input type="range" id="overton-slider" min="0" max="100" value="100" aria-label="Control deslizante de la Ventana de Overton">
-          <div class="slider-track-highlight" id="slider-window"></div>
-        </div>
-
-        <div class="simulator-state" id="simulator-state-desc">
-          El debate se mantiene en rangos democráticos normales. El poder público opera bajo el principio de autocontrol.
-        </div>
-      </div>
+      <!-- Nota Conceptual -->
+      <p class="section-text text-center" style="font-size: 1.05rem; line-height: 1.6; max-width: 700px; margin: 0 auto; font-style: italic; color: var(--accent-novelty);">
+        "Los límites de lo aceptable no se expanden por casualidad, sino por acumulación. Cada transgresión asimilada amplía el espacio de lo posible para el siguiente poder de turno."
+      </p>
     </div>
   </section>
 
@@ -139,61 +121,68 @@
     </div>
   </section>
 
-  <!-- 5. Casos de Estudio (Línea de Tiempo) -->
-  <section id="timeline-section" class="section-container">
-    <div class="container-medium">
-      <h2 class="section-title text-center">Casos Históricos (1991–2026)</h2>
-      <p class="section-text text-center" style="margin-bottom: 40px;">
-        Crónica de la tensión y erosión institucional. Presiona o haz tap sobre cualquiera de los casos de la línea de tiempo para expandir sus detalles y ver su ficha analítica y fuentes de verificación.
-      </p>
-
-      <div id="timeline-container">
-        <!-- Render dinámico desde JS -->
-        <noscript>
-          <div class="noscript-warning">
-            Por favor, habilita JavaScript para interactuar con la línea de tiempo.
-          </div>
-        </noscript>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Lente Analítico: Evaluación de la Evidencia (Visualizaciones) -->
-  <section id="lente-analitico" class="section-container bg-muted">
+  <!-- 5. Lente de la Deriva y Casos Históricos (Scrollytelling) -->
+  <section id="timeline-section" class="section-container bg-muted">
     <div class="container-medium">
       <h2 class="section-title text-center">De los datos a la contingencia histórica</h2>
-      <p class="section-text text-center" style="margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto;">
-        Analizar 19 casos con sus artículos, cifras y condenas puede parecer <strong>complicado</strong> (una tarea de memorizar fechas y culpables). Pero entender la situación es <strong>complejo</strong>: es notar cómo el sistema se adapta, cómo los actores reaccionan y cómo la inercia del poder nos arrastra a todos. Al observar este mapa, dejas de ser un espectador pasivo y te conviertes en un agente del sistema.
+      <p class="section-text text-center" style="max-width: 750px; margin: 0 auto 48px auto;">
+        Analizar 19 casos con sus artículos, cifras y condenas puede parecer <strong>complicado</strong> (una tarea de memorizar fechas y culpables). Pero entender la situación es <strong>complejo</strong>: es notar cómo el sistema se adapta y cómo la inercia del poder nos arrastra a todos. Explora los casos a continuación cronológicamente. A medida que te desplaces, observa a la izquierda cómo la inercia de la ventana moral del país acumula desvíos de manera permanente.
       </p>
 
-      <!-- Visualización 1 (Macro): Mapa de Tensión -->
-      <div class="scatterplot-section" style="margin-bottom: 60px;">
-        <h3 class="scatterplot-title text-center" style="font-size: 1.8rem; margin-bottom: 12px; font-family: var(--font-display);">Mapa de Tensión: Gravedad vs. Novedad</h3>
-        <p class="scatterplot-desc text-center" style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 32px; max-width: 650px; margin-left: auto; margin-right: auto; font-weight: 300;">
-          Distribución general del archivo. El eje vertical mide la colisión directa contra la Constitución (Gravedad); el eje horizontal evalúa la sorpresa moral del desvío (Novedad). Haz clic en cualquier nodo para desplazarte y abrir la tarjeta correspondiente.
-        </p>
-        <div class="scatterplot-card" style="background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; max-width: 650px; margin: 0 auto; box-shadow: 0 4px 30px rgba(28, 25, 23, 0.06);">
-          <div class="svg-wrapper" id="scatterplot-plot-container" style="max-width: 550px; margin: 0 auto; aspect-ratio: 5 / 4;">
-            <svg id="scatterplot-chart" viewBox="0 0 500 400" width="100%" height="100%">
-              <!-- Dibujado dinámicamente por app.js -->
-            </svg>
+      <div class="scrolly-container">
+        
+        <!-- Columna Fija (Sticky): Lente de la Deriva -->
+        <div class="scrolly-sidebar" id="overton-status-sidebar">
+          <div class="sidebar-content">
+            <span class="ad-badge">LENTE DE LA DERIVA</span>
+            
+            <div class="sidebar-year-header">
+              <span class="sidebar-year-label">AÑO</span>
+              <span class="sidebar-year-val" id="status-year">1991</span>
+            </div>
+            
+            <!-- Termómetro de Gravedad Acumulada -->
+            <div class="threshold-meter-container">
+              <div class="meter-label">Umbral de Aceptabilidad (Path Dependency)</div>
+              <div class="meter-bar-wrapper">
+                <div class="meter-bar-fill" id="status-meter-fill" style="height: 0%;"></div>
+                <div class="meter-bar-ticks">
+                  <span>5</span>
+                  <span>4</span>
+                  <span>3</span>
+                  <span>2</span>
+                  <span>1</span>
+                  <span>0</span>
+                </div>
+              </div>
+              <div class="meter-value-label">Gravedad Máxima Acumulada: <span id="status-threshold-val">0</span> / 5</div>
+            </div>
+            
+            <!-- Etapa de Normalización -->
+            <div class="status-stage-wrapper">
+              <div class="status-stage-badge" id="status-stage-badge">IMPENSABLE</div>
+              <p class="status-stage-desc" id="status-stage-desc">
+                El debate se mantiene en rangos democráticos normales. El poder público opera bajo el principio de autocontrol.
+              </p>
+            </div>
+            
+            <!-- Reflexión de Path Dependency -->
+            <div class="status-path-reflection" id="status-path-reflection">
+              Iniciando el atractor democrático con el pacto original de la Constitución de 1991.
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Visualización 2 (Temporal): Deriva Histórica -->
-      <div class="timeline-chart-section">
-        <h3 class="scatterplot-title text-center" style="font-size: 1.8rem; margin-bottom: 12px; font-family: var(--font-display);">Deriva Histórica: Desplazamiento de la Ventana</h3>
-        <p class="scatterplot-desc text-center" style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 32px; max-width: 650px; margin-left: auto; margin-right: auto; font-weight: 300;">
-          Evolución temporal de la gravedad de los casos (1991-2026). La franja sombreada representa el umbral dinámico de la Ventana de Overton activa. A medida que modificas el slider al inicio de la página, observa cómo la ventana se desplaza verticalmente y va "normalizando" y absorbiendo transgresiones constitucionales anteriormente impensables.
-        </p>
-        <div class="scatterplot-card" style="background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; max-width: 650px; margin: 0 auto; box-shadow: 0 4px 30px rgba(28, 25, 23, 0.06);">
-          <div class="svg-wrapper" id="timeline-plot-container" style="max-width: 550px; margin: 0 auto; aspect-ratio: 5 / 4;">
-            <svg id="timeline-chart" viewBox="0 0 500 400" width="100%" height="100%">
-              <!-- Dibujado dinámicamente por app.js -->
-            </svg>
-          </div>
+        
+        <!-- Columna de Desplazamiento: Línea de tiempo de Casos -->
+        <div class="scrolly-timeline" id="timeline-container">
+          <!-- Render dinámico desde JS -->
+          <noscript>
+            <div class="noscript-warning">
+              Por favor, habilita JavaScript para interactuar con la línea de tiempo.
+            </div>
+          </noscript>
         </div>
+        
       </div>
     </div>
   </section>
