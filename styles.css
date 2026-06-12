@@ -708,71 +708,6 @@ p {
 /* ==========================================================================
    EVIDENCIA: RADAR CHART SVG COMPARATIVO
    ========================================================================== */
-.radar-layout {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-  margin-top: 40px;
-}
-
-.radar-controls {
-  width: 250px;
-  flex-shrink: 0;
-}
-
-.radar-controls h4 {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.radar-help-text {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-  line-height: 1.4;
-}
-
-.radar-legend-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.radar-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  user-select: none;
-  font-size: 0.85rem;
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  transition: all 0.2s var(--ease);
-}
-.radar-legend-item:hover {
-  background-color: rgba(255, 255, 255, 0.01);
-  border-color: var(--border);
-}
-
-.radar-checkbox {
-  width: 14px;
-  height: 14px;
-  accent-color: var(--accent-novelty);
-}
-
-.legend-color-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
 .dot-GAVIRIA { background-color: #06b6d4; box-shadow: 0 0 6px #06b6d4; }
 .dot-SAMPER { background-color: #f43f5e; box-shadow: 0 0 6px #f43f5e; }
 .dot-PASTRANA { background-color: #6366f1; box-shadow: 0 0 6px #6366f1; }
@@ -783,95 +718,62 @@ p {
 .dot-PETRO { background-color: #10b981; box-shadow: 0 0 6px #10b981; }
 .dot-ESTADO { background-color: #8b5cf6; box-shadow: 0 0 6px #8b5cf6; }
 
-.legend-name {
-  color: var(--text-muted);
-  transition: color 0.2s var(--ease);
-}
-.radar-legend-item input:checked ~ .legend-name {
-  color: var(--text-primary);
-  font-weight: 550;
-}
-
-.radar-chart-card {
-  flex-grow: 1;
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-}
-
-.svg-wrapper {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-/* Radar SVG Elements styling */
-.radar-grid-circle {
+/* Timeline Shift Chart SVG Elements */
+.timeline-chart-grid-line {
   stroke: var(--border);
   stroke-width: 1px;
   stroke-dasharray: 2, 2;
-  fill: none;
-  opacity: 0.4;
+  opacity: 0.3;
 }
-
-.radar-axis-line {
+.timeline-chart-axis-line {
   stroke: var(--border);
-  stroke-width: 1px;
+  stroke-width: 1.5px;
 }
-
-.radar-axis-text {
+.timeline-chart-axis-text {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  fill: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.timeline-chart-axis-title {
   font-family: var(--font-body);
   font-size: 9px;
-  fill: var(--text-muted);
+  fill: var(--text-primary);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-
-.radar-polygon {
-  stroke-width: 2px;
-  transition: opacity 0.4s var(--ease), stroke-width 0.4s var(--ease);
-}
-
-.poly-GAVIRIA { stroke: #06b6d4; fill: none; stroke-width: 1.5px; }
-.poly-SAMPER { stroke: #f43f5e; fill: none; stroke-width: 1.5px; }
-.poly-PASTRANA { stroke: #6366f1; fill: none; stroke-width: 1.5px; }
-.poly-ESTRUCTURAL { stroke: #64748b; fill: none; stroke-width: 1.5px; }
-.poly-URIBE { stroke: #ef4444; fill: none; stroke-width: 1.5px; }
-.poly-SANTOS { stroke: #3b82f6; fill: none; stroke-width: 1.5px; }
-.poly-DUQUE { stroke: #f59e0b; fill: none; stroke-width: 1.5px; }
-.poly-PETRO { stroke: #10b981; fill: none; stroke-width: 1.5px; }
-.poly-ESTADO { stroke: #8b5cf6; fill: none; stroke-width: 1.5px; }
-
-.radar-polygon.highlighted {
-  stroke-width: 3.5px !important;
-  opacity: 1 !important;
-}
-
-.radar-vertex-dot {
-  transition: r 0.2s var(--ease);
+.timeline-chart-node {
   cursor: pointer;
+  transition: r 0.2s var(--ease), fill 0.2s var(--ease), opacity 0.4s var(--ease);
 }
-.radar-vertex-dot:hover {
-  r: 5px;
+.timeline-chart-node:hover {
+  r: 9px;
 }
+.timeline-chart-node:hover.poly-GAVIRIA { fill: #06b6d4 !important; }
+.timeline-chart-node:hover.poly-SAMPER { fill: #f43f5e !important; }
+.timeline-chart-node:hover.poly-PASTRANA { fill: #6366f1 !important; }
+.timeline-chart-node:hover.poly-ESTRUCTURAL { fill: #64748b !important; }
+.timeline-chart-node:hover.poly-URIBE { fill: #ef4444 !important; }
+.timeline-chart-node:hover.poly-SANTOS { fill: #3b82f6 !important; }
+.timeline-chart-node:hover.poly-DUQUE { fill: #f59e0b !important; }
+.timeline-chart-node:hover.poly-PETRO { fill: #10b981 !important; }
+.timeline-chart-node:hover.poly-ESTADO { fill: #8b5cf6 !important; }
 
-.radar-vertex-dot {
-  transition: r 0.2s var(--ease);
-  cursor: pointer;
+.timeline-chart-trend-line {
+  stroke: var(--text-muted);
+  stroke-width: 1px;
+  stroke-dasharray: 4, 4;
+  fill: none;
+  opacity: 0.35;
+  pointer-events: none;
 }
-.radar-vertex-dot:hover {
-  r: 5px;
+.overton-window-band {
+  fill: var(--accent-novelty);
+  opacity: 0.05;
+  transition: height 0.4s var(--ease), y 0.4s var(--ease);
+  pointer-events: none;
 }
 
 /* Scatter Plot SVG Elements */
