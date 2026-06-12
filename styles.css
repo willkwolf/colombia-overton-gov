@@ -186,7 +186,7 @@ p {
 }
 
 .bg-muted {
-  background-color: #0d0d0d;
+  background-color: var(--surface);
 }
 
 .text-center {
