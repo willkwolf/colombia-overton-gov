@@ -877,29 +877,32 @@ p {
   margin: 0 auto 36px auto;
   line-height: 1.7;
 }
-
-.btn-ad {
-  display: inline-block;
-  text-decoration: none;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  background-color: var(--text-primary);
-  color: var(--text-inverse);
-  padding: 16px 32px;
+.editorial-note {
+  max-width: 680px;
+  margin: 40px auto 0 auto;
+  padding: 24px 30px;
+  background-color: var(--surface); /* Lino cálido */
+  border-left: 3px solid var(--accent-novelty); /* Bronce oscuro */
   border-radius: 4px;
-  border: 1px solid var(--text-primary);
-  box-shadow: 0 10px 30px rgba(244, 239, 230, 0.08);
-  transition: all 0.4s var(--ease);
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.02);
 }
 
-.btn-ad:hover {
-  background-color: transparent;
+.editorial-link {
   color: var(--text-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(244, 239, 230, 0.15);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(28, 25, 23, 0.2);
+  transition: all 0.3s var(--ease);
+}
+
+.editorial-link:hover {
+  color: var(--accent-novelty);
+  border-bottom-color: var(--accent-novelty);
 }
 
 /* ==========================================================================
