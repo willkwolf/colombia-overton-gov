@@ -30,13 +30,14 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 * **Etiqueta superior:** `PASO 1 · FILOSOFÍA POLÍTICA`
 * **Título:** `Nuestras dos formas de ser libres`
 * **Cuerpo de Texto:**
-  > El pacto constitucional de 1991 se sostiene sobre un equilibrio delicado. La libertad no es un concepto abstracto; la experimentamos todos los días de dos maneras esenciales:
+  > El pacto constitucional de 1991 se sostiene sobre una tensión fundacional. La libertad no es un concepto abstracto; la experimentamos todos los días de dos maneras esenciales que deben coexistir en equilibrio:
 * **Dimensiones Clave:**
-  * **El derecho a no ser interferido (Libertad Negativa):** `La ausencia de coacción y control abusivo del Estado. Es la seguridad de que tu intimidad no será invadida, de que puedes opinar diferente sin que el Estado te persiga o espía clandestinamente.`
-  * **Las condiciones para florecer (Libertad Positiva):** `La provisión y garantía de condiciones materiales y de seguridad que otorgan al ciudadano la autonomía para ejercer sus derechos (escuelas con conectividad, salud o vías seguras). Sin estas condiciones materiales, la libertad es una promesa vacía.`
+  * **Libertad de (Negativa / No interferencia):** `El derecho a no sufrir la coacción del poder. Es la garantía de que el Estado no invadirá tu intimidad, no interceptará tus comunicaciones ni te perseguirá por tus opiniones políticas o disidencia.`
+  * **Libertad para (Positiva / Autonomía):** `La provisión de las precondiciones materiales, educativas y de salud que otorgan la capacidad real para decidir y actuar. Sin estas bases mínimas que posibiliten el desarrollo humano, la libertad de elegir es una promesa vacía.`
 * **Nota Epistemológica:**
-  > Cada vez que el poder público viola el debido proceso o desvía los recursos de la salud y la educación, rompe este equilibrio, alterando los cimientos de nuestra vida en común.
-* **Acceso a Recurso Externo:** Botón enlazado a [Infografía de la Libertad de Isaiah Berlin](https://willkwolf.github.io/isaiah-berlin-liberty-infographic/).
+  > La deriva institucional en Colombia surge cuando se quiebra este balance. Tolerar la corrupción y el desvío de recursos que debían financiar la *libertad para* termina por desgastar el pacto social y empuja, tarde o temprano, a la vulneración directa de la *libertad de* mediante la represión o el espionaje para salvaguardar el orden establecido.
+* **Acceso a Recurso Externo:** Nota editorial (`.editorial-note`) enlazada a la [Infografía Interactiva de la Libertad](https://willkwolf.github.io/isaiah-berlin-liberty-infographic/), un ensayo visual sobre la obra de Isaiah Berlin que detalla el conflicto inevitable de valores éticos, la coacción de las instituciones y las precondiciones del autogobierno individual.
+
 
 ---
 
