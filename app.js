@@ -166,15 +166,25 @@ function setupScrollytelling(casos) {
   const sidebarStageDesc = document.getElementById('status-stage-desc');
   const sidebarReflection = document.getElementById('status-inercia-reflexion');
 
-  // Precalcular la gravedad máxima acumulada hasta cada caso (dependencia de la trayectoria)
-  let runningMax = 0;
+  // Calcular el índice de inercia acumulada (dependencia de la trayectoria)
+  // en una escala de 0 a 5 basada en la acumulación de precedentes graves (gravedad >= 4)
+  let graveCount = 0;
   const casesWithThreshold = casos.map(caso => {
-    if (caso.overton_gravedad > runningMax) {
-      runningMax = caso.overton_gravedad;
+    if (caso.overton_gravedad >= 4) {
+      graveCount++;
     }
+    
+    let threshold = 0;
+    if (graveCount <= 1) threshold = 0;
+    else if (graveCount <= 3) threshold = 1;
+    else if (graveCount <= 6) threshold = 2;
+    else if (graveCount <= 10) threshold = 3;
+    else if (graveCount <= 14) threshold = 4;
+    else threshold = 5;
+
     return {
       caso: caso,
-      threshold: runningMax
+      threshold: threshold
     };
   });
 
