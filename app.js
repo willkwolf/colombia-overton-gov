@@ -164,9 +164,9 @@ function setupScrollytelling(casos) {
   const sidebarMeterFill = document.getElementById('status-meter-fill');
   const sidebarStageBadge = document.getElementById('status-stage-badge');
   const sidebarStageDesc = document.getElementById('status-stage-desc');
-  const sidebarReflection = document.getElementById('status-path-reflection');
+  const sidebarReflection = document.getElementById('status-inercia-reflexion');
 
-  // Precalcular la gravedad máxima acumulada hasta cada caso (path dependency)
+  // Precalcular la gravedad máxima acumulada hasta cada caso (dependencia de la trayectoria)
   let runningMax = 0;
   const casesWithThreshold = casos.map(caso => {
     if (caso.overton_gravedad > runningMax) {
@@ -260,7 +260,7 @@ function setupScrollytelling(casos) {
     } else {
       stage = "NORMALIZADO";
       desc = "La conducta extrema se incorpora al quehacer corriente. Se asimilan violaciones a pilares fundamentales como el costo inevitable de la política.";
-      reflection = `Bucle de inercia cerrado (Lock-in). Con el caso de ${caso.caso_nombre_corto} de gravedad 5/5, la ventana se ha ensanchado al límite. El sistema normaliza lo antes impensable.`;
+      reflection = `Bucle de inercia cerrado (cierre institucional). Con el caso de ${caso.caso_nombre_corto} de gravedad 5/5, la ventana se ha ensanchado al límite. El sistema normaliza lo antes impensable.`;
       if (sidebarStageBadge) {
         sidebarStageBadge.style.backgroundColor = "rgba(153, 27, 27, 0.1)";
         sidebarStageBadge.style.color = "#991b1b";
