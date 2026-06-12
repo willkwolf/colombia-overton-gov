@@ -84,47 +84,19 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 
 Para poder leer sin interactuar, se documenta la lógica de comportamiento y los textos contenidos en los elementos interactivos del frontend (definidos en [app.js](file:///c:/Dev/colombia-overton-gov/app.js) e [index.html](file:///c:/Dev/colombia-overton-gov/index.html)):
 
-### 2.1. Artefacto 1: Simulador de Desplazamiento de la Ventana
-El simulador interactivo permite al usuario mover un control deslizante (slider) del 0% al 100% que simula el estiramiento o desplazamiento de la ventana de aceptabilidad política. A medida que el slider cambia de valor, se activan de manera secuencial cuatro etapas conceptuales con sus respectivas descripciones textuales:
+### 2.1. Artefacto: Lente de la Deriva (Panel de Estado Sticky y Termómetro de Gravedad Acumulada)
+La interfaz scrollytelling vincula el scroll continuo de la línea de tiempo cronológica con un panel de estado fijo (sticky) situado a la izquierda (en pantallas grandes) o fijado de forma compacta en la cabecera (en dispositivos móviles). Este panel ilustra de forma interactiva y acumulativa el fenómeno de **dependencia de la trayectoria** (path dependency).
 
-* **Etapa 1: Impensable (Slider de 0% a 25%)**
-  * *Texto del simulador:* "**Etapa: Impensable.** Las ideas y prácticas están fuera de lo aceptable en una democracia. El abuso o desvío constitucional de gravedad superior a 0 recibe el repudio absoluto de la opinión pública."
-  * *Comportamiento:* Solo el hito fundacional de la Constitución (`GAV_91_01`, gravedad 0) permanece visible o considerado aceptable. Cualquier caso con gravedad superior a 0 es marcado como "fuera de la ventana" (opaco).
-* **Etapa 2: Radical (Slider de 26% a 50%)**
-  * *Texto del simulador:* "**Etapa: Radical.** La ventana se estira. Ciertas facciones políticas sugieren que el abuso o desvío constitucional moderado (gravedad 2 o menor) es tolerable bajo justificaciones de orden."
-  * *Comportamiento:* Quedan dentro de la ventana los casos con gravedad igual o menor a 2.
-* **Etapa 3: Aceptable / Discutible (Slider de 51% a 75%)**
-  * *Texto del simulador:* "**Etapa: Aceptable / Discutible.** La esfera pública debate ampliamente sobre la licitud y conveniencia de desvíos graves (gravedad 4 o menor) para salvaguardar gobernabilidad."
-  * *Comportamiento:* Quedan dentro de la ventana los casos con gravedad igual o menor a 4.
-* **Etapa 4: Política Pública / Normalización (Slider de 76% a 100% - Estado por defecto)**
-  * *Texto del simulador:* "**Etapa: Política Pública / Normalización.** La conducta se incorpora al quehacer institucional corriente. Se asimilan desvíos constitucionales extremos de gravedad 5 como el costo de hacer política."
-  * *Comportamiento:* Todos los casos (gravedades 0 a 5) quedan dentro del espectro de lo normalizado o asimilado.
+A medida que el lector se desplaza verticalmente y las tarjetas de la línea de tiempo se enfocan e iluminan sucesivamente, el panel de estado se actualiza en tiempo real de la siguiente manera:
 
----
-
-### 2.2. Artefacto 2: Mapa de Tensión (Scatter Plot de Gravedad vs. Novedad)
-Este gráfico de dispersión bidimensional representa en el eje Y la **Gravedad Constitucional (0–5)** (qué tanto colisiona el hecho contra los pilares de la Constitución de 1991) y en el eje X la **Novedad de Overton (1–5)** (qué tanto desplaza la ventana moral e introduce una transgresión cualitativa inédita).
-
-El plano está dividido en cuatro cuadrantes mediante una línea horizontal en Y = 2.5 y una línea vertical en X = 3.0. A continuación se detallan los nombres y significados de estos cuadrantes:
-
-1. **Cuadrante Inferior Izquierdo: Pacto de Estabilidad**
-   * *Rango:* Novedad < 3.0, Gravedad < 2.5
-   * *Significado:* Zona de transgresiones mínimas o dinámicas habituales de funcionamiento del Estado donde se conserva el pacto básico.
-2. **Cuadrante Inferior Derecho: Normalización Estructural**
-   * *Rango:* Novedad >= 3.0, Gravedad < 2.5
-   * *Significado:* Prácticas y desvíos leves pero cualitativamente novedosos que la sociedad asimila con rapidez en el quehacer diario estatal.
-3. **Cuadrante Superior Izquierdo: Tensiones Habituales**
-   * *Rango:* Novedad < 3.0, Gravedad >= 2.5
-   * *Significado:* Violaciones de alta gravedad constitucional, pero que corresponden a patrones históricos conocidos y persistentes (por ejemplo, dinámicas de violencia de largo plazo).
-4. **Cuadrante Superior Derecho: Quiebres Inéditos**
-   * *Rango:* Novedad >= 3.0, Gravedad >= 2.5
-   * *Significado:* Hechos extremadamente graves que además rompieron por completo el estándar moral previo del país, ensanchando la Ventana de Overton de forma radical.
-
----
-
-### 2.3. Artefacto 3: Deriva Histórica (Evolución Temporal)
-Este gráfico de líneas cronológicas presenta los casos organizados por año de inicio (1991 a 2026) en el eje X y su respectiva Gravedad Constitucional en el eje Y.
-* **Comportamiento Interactivo:** Una franja sombreada translúcida representa el umbral dinámico de la Ventana de Overton. Cuando el usuario modifica el simulador inicial, esta franja sube o baja verticalmente de altura en este gráfico temporal, mostrando de forma visual cómo el límite de lo "tolerable" se desplaza y absorbe o excluye los casos históricos según la etapa de normalización seleccionada.
+* **Año de Observación:** Indica el año de inicio del caso visible en pantalla.
+* **Umbral de Aceptabilidad (Termómetro de Gravedad Acumulada):** Representa la gravedad máxima registrada entre todos los casos recorridos cronológicamente hasta el punto actual. Mide cuantitativamente de 0 a 5 la degradación acumulada del pacto democrático. Físicamente se ilustra con un termómetro vertical que incrementa su llenado y no desciende (lo que demuestra visualmente cómo las transgresiones graves crean un precedente acumulado irreversible en el sistema).
+* **Etapas de Normalización (Badges):**
+  * **IMPENSABLE (Umbral = 0):** El debate se mantiene en rangos democráticos normales. El poder público opera bajo el principio de autocontrol. (Ej: César Gaviria en 1991).
+  * **RADICAL (Umbral 1 a 2):** Ciertas facciones políticas sugieren que el desvío constitucional moderado es tolerable bajo justificaciones de orden.
+  * **ACEPTABLE / DISCUTIBLE (Umbral 3 a 4):** La esfera pública debate ampliamente sobre la conveniencia de desvíos graves para salvaguardar la gobernabilidad nacional.
+  * **NORMALIZADO (Umbral = 5):** La conducta extrema se incorpora al quehacer corriente. Se asimilan violaciones a pilares constitucionales como el costo inevitable de hacer política.
+* **Inercia Acumulada (Reflexión de Path Dependency):** Un bloque de copy dinámico que resume el estado de equilibrio o erosión en la fecha actual, señalando el Lock-in (bucle cerrado) que restringe y condiciona el margen de maniobra de los siguientes gobiernos.
 
 ---
 
