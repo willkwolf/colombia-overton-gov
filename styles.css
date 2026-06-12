@@ -2,19 +2,19 @@
    DESIGN SYSTEM TOKENS
    ========================================================================== */
 :root {
-  --bg: #090909;
-  --surface: #121212;
-  --surface-translucent: rgba(18, 18, 18, 0.75);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-focus: rgba(255, 255, 255, 0.25);
+  --bg: #fdfbf7;                     /* Alabastro cálido (papel) */
+  --surface: #f5f2eb;                /* Lino cálido (tarjetas, módulos) */
+  --surface-translucent: rgba(245, 242, 235, 0.85);
+  --border: rgba(28, 25, 23, 0.08);   /* Lino oscuro translúcido */
+  --border-focus: rgba(28, 25, 23, 0.25);
   
-  --text-primary: #f4efe6;
-  --text-muted: #8c8983;
-  --text-inverse: #090909;
+  --text-primary: #1c1917;           /* Carbón profundo */
+  --text-muted: #686256;             /* Gris piedra */
+  --text-inverse: #fdfbf7;
   
-  --accent-gravity: #ef4444; /* rojo escarlata */
-  --accent-novelty: #d97706; /* ámbar cobre */
-  --accent-info: #0ea5e9;    /* azul cian */
+  --accent-gravity: #991b1b;         /* carmesí oscuro (Uribe) */
+  --accent-novelty: #854d0e;         /* bronce oscuro */
+  --accent-info: #0f766e;            /* verde azulado oscuro */
   
   --font-display: 'Instrument Serif', Georgia, serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -109,7 +109,7 @@ p {
   height: 70px;
   z-index: 900;
   border-bottom: 1px solid var(--border);
-  background-color: rgba(9, 9, 9, 0.85);
+  background-color: rgba(253, 251, 247, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -217,7 +217,7 @@ p {
   padding: 120px 24px 80px 24px;
   border-bottom: 1px solid var(--border);
   position: relative;
-  background: radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.05) 0%, rgba(9, 9, 9, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.05) 0%, rgba(253, 251, 247, 0) 70%);
 }
 
 .hero-content {
@@ -305,7 +305,7 @@ p {
   padding: 40px;
   border-radius: 8px;
   margin-top: 40px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 30px rgba(28, 25, 23, 0.06);
 }
 
 .simulator-title {
@@ -332,7 +332,7 @@ p {
 }
 
 .overton-zone {
-  background-color: rgba(9, 9, 9, 0.9);
+  background-color: var(--bg);
   padding: 16px 8px;
   text-align: center;
   font-size: 0.75rem;
@@ -344,7 +344,7 @@ p {
 }
 
 .overton-zone.active-zone {
-  background-color: rgba(217, 119, 6, 0.12);
+  background-color: rgba(133, 77, 14, 0.08);
   color: var(--accent-novelty);
 }
 
@@ -373,7 +373,7 @@ p {
   background: var(--text-primary);
   border: 2px solid var(--bg);
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 10px rgba(28, 25, 23, 0.15);
   transition: transform 0.2s var(--ease);
 }
 #overton-slider::-webkit-slider-thumb:hover {
@@ -424,7 +424,7 @@ p {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 36px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.05);
 }
 
 .card-icon {
@@ -581,15 +581,15 @@ p {
 }
 
 /* Colores presidenciales */
-.timeline-badge-president.GAVIRIA { color: #06b6d4; }
-.timeline-badge-president.SAMPER { color: #f43f5e; }
-.timeline-badge-president.PASTRANA { color: #6366f1; }
-.timeline-badge-president.ESTRUCTURAL { color: #64748b; }
-.timeline-badge-president.URIBE { color: #ef4444; }
-.timeline-badge-president.SANTOS { color: #3b82f6; }
-.timeline-badge-president.DUQUE { color: #f59e0b; }
-.timeline-badge-president.PETRO { color: #10b981; }
-.timeline-badge-president.ESTADO { color: #8b5cf6; }
+.timeline-badge-president.GAVIRIA { color: #0f766e; }
+.timeline-badge-president.SAMPER { color: #be123c; }
+.timeline-badge-president.PASTRANA { color: #4338ca; }
+.timeline-badge-president.ESTRUCTURAL { color: #b45309; }
+.timeline-badge-president.URIBE { color: #991b1b; }
+.timeline-badge-president.SANTOS { color: #166534; }
+.timeline-badge-president.DUQUE { color: #1e3a8a; }
+.timeline-badge-president.PETRO { color: #9a3412; }
+.timeline-badge-president.ESTADO { color: #b45309; }
 
 .timeline-arrow {
   color: var(--text-muted);
@@ -612,7 +612,7 @@ p {
 /* Estado Expandido */
 .timeline-item.active-item .timeline-card {
   border-color: var(--border-focus);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.08);
 }
 
 .timeline-item.active-item .timeline-arrow {
@@ -708,15 +708,15 @@ p {
 /* ==========================================================================
    EVIDENCIA: RADAR CHART SVG COMPARATIVO
    ========================================================================== */
-.dot-GAVIRIA { background-color: #06b6d4; box-shadow: 0 0 6px #06b6d4; }
-.dot-SAMPER { background-color: #f43f5e; box-shadow: 0 0 6px #f43f5e; }
-.dot-PASTRANA { background-color: #6366f1; box-shadow: 0 0 6px #6366f1; }
-.dot-ESTRUCTURAL { background-color: #64748b; box-shadow: 0 0 6px #64748b; }
-.dot-URIBE { background-color: #ef4444; box-shadow: 0 0 6px #ef4444; }
-.dot-SANTOS { background-color: #3b82f6; box-shadow: 0 0 6px #3b82f6; }
-.dot-DUQUE { background-color: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
-.dot-PETRO { background-color: #10b981; box-shadow: 0 0 6px #10b981; }
-.dot-ESTADO { background-color: #8b5cf6; box-shadow: 0 0 6px #8b5cf6; }
+.dot-GAVIRIA { background-color: #0f766e; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
+.dot-SAMPER { background-color: #be123c; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
+.dot-PASTRANA { background-color: #4338ca; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
+.dot-ESTRUCTURAL { background-color: #b45309; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
+.dot-URIBE { background-color: #991b1b; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
+.dot-SANTOS { background-color: #166534; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
+.dot-DUQUE { background-color: #1e3a8a; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
+.dot-PETRO { background-color: #9a3412; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
+.dot-ESTADO { background-color: #b45309; box-shadow: none; border: 1px solid rgba(0,0,0,0.1); }
 
 /* Timeline Shift Chart SVG Elements */
 .timeline-chart-grid-line {
@@ -751,15 +751,25 @@ p {
 .timeline-chart-node:hover {
   r: 9px;
 }
-.timeline-chart-node:hover.poly-GAVIRIA { fill: #06b6d4 !important; }
-.timeline-chart-node:hover.poly-SAMPER { fill: #f43f5e !important; }
-.timeline-chart-node:hover.poly-PASTRANA { fill: #6366f1 !important; }
-.timeline-chart-node:hover.poly-ESTRUCTURAL { fill: #64748b !important; }
-.timeline-chart-node:hover.poly-URIBE { fill: #ef4444 !important; }
-.timeline-chart-node:hover.poly-SANTOS { fill: #3b82f6 !important; }
-.timeline-chart-node:hover.poly-DUQUE { fill: #f59e0b !important; }
-.timeline-chart-node:hover.poly-PETRO { fill: #10b981 !important; }
-.timeline-chart-node:hover.poly-ESTADO { fill: #8b5cf6 !important; }
+.timeline-chart-node.poly-GAVIRIA { fill: #0f766e; }
+.timeline-chart-node.poly-SAMPER { fill: #be123c; }
+.timeline-chart-node.poly-PASTRANA { fill: #4338ca; }
+.timeline-chart-node.poly-ESTRUCTURAL { fill: #b45309; }
+.timeline-chart-node.poly-URIBE { fill: #991b1b; }
+.timeline-chart-node.poly-SANTOS { fill: #166534; }
+.timeline-chart-node.poly-DUQUE { fill: #1e3a8a; }
+.timeline-chart-node.poly-PETRO { fill: #9a3412; }
+.timeline-chart-node.poly-ESTADO { fill: #b45309; }
+
+.timeline-chart-node:hover.poly-GAVIRIA { fill: #0d9488 !important; }
+.timeline-chart-node:hover.poly-SAMPER { fill: #e11d48 !important; }
+.timeline-chart-node:hover.poly-PASTRANA { fill: #4f46e5 !important; }
+.timeline-chart-node:hover.poly-ESTRUCTURAL { fill: #d97706 !important; }
+.timeline-chart-node:hover.poly-URIBE { fill: #dc2626 !important; }
+.timeline-chart-node:hover.poly-SANTOS { fill: #15803d !important; }
+.timeline-chart-node:hover.poly-DUQUE { fill: #2563eb !important; }
+.timeline-chart-node:hover.poly-PETRO { fill: #ea580c !important; }
+.timeline-chart-node:hover.poly-ESTADO { fill: #d97706 !important; }
 
 .timeline-chart-trend-line {
   stroke: var(--text-muted);
@@ -825,15 +835,25 @@ p {
 .scatterplot-node:hover {
   r: 9px;
 }
-.scatterplot-node:hover.poly-GAVIRIA { fill: #06b6d4 !important; }
-.scatterplot-node:hover.poly-SAMPER { fill: #f43f5e !important; }
-.scatterplot-node:hover.poly-PASTRANA { fill: #6366f1 !important; }
-.scatterplot-node:hover.poly-ESTRUCTURAL { fill: #64748b !important; }
-.scatterplot-node:hover.poly-URIBE { fill: #ef4444 !important; }
-.scatterplot-node:hover.poly-SANTOS { fill: #3b82f6 !important; }
-.scatterplot-node:hover.poly-DUQUE { fill: #f59e0b !important; }
-.scatterplot-node:hover.poly-PETRO { fill: #10b981 !important; }
-.scatterplot-node:hover.poly-ESTADO { fill: #8b5cf6 !important; }
+.scatterplot-node.poly-GAVIRIA { fill: #0f766e; }
+.scatterplot-node.poly-SAMPER { fill: #be123c; }
+.scatterplot-node.poly-PASTRANA { fill: #4338ca; }
+.scatterplot-node.poly-ESTRUCTURAL { fill: #b45309; }
+.scatterplot-node.poly-URIBE { fill: #991b1b; }
+.scatterplot-node.poly-SANTOS { fill: #166534; }
+.scatterplot-node.poly-DUQUE { fill: #1e3a8a; }
+.scatterplot-node.poly-PETRO { fill: #9a3412; }
+.scatterplot-node.poly-ESTADO { fill: #b45309; }
+
+.scatterplot-node:hover.poly-GAVIRIA { fill: #0d9488 !important; }
+.scatterplot-node:hover.poly-SAMPER { fill: #e11d48 !important; }
+.scatterplot-node:hover.poly-PASTRANA { fill: #4f46e5 !important; }
+.scatterplot-node:hover.poly-ESTRUCTURAL { fill: #d97706 !important; }
+.scatterplot-node:hover.poly-URIBE { fill: #dc2626 !important; }
+.scatterplot-node:hover.poly-SANTOS { fill: #15803d !important; }
+.scatterplot-node:hover.poly-DUQUE { fill: #2563eb !important; }
+.scatterplot-node:hover.poly-PETRO { fill: #ea580c !important; }
+.scatterplot-node:hover.poly-ESTADO { fill: #d97706 !important; }
 
 /* Grayscale and faded state for cases outside the active Overton Window */
 .timeline-item.outside-window {
@@ -905,7 +925,10 @@ p {
 #main-footer {
   border-top: 1px solid var(--border);
   padding: 80px 0 60px 0;
-  background-color: #060606;
+  background-color: #1c1917;
+  --text-primary: #f4efe6;
+  --text-muted: #a8a296;
+  --border: rgba(255, 255, 255, 0.08);
 }
 
 .footer-container {
@@ -1006,7 +1029,7 @@ p {
 .tooltip-container {
   position: absolute;
   padding: 12px 16px;
-  background: rgba(9, 9, 9, 0.95);
+  background: #fdfbf7;
   border: 1px solid var(--border);
   border-radius: 6px;
   color: var(--text-primary);
@@ -1015,7 +1038,7 @@ p {
   z-index: 2000;
   opacity: 0;
   transition: opacity 0.2s var(--ease);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.08);
   max-width: 250px;
   line-height: 1.4;
 }
