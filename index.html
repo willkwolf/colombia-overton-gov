@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Análisis conceptual del impacto institucional sobre la Constitución de 1991 mediante el lente de la Ventana de Overton (2002–2026).">
+  <meta name="description" content="Análisis conceptual del impacto institucional sobre la Constitución de 1991 mediante el lente de la Ventana de Overton (1991–2026).">
   <title>Colombia Overton Gov — La Fractura del Pacto Social</title>
   
   <!-- Google Fonts -->
@@ -40,7 +40,7 @@
     <div class="hero-content">
       <p class="hero-eyebrow">Constitución de 1991 y Daño Democrático</p>
       <h1 class="hero-title">La Fractura<br>del Pacto Social</h1>
-      <p class="hero-lead">Un análisis histórico e interactivo de cómo la ventana de lo políticamente aceptable se ha desplazado en Colombia entre 2002 y 2026.</p>
+      <p class="hero-lead">Un análisis histórico e interactivo de cómo la ventana de lo políticamente aceptable se ha desplazado en Colombia entre 1991 y 2026.</p>
       <div class="hero-scroll-indicator">
         <span>Desliza para explorar</span>
         <div class="scroll-dot"></div>
@@ -52,8 +52,13 @@
   <section id="conceptual-window" class="section-container">
     <div class="container-narrow">
       <h2 class="section-title text-center">La Ventana de Overton</h2>
-      <p class="section-text text-center">
-        La <strong>Ventana de Overton</strong> es un modelo político que describe el rango de ideas y políticas públicas consideradas aceptables por la sociedad en un momento dado. Aquellas ideas que están dentro de la ventana se perciben como normales y legítimas; las que quedan fuera son consideradas radicales, absurdas o impensables.
+      <p class="section-text text-center" style="margin-bottom: 24px;">
+        La <strong>Ventana de Overton</strong> es un modelo de comunicación política que describe el rango de ideas, discursos y políticas públicas consideradas aceptables por la sociedad en un momento dado. Aquellas ideas que están dentro de la ventana se perciben como normales y legítimas; las que quedan fuera son consideradas radicales, absurdas o impensables.
+      </p>
+      <p class="section-text text-center" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        Su creador, Joseph P. Overton, postuló que la ventana no se desplaza en un espectro ideológico izquierda-derecha, sino sobre un <strong>eje vertical de libertades</strong> que se mueve de <em>"más libre"</em> (menor control gubernamental) en la parte superior a <em>"menos libre"</em> (mayor coacción o intervención estatal) en la parte inferior.
+        <br><br>
+        Este eje de libertades se manifiesta en dos dimensiones: la <strong>Libertad Negativa</strong> (la ausencia de coacción e interferencia estatal sobre las decisiones individuales, vulnerada en casos de interceptaciones o abuso de fuerza) y la <strong>Libertad Positiva</strong> (la provisión y garantía de condiciones de seguridad y recursos para ejercer con autonomía los derechos, afectada por la corrupción o la inacción protectora estatal). Al operar como una <strong>ventana de contexto</strong>, el marco de lo tolerable se estira con cada hecho que compromete a la Constitución, redefiniendo qué nivel de afectación a las libertades es asimilado por la sociedad, impactando directamente en la <strong>arquitectura de la libertad</strong>.
       </p>
       
       <!-- Simulador Interactivo -->
@@ -69,7 +74,7 @@
         </div>
 
         <div class="slider-container">
-          <input type="range" id="overton-slider" min="0" max="100" value="50" aria-label="Control deslizante de la Ventana de Overton">
+          <input type="range" id="overton-slider" min="0" max="100" value="100" aria-label="Control deslizante de la Ventana de Overton">
           <div class="slider-track-highlight" id="slider-window"></div>
         </div>
 
@@ -115,7 +120,7 @@
         "¿Hemos normalizado la cooptación del poder legislativo y la devaluación del derecho a la vida como el costo colateral aceptable para asegurar la gobernabilidad y el orden social en Colombia?"
       </blockquote>
       <p class="section-text text-muted">
-        Al contrastar la evidencia empírica acumulada entre 2002 y 2026, la hipótesis sugiere que la transgresión constitucional no es un suceso aislado ni patrimonio de un único partido. Es un patrón de comportamiento continuo en el que conductas anteriormente consideradas delictivas o extremas pasan a justificarse bajo el pragmatismo de la agenda del ejecutivo.
+        Al contrastar la evidencia empírica acumulada entre 1991 y 2026, la hipótesis sugiere que la transgresión constitucional no es un suceso aislado ni patrimonio de un único partido. Es un patrón de comportamiento continuo en el que conductas anteriormente consideradas delictivas o extremas pasan a justificarse bajo el pragmatismo de la agenda del ejecutivo.
       </p>
     </div>
   </section>
@@ -123,9 +128,9 @@
   <!-- 4. Línea de Tiempo de Casos (Casos 2002-2026) -->
   <section id="timeline-section" class="section-container bg-muted">
     <div class="container-medium">
-      <h2 class="section-title text-center">Casos 2002–2026</h2>
+      <h2 class="section-title text-center">Casos 1991–2026</h2>
       <p class="section-text text-center">
-        Crónica de la erosión institucional en Colombia. Presiona o haz tap sobre cualquiera de los casos de la línea de tiempo para expandir sus detalles y ver su ficha analítica.
+        Crónica de la tensión y erosión institucional en Colombia. Presiona o haz tap sobre cualquiera de los casos de la línea de tiempo para expandir sus detalles y ver su ficha analítica.
       </p>
 
       <div id="timeline-container">
@@ -146,6 +151,21 @@
       <p class="section-text text-center">
         Promedios agregados de gravedad sobre las dimensiones constitucionales clave. Este análisis de radar muestra cómo distintas administraciones han tensionado el pacto social de 1991 en direcciones asimétricas.
       </p>
+
+      <!-- Mapa Macro de Tensión Constitucional (Scatter Plot) -->
+      <div class="scatterplot-section" style="margin-bottom: 60px;">
+        <h3 class="scatterplot-title text-center" style="font-size: 1.8rem; margin-bottom: 12px; font-family: var(--font-display);">Mapa de Tensión: Gravedad vs. Novedad</h3>
+        <p class="scatterplot-desc text-center" style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 32px; max-width: 650px; margin-left: auto; margin-right: auto; font-weight: 300;">
+          Distribución general de todos los casos. El eje vertical mide el nivel de colisión y agresión contra los pilares de la Constitución (Gravedad); el eje horizontal evalúa el desplazamiento del estándar moral tolerable (Novedad). Haz clic en cualquier punto para desplazarte y expandir el caso correspondiente.
+        </p>
+        <div class="scatterplot-card" style="background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; max-width: 650px; margin: 0 auto 40px auto; box-shadow: 0 4px 30px rgba(0,0,0,0.4);">
+          <div class="svg-wrapper" id="scatterplot-plot-container" style="max-width: 550px; margin: 0 auto; aspect-ratio: 5 / 4;">
+            <svg id="scatterplot-chart" viewBox="0 0 500 400" width="100%" height="100%">
+              <!-- El Scatter Plot será dibujado dinámicamente por app.js -->
+            </svg>
+          </div>
+        </div>
+      </div>
 
       <!-- Panel de Control y Gráfico de Radar -->
       <div class="radar-layout">

@@ -5,7 +5,7 @@ Este proyecto, incluyendo su conjunto de datos, scripts y visualizaciones asocia
 ---
 
 ## 1. Naturaleza y Propósito
-El contenido de este repositorio tiene como fin exclusivo proveer un marco conceptual (basado en la teoría de la **Ventana de Overton** y la esfera pública de Habermas) para el análisis histórico y político de las tensiones institucionales en Colombia respecto a la Constitución de 1991 durante el periodo 2002–2026. 
+El contenido de este repositorio tiene como fin exclusivo proveer un marco conceptual (basado en la teoría de la **Ventana de Overton** y la esfera pública de Habermas) para el análisis histórico y político de las tensiones institucionales en Colombia respecto a la Constitución de 1991 durante el periodo 1991–2026. 
 
 Este análisis busca fomentar la deliberación fundamentada en datos, la ética ciudadana y el pensamiento crítico en ciencias sociales. No posee fines comerciales, partidistas, ni de propaganda política.
 
@@ -30,4 +30,4 @@ La inclusión de cada caso está acompañada de su respectiva síntesis de fuent
 ---
 
 ## 4. Declaración de Neutralidad Política
-Este archivo registra tensiones constitucionales que abarcan múltiples administraciones presidenciales de diversas corrientes e ideologías políticas (gobiernos de Álvaro Uribe, Juan Manuel Santos, Iván Duque y Gustavo Petro), así como dinámicas estructurales independientes del gobierno de turno. El modelo analítico se aplica con un estándar metodológico uniforme, sin sesgo de afiliación o preferencia partidista.
+Este archivo registra tensiones constitucionales que abarcan múltiples administraciones presidenciales de diversas corrientes e ideologías políticas (gobiernos de César Gaviria, Ernesto Samper, Andrés Pastrana, Álvaro Uribe, Juan Manuel Santos, Iván Duque y Gustavo Petro), así como dinámicas estructurales independientes del gobierno de turno. El modelo analítico se aplica con un estándar metodológico uniforme, sin sesgo de afiliación o preferencia partidista.

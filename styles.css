@@ -581,6 +581,10 @@ p {
 }
 
 /* Colores presidenciales */
+.timeline-badge-president.GAVIRIA { color: #06b6d4; }
+.timeline-badge-president.SAMPER { color: #f43f5e; }
+.timeline-badge-president.PASTRANA { color: #6366f1; }
+.timeline-badge-president.ESTRUCTURAL { color: #64748b; }
 .timeline-badge-president.URIBE { color: #ef4444; }
 .timeline-badge-president.SANTOS { color: #3b82f6; }
 .timeline-badge-president.DUQUE { color: #f59e0b; }
@@ -769,6 +773,10 @@ p {
   flex-shrink: 0;
 }
 
+.dot-GAVIRIA { background-color: #06b6d4; box-shadow: 0 0 6px #06b6d4; }
+.dot-SAMPER { background-color: #f43f5e; box-shadow: 0 0 6px #f43f5e; }
+.dot-PASTRANA { background-color: #6366f1; box-shadow: 0 0 6px #6366f1; }
+.dot-ESTRUCTURAL { background-color: #64748b; box-shadow: 0 0 6px #64748b; }
 .dot-URIBE { background-color: #ef4444; box-shadow: 0 0 6px #ef4444; }
 .dot-SANTOS { background-color: #3b82f6; box-shadow: 0 0 6px #3b82f6; }
 .dot-DUQUE { background-color: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
@@ -811,7 +819,9 @@ p {
 .radar-grid-circle {
   stroke: var(--border);
   stroke-width: 1px;
+  stroke-dasharray: 2, 2;
   fill: none;
+  opacity: 0.4;
 }
 
 .radar-axis-line {
@@ -833,11 +843,20 @@ p {
   transition: opacity 0.4s var(--ease), stroke-width 0.4s var(--ease);
 }
 
-.poly-URIBE { stroke: #ef4444; fill: rgba(239, 68, 68, 0.18); }
-.poly-SANTOS { stroke: #3b82f6; fill: rgba(59, 130, 246, 0.18); }
-.poly-DUQUE { stroke: #f59e0b; fill: rgba(245, 158, 11, 0.18); }
-.poly-PETRO { stroke: #10b981; fill: rgba(16, 185, 129, 0.18); }
-.poly-ESTADO { stroke: #8b5cf6; fill: rgba(139, 92, 246, 0.18); }
+.poly-GAVIRIA { stroke: #06b6d4; fill: none; stroke-width: 1.5px; }
+.poly-SAMPER { stroke: #f43f5e; fill: none; stroke-width: 1.5px; }
+.poly-PASTRANA { stroke: #6366f1; fill: none; stroke-width: 1.5px; }
+.poly-ESTRUCTURAL { stroke: #64748b; fill: none; stroke-width: 1.5px; }
+.poly-URIBE { stroke: #ef4444; fill: none; stroke-width: 1.5px; }
+.poly-SANTOS { stroke: #3b82f6; fill: none; stroke-width: 1.5px; }
+.poly-DUQUE { stroke: #f59e0b; fill: none; stroke-width: 1.5px; }
+.poly-PETRO { stroke: #10b981; fill: none; stroke-width: 1.5px; }
+.poly-ESTADO { stroke: #8b5cf6; fill: none; stroke-width: 1.5px; }
+
+.radar-polygon.highlighted {
+  stroke-width: 3.5px !important;
+  opacity: 1 !important;
+}
 
 .radar-vertex-dot {
   transition: r 0.2s var(--ease);
@@ -847,9 +866,85 @@ p {
   r: 5px;
 }
 
-/* ==========================================================================
-   SECCIÓN AD: ISAIAH BERLIN (ANATOMÍA DE LA LIBERTAD)
-   ========================================================================== */
+.radar-vertex-dot {
+  transition: r 0.2s var(--ease);
+  cursor: pointer;
+}
+.radar-vertex-dot:hover {
+  r: 5px;
+}
+
+/* Scatter Plot SVG Elements */
+.scatterplot-grid-line {
+  stroke: var(--border);
+  stroke-width: 1px;
+  stroke-dasharray: 2, 2;
+  opacity: 0.3;
+}
+.scatterplot-axis-line {
+  stroke: var(--border);
+  stroke-width: 1.5px;
+}
+.scatterplot-axis-text {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  fill: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.scatterplot-axis-title {
+  font-family: var(--font-body);
+  font-size: 9px;
+  fill: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.scatterplot-quadrant-line {
+  stroke: var(--border);
+  stroke-width: 1px;
+  opacity: 0.4;
+  stroke-dasharray: 4, 4;
+}
+.scatterplot-quadrant-text {
+  font-family: var(--font-body);
+  font-size: 7.5px;
+  fill: var(--text-muted);
+  opacity: 0.4;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+.scatterplot-node {
+  cursor: pointer;
+  transition: r 0.2s var(--ease), fill 0.2s var(--ease), opacity 0.4s var(--ease);
+}
+.scatterplot-node:hover {
+  r: 9px;
+}
+.scatterplot-node:hover.poly-GAVIRIA { fill: #06b6d4 !important; }
+.scatterplot-node:hover.poly-SAMPER { fill: #f43f5e !important; }
+.scatterplot-node:hover.poly-PASTRANA { fill: #6366f1 !important; }
+.scatterplot-node:hover.poly-ESTRUCTURAL { fill: #64748b !important; }
+.scatterplot-node:hover.poly-URIBE { fill: #ef4444 !important; }
+.scatterplot-node:hover.poly-SANTOS { fill: #3b82f6 !important; }
+.scatterplot-node:hover.poly-DUQUE { fill: #f59e0b !important; }
+.scatterplot-node:hover.poly-PETRO { fill: #10b981 !important; }
+.scatterplot-node:hover.poly-ESTADO { fill: #8b5cf6 !important; }
+
+/* Grayscale and faded state for cases outside the active Overton Window */
+.timeline-item.outside-window {
+  opacity: 0.08;
+  pointer-events: none;
+  filter: grayscale(1);
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+.scatterplot-node.outside-window {
+  opacity: 0.08;
+  pointer-events: none;
+  filter: grayscale(1);
+}
 .ad-badge {
   font-family: var(--font-mono);
   font-size: 0.75rem;

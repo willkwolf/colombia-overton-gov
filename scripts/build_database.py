@@ -14,7 +14,7 @@ JSON_CLEAN = os.path.join(DIST_DIR, 'data_clean.json')
 CSV_CLEAN = os.path.join(DIST_DIR, 'data_clean.csv')
 
 # Vocabularios controlados
-PRESIDENTES_VALIDOS = ["Álvaro Uribe", "Juan Manuel Santos", "Iván Duque", "Gustavo Petro", "Estado Colombiano"]
+PRESIDENTES_VALIDOS = ["Álvaro Uribe", "Juan Manuel Santos", "Iván Duque", "Gustavo Petro", "Estado Colombiano", "César Gaviria", "Ernesto Samper", "Andrés Pastrana", "estructural"]
 AMBITOS_VALIDOS = [
     "Democracia / poder público",
     "Libertad / privacidad",
@@ -24,14 +24,20 @@ AMBITOS_VALIDOS = [
     "Corrupción / derechos sociales",
     "Seguridad / libertades públicas",
     "Seguridad / DD. HH.",
-    "Corrupción / democracia"
+    "Corrupción / democracia",
+    "Democracia / institución",
+    "Corrupción electoral / Democracia",
+    "Seguridad / política de paz",
+    "Seguridad / derechos sociales"
 ]
 RESPONSABILIDAD_VALIDA = [
     "directa",
     "directa_beneficio",
     "politica_fuerte",
     "politica_fuerte_en_debate",
-    "estructural_con_intentos_correccion"
+    "estructural_con_intentos_correccion",
+    "institucional_hito",
+    "estructural"
 ]
 
 # Datos estáticos de presidentes
@@ -40,7 +46,11 @@ DATOS_PRESIDENTES = {
     "Juan Manuel Santos": {"id": "SANTOS", "periodo": "2010–2018"},
     "Iván Duque": {"id": "DUQUE", "periodo": "2018–2022"},
     "Gustavo Petro": {"id": "PETRO", "periodo": "2022–2026"},
-    "Estado Colombiano": {"id": "ESTADO", "periodo": "2002–2026"}
+    "Estado Colombiano": {"id": "ESTADO", "periodo": "2002–2026"},
+    "César Gaviria": {"id": "GAVIRIA", "periodo": "1990–1994"},
+    "Ernesto Samper": {"id": "SAMPER", "periodo": "1994–1998"},
+    "Andrés Pastrana": {"id": "PASTRANA", "periodo": "1998–2002"},
+    "estructural": {"id": "ESTRUCTURAL", "periodo": "1990–2002"}
 }
 
 
@@ -107,8 +117,8 @@ def validate_caso(row, row_idx):
     overton_gravedad = clean_int(row.get('overton_gravedad'))
     overton_novedad = clean_int(row.get('overton_novedad'))
     
-    if not (1 <= overton_gravedad <= 5):
-        raise ValueError(f"Fila {row_idx} ({caso_id}): 'overton_gravedad' ({overton_gravedad}) debe ser entre 1 y 5")
+    if not (0 <= overton_gravedad <= 5):
+        raise ValueError(f"Fila {row_idx} ({caso_id}): 'overton_gravedad' ({overton_gravedad}) debe ser entre 0 y 5")
     if not (1 <= overton_novedad <= 5):
         raise ValueError(f"Fila {row_idx} ({caso_id}): 'overton_novedad' ({overton_novedad}) debe ser entre 1 y 5")
         
@@ -166,19 +176,35 @@ def build_pipeline():
             for actor in actores:
                 actores_set.add(actor)
                 
+            # Parse sources: [Name](URL)|[Name2](URL2)
+            fuentes_parsed = []
+            fuentes_raw = row.get('fuentes', '').strip()
+            if fuentes_raw:
+                parts = fuentes_raw.split('|')
+                for part in parts:
+                    match = re.match(r'^\[(.*?)\]\((.*?)\)$', part.strip())
+                    if match:
+                        fuentes_parsed.append({
+                            "nombre": match.group(1),
+                            "url": match.group(2)
+                        })
+
             caso_dict = {
                 "caso_id": caso_id,
                 "presidente_id": pres_id,
                 "presidente_nombre": pres,
                 "periodo_gobierno": row['periodo_gobierno'].strip(),
                 "caso_nombre_corto": row['caso_nombre_corto'].strip(),
+                "caso_nombre_corto_en": row.get('caso_nombre_corto_en', '').strip(),
                 "caso_descripcion_resumida": row['caso_descripcion_resumida'].strip(),
+                "caso_descripcion_resumida_en": row.get('caso_descripcion_resumida_en', '').strip(),
                 "anio_inicio": clean_int(row.get('anio_inicio')),
                 "anio_fin": clean_int(row.get('anio_fin')),
                 "ambito_principal": row['ambito_principal'].strip(),
                 "tipo_afectacion": row['tipo_afectacion'].strip(),
                 "nivel_responsabilidad": row['nivel_responsabilidad'].strip(),
                 "evidencia_responsabilidad": row['evidencia_responsabilidad'].strip(),
+                "evidencia_responsabilidad_en": row.get('evidencia_responsabilidad_en', '').strip(),
                 "monto_millones_cop": clean_float(row.get('monto_millones_cop')),
                 "monto_detalles": row.get('monto_detalles', '').strip(),
                 "victimas": clean_int(row.get('victimas')),
@@ -187,6 +213,7 @@ def build_pipeline():
                 "condenas_detalles": row.get('condenas_detalles', '').strip(),
                 "articulos_constitucionales": arts,
                 "actores_clave": actores,
+                "fuentes": fuentes_parsed,
                 "overton_gravedad": clean_int(row.get('overton_gravedad')),
                 "overton_novedad": clean_int(row.get('overton_novedad'))
             }
@@ -234,13 +261,16 @@ def build_pipeline():
         caso_id VARCHAR(50) PRIMARY KEY,
         presidente_id VARCHAR(10),
         caso_nombre_corto VARCHAR(200) NOT NULL,
+        caso_nombre_corto_en VARCHAR(200),
         caso_descripcion_resumida TEXT NOT NULL,
+        caso_descripcion_resumida_en TEXT,
         anio_inicio INTEGER NOT NULL,
         anio_fin INTEGER NOT NULL,
         ambito_principal VARCHAR(100) NOT NULL,
         tipo_afectacion VARCHAR(200) NOT NULL,
         nivel_responsabilidad VARCHAR(100) NOT NULL,
         evidencia_responsabilidad TEXT NOT NULL,
+        evidencia_responsabilidad_en TEXT,
         monto_millones_cop REAL,
         monto_detalles TEXT,
         victimas INTEGER,
@@ -250,6 +280,16 @@ def build_pipeline():
         overton_gravedad INTEGER NOT NULL,
         overton_novedad INTEGER NOT NULL,
         FOREIGN KEY (presidente_id) REFERENCES presidentes(presidente_id)
+    );
+    """)
+    
+    cursor.execute("""
+    CREATE TABLE caso_fuentes (
+        caso_id VARCHAR(50),
+        nombre VARCHAR(250) NOT NULL,
+        url TEXT NOT NULL,
+        PRIMARY KEY (caso_id, nombre),
+        FOREIGN KEY (caso_id) REFERENCES casos(caso_id) ON DELETE CASCADE
     );
     """)
     
@@ -287,15 +327,19 @@ def build_pipeline():
     # Poblar Casos e intermedias
     for c in casos_procesados:
         cursor.execute("""
-        INSERT INTO casos VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO casos VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, (
-            c['caso_id'], c['presidente_id'], c['caso_nombre_corto'], c['caso_descripcion_resumida'],
+            c['caso_id'], c['presidente_id'], c['caso_nombre_corto'], c['caso_nombre_corto_en'],
+            c['caso_descripcion_resumida'], c['caso_descripcion_resumida_en'],
             c['anio_inicio'], c['anio_fin'], c['ambito_principal'], c['tipo_afectacion'],
-            c['nivel_responsabilidad'], c['evidencia_responsabilidad'], c['monto_millones_cop'],
-            c['monto_detalles'], c['victimas'], c['victimas_detalles'],
+            c['nivel_responsabilidad'], c['evidencia_responsabilidad'], c['evidencia_responsabilidad_en'],
+            c['monto_millones_cop'], c['monto_detalles'], c['victimas'], c['victimas_detalles'],
             1 if c['tiene_condenas_firmes'] else 0, c['condenas_detalles'],
             c['overton_gravedad'], c['overton_novedad']
         ))
+        
+        for src in c['fuentes']:
+            cursor.execute("INSERT INTO caso_fuentes VALUES (?, ?, ?)", (c['caso_id'], src['nombre'], src['url']))
         
         for art_id in c['articulos_constitucionales']:
             # Verificar si el artículo existe en el catálogo constitucional, si no, agregarlo de forma genérica
@@ -347,26 +391,33 @@ def build_pipeline():
     with open(CSV_CLEAN, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow([
-            "caso_id", "presidente", "periodo_gobierno", "caso_nombre_corto", "caso_descripcion_resumida",
+            "caso_id", "presidente", "periodo_gobierno", 
+            "caso_nombre_corto", "caso_nombre_corto_en", 
+            "caso_descripcion_resumida", "caso_descripcion_resumida_en",
             "anio_inicio", "anio_fin", "ambito_principal", "tipo_afectacion", "nivel_responsabilidad",
-            "evidencia_responsabilidad", "monto_millones_cop", "monto_detalles", "victimas", "victimas_detalles",
+            "evidencia_responsabilidad", "evidencia_responsabilidad_en",
+            "monto_millones_cop", "monto_detalles", "victimas", "victimas_detalles",
             "tiene_condenas_firmes", "condenas_detalles", "articulos_constitucionales", "actores_clave",
-            "overton_gravedad", "overton_novedad"
+            "fuentes", "overton_gravedad", "overton_novedad"
         ])
         
         for c in casos_procesados:
+            fuentes_reconstructed = "|".join(f"[{s['nombre']}]({s['url']})" for s in c['fuentes'])
             writer.writerow([
                 c['caso_id'],
                 c['presidente_nombre'],
                 c['periodo_gobierno'],
                 c['caso_nombre_corto'],
+                c['caso_nombre_corto_en'],
                 c['caso_descripcion_resumida'],
+                c['caso_descripcion_resumida_en'],
                 c['anio_inicio'],
                 c['anio_fin'],
                 c['ambito_principal'],
                 c['tipo_afectacion'],
                 c['nivel_responsabilidad'],
                 c['evidencia_responsabilidad'],
+                c['evidencia_responsabilidad_en'],
                 c['monto_millones_cop'] if c['monto_millones_cop'] is not None else "",
                 c['monto_detalles'],
                 c['victimas'] if c['victimas'] is not None else "",
@@ -375,6 +426,7 @@ def build_pipeline():
                 c['condenas_detalles'],
                 ";".join(str(a) for a in c['articulos_constitucionales']),  # Cambiamos separador a punto y coma para evitar conflictos con comas
                 ";".join(c['actores_clave']),
+                fuentes_reconstructed,
                 c['overton_gravedad'],
                 c['overton_novedad']
             ])

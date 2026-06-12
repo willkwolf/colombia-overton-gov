@@ -1,6 +1,6 @@
 # Colombia Overton Gov
 
-Dataset estructurado y pipeline de compilación para analizar el impacto institucional y la tensión democrática sobre la Constitución de 1991 en Colombia (periodo 2002–2026). 
+Dataset estructurado y pipeline de compilación para analizar el impacto institucional y la tensión democrática sobre la Constitución de 1991 en Colombia (periodo 1991–2026). 
 
 El proyecto utiliza el lente analítico de la **Ventana de Overton** para mapear cómo acciones de poder y escándalos normalizan prácticas que anteriormente eran consideradas intolerables dentro del pacto social de la Constitución del 91.
 

@@ -1,0 +1,76 @@
+{
+  "es": {
+    "presidentes": {
+      "Álvaro Uribe": "Álvaro Uribe",
+      "Juan Manuel Santos": "Juan Manuel Santos",
+      "Iván Duque": "Iván Duque",
+      "Gustavo Petro": "Gustavo Petro",
+      "Estado Colombiano": "Estado Colombiano",
+      "César Gaviria": "César Gaviria",
+      "Ernesto Samper": "Ernesto Samper",
+      "Andrés Pastrana": "Andrés Pastrana",
+      "estructural": "Estructural"
+    },
+    "ambitos": {
+      "Democracia / poder público": "Democracia / poder público",
+      "Libertad / privacidad": "Libertad / privacidad",
+      "Seguridad / derecho a la vida": "Seguridad / derecho a la vida",
+      "Igualdad / política agraria": "Igualdad / política agraria",
+      "Corrupción electoral": "Corrupción electoral",
+      "Corrupción / derechos sociales": "Corrupción / derechos sociales",
+      "Seguridad / libertades públicas": "Seguridad / libertades públicas",
+      "Seguridad / DD. HH.": "Seguridad / DD. HH.",
+      "Corrupción / democracia": "Corrupción / democracia",
+      "Democracia / institución": "Democracia / institución",
+      "Corrupción electoral / Democracia": "Corrupción electoral / Democracia",
+      "Seguridad / política de paz": "Seguridad / política de paz",
+      "Seguridad / derechos sociales": "Seguridad / derechos sociales"
+    },
+    "responsabilidades": {
+      "directa": "Directa",
+      "directa_beneficio": "Directa (Beneficiario)",
+      "politica_fuerte": "Política Fuerte",
+      "politica_fuerte_en_debate": "Política Fuerte (En Debate)",
+      "estructural_con_intentos_correccion": "Estructural (Con Intentos de Corrección)",
+      "institucional_hito": "Hito Institucional",
+      "estructural": "Estructural"
+    }
+  },
+  "en": {
+    "presidentes": {
+      "Álvaro Uribe": "Álvaro Uribe",
+      "Juan Manuel Santos": "Juan Manuel Santos",
+      "Iván Duque": "Iván Duque",
+      "Gustavo Petro": "Gustavo Petro",
+      "Estado Colombiano": "State of Colombia",
+      "César Gaviria": "César Gaviria",
+      "Ernesto Samper": "Ernesto Samper",
+      "Andrés Pastrana": "Andrés Pastrana",
+      "estructural": "Structural"
+    },
+    "ambitos": {
+      "Democracia / poder público": "Democracy / Public Powers",
+      "Libertad / privacidad": "Liberty / Privacy",
+      "Seguridad / derecho a la vida": "Security / Right to Life",
+      "Igualdad / política agraria": "Equality / Agrarian Policy",
+      "Corrupción electoral": "Electoral Corruption",
+      "Corrupción / derechos sociales": "Corruption / Social Rights",
+      "Seguridad / libertades públicas": "Security / Civil Liberties",
+      "Seguridad / DD. HH.": "Security / Human Rights",
+      "Corrupción / democracia": "Corruption / Democracy",
+      "Democracia / institución": "Democracy / Institution",
+      "Corrupción electoral / Democracia": "Electoral Corruption / Democracy",
+      "Seguridad / política de paz": "Security / Peace Policy",
+      "Seguridad / derechos sociales": "Security / Social Rights"
+    },
+    "responsabilidades": {
+      "directa": "Direct",
+      "directa_beneficio": "Direct (Beneficiary)",
+      "politica_fuerte": "Strong Political Backing",
+      "politica_fuerte_en_debate": "Strong Political Backing (Under Debate)",
+      "estructural_con_intentos_correccion": "Structural (With Attempts to Correct)",
+      "institucional_hito": "Institutional Milestone",
+      "estructural": "Structural"
+    }
+  }
+}
