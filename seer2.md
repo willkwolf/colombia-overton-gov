@@ -78,7 +78,24 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 
 ---
 
-### 1.8. Footer Técnico y Declaraciones Legales
+### 1.8. Sección 7: Síntesis y Cierre (Conclusiones e Inercia Histórica)
+* **Etiqueta superior:** `SÍNTESIS Y CIERRE`
+* **Título:** `El Cierre de la Inercia: Inercia Institucional, Violencia y el Contrato Social`
+* **Cuerpo de Texto:**
+  > Al cruzar los 19 casos de estudio con la teoría del neo-institucionalismo histórico en Colombia, emerge una explicación de fondo sobre por qué el contrato social surgido de la Constitución de 1991 se encuentra bajo un desgaste continuo. La ventana de lo políticamente aceptable (Overton) no se mueve al azar ni por meras decisiones individuales, sino empujada por los rieles de un modelo de desarrollo que prioriza la inmediatez sobre la estabilidad.
+  >
+  > En Colombia, la transición entre modelos institucionales (desde el desarrollismo de economía cerrada anterior a 1990 hasta el libre mercado y la apertura de las décadas siguientes) trajo consigo un cambio profundo en cómo el Estado gestiona sus recursos. Cuando la administración pública abandona la garantía material de los derechos fundamentales (como la salud, educación y conectividad rural) debido al desvío sistemático de recursos o la corrupción, erosiona directamente las precondiciones de la autonomía individual (la *libertad para* florecer).
+  >
+  > Frente a este vacío de legitimidad, la inercia del sistema tiende a autorreforzarse. Para mantener la gobernabilidad en medio de la exclusión económica y la violencia histórica, las distintas administraciones terminan por transgredir las garantías civiles (la *libertad de* no ser interferido), recurriendo a medidas excepcionales, represión mediante la fuerza o espionaje ilícito a la disidencia para encubrir la desviación del pacto social. Así, cada abuso crea un precedente que el siguiente gobierno encuentra más fácil imitar que reformar, consolidando el cierre de la inercia del sistema.
+* **Diagrama de Evolución Económica, Organizacional e Institucional (1958–2020):**
+  * **Coyuntura 1: Desarrollismo e Intervención Estatal (1960–1989):** Estado Interventor y Sustitución de Importaciones. Ley 19 de 1958 (creación del DNP), Gestión por Administración por Objetivos (APO). Enfoques: Liderazgo y Toma de Decisiones (LTD), Estrategia Corporativa (EC), Management Estratégico (ME), Ventaja Competitiva (VC).
+  * **Transición Institucional (1982–1989):** Descentralización política y administrativa gradual, elección popular de alcaldes y atenuación de centralismo.
+  * **Coyuntura 2: Apertura Económica y Libre Mercado (1990–2020):** Libre Mercado y Nueva Gestión Pública (NPM), Ley 152 de 1994 (Planificación Estratégica), Nueva Economía (NE), Reprimarización y Extractivismo. Enfoques: Innovación, Ciencia y Tecnología (IC&T), privatizaciones.
+* **Fuente:** Adaptado de Vergara Varela, R. (2020). *Path dependence en el desarrollo histórico-institucional, político-administrativo y sectorial en Colombia (1960-2020)*.
+
+---
+
+### 1.9. Footer Técnico y Declaraciones Legales
 * **Tagline:** `Operacionalización del desplazamiento de los límites de aceptabilidad política frente al pacto de 1991.`
 * **Declaración de Neutralidad:**
   > **Declaración de Neutralidad:** Este recurso evalúa de manera uniforme a administraciones de diferentes corrientes bajo una misma métrica cualitativa y cuantitativa para el estudio histórico, sin sesgo partidista ni adhesión electoral.
