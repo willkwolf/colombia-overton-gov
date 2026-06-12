@@ -442,8 +442,8 @@ p {
   color: var(--text-muted);
 }
 
-/* Reflexión de Path Dependency */
-.status-path-reflection {
+/* Reflexión de Dependencia de la Trayectoria */
+.status-inercia-reflexion {
   font-family: var(--font-body);
   font-size: 0.82rem;
   line-height: 1.5;
@@ -810,7 +810,7 @@ p {
   .scrolly-sidebar .ad-badge,
   .scrolly-sidebar .meter-bar-wrapper,
   .scrolly-sidebar .meter-label,
-  .scrolly-sidebar .status-path-reflection,
+  .scrolly-sidebar .status-inercia-reflexion,
   .scrolly-sidebar .status-stage-desc {
     display: none;
   }
