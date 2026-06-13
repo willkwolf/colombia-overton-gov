@@ -246,7 +246,7 @@ function setupScrollytelling(casos) {
     if (thresh === 0) {
       stage = "IMPENSABLE";
       desc = "El debate se mantiene en rangos democráticos normales. El poder público opera bajo el principio de autocontrol.";
-      reflection = "Atractor democrático original. Las desviaciones constitucionales son repudiadas unánimemente.";
+      reflection = "Punto de partida y consenso constitucional de 1991. Las desviaciones del pacto original son repudiadas unánimemente.";
       if (sidebarStageBadge) {
         sidebarStageBadge.style.backgroundColor = "rgba(15, 118, 110, 0.1)";
         sidebarStageBadge.style.color = "#0f766e";
@@ -254,7 +254,7 @@ function setupScrollytelling(casos) {
     } else if (thresh > 0 && thresh <= 2) {
       stage = "RADICAL";
       desc = "La ventana se estira. Ciertas facciones políticas sugieren que el desvío constitucional moderado es tolerable bajo justificaciones de orden.";
-      reflection = `Desviación leve normalizada. El caso de ${caso.presidente_nombre} en ${caso.anio_inicio} (${caso.caso_nombre_corto}) establece un precedente de tolerancia institucional.`;
+      reflection = `Comienza la tolerancia. El caso de ${caso.presidente_nombre} en ${caso.anio_inicio} (${caso.caso_nombre_corto}) establece un precedente de permisividad institucional.`;
       if (sidebarStageBadge) {
         sidebarStageBadge.style.backgroundColor = "rgba(133, 77, 14, 0.1)";
         sidebarStageBadge.style.color = "#854d0e";
@@ -262,7 +262,7 @@ function setupScrollytelling(casos) {
     } else if (thresh > 2 && thresh <= 4) {
       stage = "ACEPTABLE / DISCUTIBLE";
       desc = "La esfera pública debate sobre la conveniencia de desvíos graves para salvaguardar gobernabilidad o seguridad nacional.";
-      reflection = `Erosión intermedia en marcha. La acumulación histórica normaliza desvíos severos de gravedad ${caso.overton_gravedad}/5 en el caso ${caso.caso_nombre_corto}.`;
+      reflection = `Desgaste intermedio en marcha. La acumulación de precedentes normaliza desvíos severos de gravedad ${caso.overton_gravedad}/5 en el caso ${caso.caso_nombre_corto}.`;
       if (sidebarStageBadge) {
         sidebarStageBadge.style.backgroundColor = "rgba(154, 52, 18, 0.1)";
         sidebarStageBadge.style.color = "#9a3412";
@@ -270,7 +270,7 @@ function setupScrollytelling(casos) {
     } else {
       stage = "NORMALIZADO";
       desc = "La conducta extrema se incorpora al quehacer corriente. Se asimilan violaciones a pilares fundamentales como el costo inevitable de la política.";
-      reflection = `Bucle de inercia cerrado (cierre institucional). Con el caso de ${caso.caso_nombre_corto} de gravedad 5/5, la ventana se ha ensanchado al límite. El sistema normaliza lo antes impensable.`;
+      reflection = `Bucle de inercia cerrado. Con el caso de ${caso.caso_nombre_corto} de gravedad 5/5, la ventana de lo tolerable se ha ensanchado al límite. Se normaliza lo antes impensable.`;
       if (sidebarStageBadge) {
         sidebarStageBadge.style.backgroundColor = "rgba(153, 27, 27, 0.1)";
         sidebarStageBadge.style.color = "#991b1b";

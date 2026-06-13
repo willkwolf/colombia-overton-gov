@@ -31,8 +31,8 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 * **Cuerpo de Texto:**
   > El pacto constitucional de 1991 se sostiene sobre una tensión fundacional. La libertad no es un concepto abstracto; la experimentamos todos los días de dos maneras esenciales que deben coexistir en equilibrio:
 * **Dimensiones Clave:**
-  * **Libertad de (Negativa / No interferencia):** `El derecho a no sufrir la coacción del poder. Es la garantía de que el Estado no invadirá tu intimidad, no interceptará tus comunicaciones ni te perseguirá por tus opiniones políticas o disidencia.`
-  * **Libertad para (Positiva / Autonomía):** `La provisión de las precondiciones materiales, educativas y de salud que otorgan la capacidad real para decidir y actuar. Sin estas bases mínimas que posibiliten el desarrollo humano, la libertad de elegir es una promesa vacía.`
+  * **Libertad frente al abuso (Libertad de):** `El derecho a no sufrir la coacción del poder. Es la garantía de que el Estado no invadirá tu intimidad, no interceptará tus comunicaciones ni te perseguirá por tus opiniones políticas o disidencia.`
+  * **Capacidad para decidir (Libertad para):** `La provisión de las precondiciones materiales, educativas y de salud que otorgan la capacidad real para decidir y actuar. Sin estas bases mínimas que posibiliten el desarrollo humano, la libertad de elegir es una promesa vacía.`
 * **Nota Epistemológica:**
   > La deriva institucional en Colombia surge cuando se quiebra este balance. Tolerar la corrupción y el desvío de recursos que debían financiar la *libertad para* termina por desgastar el pacto social y empuja, tarde o temprano, a la vulneración directa de la *libertad de* mediante la represión o el espionaje para salvaguardar el orden establecido.
 * **Acceso a Recurso Externo:** Nota editorial (`.editorial-note`) enlazada a la [Infografía Interactiva de la Libertad](https://willkwolf.github.io/isaiah-berlin-liberty-infographic/), un ensayo visual sobre la obra de Isaiah Berlin que detalla el conflicto inevitable de valores éticos, la coacción de las instituciones y las precondiciones del autogobierno individual.
@@ -43,7 +43,7 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 ### 1.4. Sección 3: El pacto original
 * **Título:** `3. El pacto original`
 * **Cuerpo de Texto:**
-  > En Colombia, la Constitución de 1991 constituyó el **atractor democrático original** de la nación, un puerto de partida diseñado para evitar el colapso social. Al consagrar un Estado Social de Derecho y definir un catálogo de derechos fundamentales, estableció la arquitectura ética de nuestra convivencia, fijando límites estrictos sobre qué conductas estatales son legítimas y cuáles debían quedar confinadas en el espacio de lo impensable.
+  > En Colombia, la Constitución de 1991 constituyó el **punto de partida democrático** de la nación, un puerto de partida diseñado para evitar el colapso social. Al consagrar un Estado Social de Derecho y definir un catálogo de derechos fundamentales, estableció la arquitectura ética de nuestra convivencia, fijando límites estrictos sobre qué conductas estatales son legítimas y cuáles debían quedar confinadas en el espacio de lo impensable.
 
 ---
 
@@ -55,9 +55,9 @@ A continuación se presentan los textos exactos que estructuran las distintas se
   > En el estudio de las sociedades existe un concepto clave llamado **dependencia de la trayectoria**. Significa que las decisiones del pasado actúan como rieles invisibles que guían nuestro futuro. Imagina que el desarrollo del país es como un tren: una vez que decide meterse en una vía, es muy costoso y difícil dar marcha atrás para cambiar de rumbo.
   >
   > Esta inercia se mantiene en el tiempo debido a tres mecanismos cotidianos:
-  > * **El desvío conocido es más fácil que la reforma:** Corregir el rumbo o restaurar el pacto social es muy costoso y complejo, por lo que es más sencillo y cómodo seguir transitando por la vía que ya está pavimentada (costes de cambio).
-  > * **La gente se adapta a las malas reglas:** Los actores políticos aprenden a operar y a sobrevivir dentro del sistema tal y como funciona (incluso si está desviado o es corrupto), habituándose a esas dinámicas por miedo a que un cambio de reglas los perjudique (efecto aprendizaje).
-  > * **Decidimos asumiendo que nada cambiará:** Tomamos decisiones cotidianas convencidos de que las cosas seguirán funcionando de la misma manera que en el pasado, lo que termina asegurando que la inercia no se rompa (adaptación de expectativas).
+  > * **El desvío conocido es más fácil que la reforma:** Corregir el rumbo o restaurar el pacto social es muy costoso y complejo, por lo que es más sencillo y cómodo seguir transitando por la vía que ya está pavimentada.
+  > * **La gente se adapta a las malas reglas:** Los actores políticos aprenden a operar y a sobrevivir dentro del sistema tal y como funciona (incluso si está desviado o es corrupto), habituándose a esas dinámicas por miedo a que un cambio de reglas los perjudique.
+  > * **Decidimos asumiendo que nada cambiará:** Tomamos decisiones cotidianas convencidos de que las cosas seguirán funcionando de la misma manera que en el pasado, lo que termina asegurando que la inercia no se rompa.
   >
   > El investigador Rafael Vergara Varela (2020) demostró que esto es exactamente lo que ocurre en Colombia. Su análisis evidencia que, incluso tras hitos históricos tan grandes como la Constitución de 1991 o la apertura económica de 1990, las viejas costumbres de planear a corto plazo y de desviar recursos públicos no se detuvieron, sino que continuaron su misma trayectoria de declive. Esto nos enseña que una ley o un discurso nuevo no bastan si no cambiamos las costumbres y los rieles invisibles que nos guían.
 
@@ -80,15 +80,15 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 ### 1.8. Sección 7: La inercia que nos encierra
 * **Título:** `6. La inercia que nos encierra`
 * **Cuerpo de Texto:**
-  > Al cruzar los 19 casos de estudio con la teoría del neo-institucionalismo histórico en Colombia, emerge una explicación de fondo sobre por qué el contrato social surgido de la Constitución de 1991 se encuentra bajo un desgaste continuo. La ventana de lo políticamente aceptable (Overton) no se mueve al azar ni por meras decisiones individuales, sino empujada por los rieles de un modelo de desarrollo que prioriza la inmediatez sobre la estabilidad.
+  > Al analizar la historia de nuestras instituciones a través de estos 19 casos, emerge una explicación de fondo sobre por qué el contrato social surgido de la Constitución de 1991 se encuentra bajo un desgaste continuo. La ventana de lo políticamente aceptable (Overton) no se mueve al azar ni por meras decisiones individuales, sino empujada por los rieles de un modelo de desarrollo que prioriza la inmediatez sobre la estabilidad.
   >
-  > En Colombia, la transición entre modelos institucionales (desde el desarrollismo de economía cerrada anterior a 1990 hasta el libre mercado y la apertura de las décadas siguientes) trajo consigo un cambio profundo en cómo el Estado gestiona sus recursos. Cuando la administración pública abandona la garantía material de los derechos fundamentales (como la salud, educación y conectividad rural) debido al desvío sistemático de recursos o la corrupción, erosiona directamente las precondiciones de la autonomía individual (la *libertad para* florecer).
+  > En Colombia, la transición entre modelos económicos (desde la economía protegida antes de 1990 hasta la apertura de libre mercado) trajo consigo un cambio profundo en cómo el Estado gestiona sus recursos. Cuando la administración pública abandona la garantía material de los derechos fundamentales (como la salud, educación y conectividad rural) debido al desvío sistemático de recursos o la corrupción, erosiona directamente las precondiciones de la autonomía individual (nuestra *libertad para* construir una vida digna).
   >
-  > Frente a este vacío de legitimidad, la inercia del sistema tiende a autorreforzarse. Para mantener la gobernabilidad en medio de la exclusión económica y la violencia histórica, las distintas administraciones terminan por transgredir las garantías civiles (la *libertad de* no ser interferido), recurriendo a medidas excepcionales, represión mediante la fuerza o espionaje ilícito a la disidencia para encubrir la desviación del pacto social. Así, cada abuso crea un precedente que el siguiente gobierno encuentra más fácil imitar que reformar, consolidando el cierre de la inercia del sistema.
+  > Frente a este vacío de legitimidad, la inercia del sistema tiende a autorreforzarse. Para mantener la gobernabilidad en medio de la exclusión económica y la violencia histórica, las distintas administraciones terminan por transgredir las garantías civiles (la *libertad de* vivir sin el abuso del poder), recurriendo a medidas excepcionales, represión mediante la fuerza o espionaje ilícito a la disidencia para encubrir la desviación del pacto social. Así, cada abuso crea un precedente que el siguiente gobierno encuentra más fácil imitar que reformar, consolidando el cierre de la inercia del sistema.
 * **Rutas y decisiones: la evolución del Estado (1958–2020):**
-  * **Coyuntura 1: Desarrollismo e Intervención Estatal (1960–1989):** Estado Interventor y Sustitución de Importaciones. Ley 19 de 1958 (creación del DNP), Gestión por Administración por Objetivos (APO). Enfoques: Liderazgo y Toma de Decisiones (LTD), Estrategia Corporativa (EC), Management Estratégico (ME), Ventaja Competitiva (VC).
-  * **Transición Institucional (1982–1989):** Descentralización política y administrativa gradual, elección popular de alcaldes y atenuación de centralismo.
-  * **Coyuntura 2: Apertura Económica y Libre Mercado (1990–2020):** Libre Mercado y Nueva Gestión Pública (NPM), Ley 152 de 1994 (Planificación Estratégica), Nueva Economía (NE), Reprimarización y Extractivismo. Enfoques: Innovación, Ciencia y Tecnología (IC&T), privatizaciones.
+  * **Etapa 1: Planificación y Control del Estado (1960–1989):** Estado Interventor. Ley 19 de 1958 (creación del DNP), Enfoque de gestión: Planificación central y control del gasto.
+  * **Transición (1982–1989):** Descentralización política y administrativa gradual, elección popular de alcaldes y atenuación de centralismo.
+  * **Etapa 2: Apertura y Libre Mercado (1990–2020):** Apertura Global, Ley 152 de 1994 (Planificación Estratégica), Enfoque de gestión: Eficiencia, privatizaciones y delegación local.
 * **Fuente:** Adaptado de Vergara Varela, R. (2020). *Path dependence en el desarrollo histórico-institucional, político-administrativo y sectorial en Colombia (1960-2020)*.
 
 ---
@@ -113,13 +113,13 @@ La interfaz scrollytelling vincula el scroll continuo de la línea de tiempo cro
 A medida que el lector se desplaza verticalmente y las tarjetas de la línea de tiempo se enfocan e iluminan sucesivamente, el panel de estado se actualiza en tiempo real de la siguiente manera:
 
 * **Año de Observación:** Indica el año de inicio del caso visible en pantalla.
-* **Umbral de Aceptabilidad (Termómetro de Gravedad Acumulada):** Representa la gravedad máxima registrada entre todos los casos recorridos cronológicamente hasta el punto actual. Mide cuantitativamente de 0 a 5 la degradación acumulada del pacto democrático. Físicamente se ilustra con un termómetro vertical que incrementa su llenado y no desciende (lo que demuestra visualmente cómo las transgresiones graves crean un precedente acumulado irreversible en el sistema).
+* **Umbral de Aceptabilidad (Límite de lo tolerable):** Representa la gravedad máxima registrada entre todos los casos recorridos de la línea de tiempo. Mide cuantitativamente de 0 a 5 la degradación de la tolerancia social.
 * **Etapas de Normalización (Badges):**
   * **IMPENSABLE (Umbral = 0):** El debate se mantiene en rangos democráticos normales. El poder público opera bajo el principio de autocontrol. (Ej: César Gaviria en 1991).
-  * **RADICAL (Umbral 1 a 2):** Ciertas facciones políticas sugieren que el desvío constitucional moderado es tolerable bajo justificaciones de orden.
-  * **ACEPTABLE / DISCUTIBLE (Umbral 3 a 4):** La esfera pública debate ampliamente sobre la conveniencia de desvíos graves para salvaguardar la gobernabilidad nacional.
-  * **NORMALIZADO (Umbral = 5):** La conducta extrema se incorpora al quehacer corriente. Se asimilan violaciones a pilares constitucionales como el costo inevitable de hacer política.
-* **Inercia Acumulada (Reflexión de Dependencia de la Trayectoria):** Un bloque de copy dinámico que resume el estado de equilibrio o erosión en la fecha actual, señalando el cierre institucional (bucle cerrado) que restringe y condiciona el margen de maniobra de los siguientes gobiernos.
+  * **RADICAL (Umbral 1 a 2):** La ventana se estira. Ciertas facciones políticas sugieren que el desvío constitucional moderado es tolerable bajo justificaciones de orden.
+  * **ACEPTABLE / DISCUTIBLE (Umbral 3 a 4):** La esfera pública debate sobre la conveniencia de desvíos graves para salvaguardar gobernabilidad o seguridad nacional.
+  * **NORMALIZADO (Umbral = 5):** La conducta extrema se incorpora al quehacer corriente. Se asimilan violaciones a pilares fundamentales como el costo inevitable de la política.
+* **Inercia Acumulada (Reflexión de Dependencia de la Trayectoria):** Un bloque de copy dinámico que resume el estado de inercia o desgaste en la fecha actual, señalando el bucle acumulativo que restringe y condiciona el margen de maniobra de los siguientes gobiernos.
 
 ---
 
