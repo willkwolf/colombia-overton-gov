@@ -17,8 +17,8 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 
 ---
 
-### 1.2. Sección 1: La Ventana de Overton (Concepto General)
-* **Título:** `La Ventana de Overton`
+### 1.2. Sección 1: La ventana de lo tolerable
+* **Título:** `1. La ventana de lo tolerable`
 * **Cuerpo de Texto:**
   > La **Ventana de Overton** es el mapa de lo tolerable: una frontera invisible en nuestra sociedad que divide las conductas que consideramos correctas de aquellas que nos parecen impensables. Esta frontera no es fija, sino que se desplaza de arriba a abajo de acuerdo con los discursos y acontecimientos.
   >
@@ -26,9 +26,8 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 
 ---
 
-### 1.3. Sección 2: Nuestras dos formas de ser libres
-* **Etiqueta superior:** `PASO 1 · FILOSOFÍA POLÍTICA`
-* **Título:** `Nuestras dos formas de ser libres`
+### 1.3. Sección 2: Las dos caras de la libertad
+* **Título:** `2. Las dos caras de la libertad`
 * **Cuerpo de Texto:**
   > El pacto constitucional de 1991 se sostiene sobre una tensión fundacional. La libertad no es un concepto abstracto; la experimentamos todos los días de dos maneras esenciales que deben coexistir en equilibrio:
 * **Dimensiones Clave:**
@@ -41,15 +40,15 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 
 ---
 
-### 1.4. Sección 3: El Pacto Social de 1991 (La Gran Constituyente)
-* **Título:** `El Pacto Social de 1991`
+### 1.4. Sección 3: El pacto original
+* **Título:** `3. El pacto original`
 * **Cuerpo de Texto:**
   > En Colombia, la Constitución de 1991 constituyó el **atractor democrático original** de la nación, un puerto de partida diseñado para evitar el colapso social. Al consagrar un Estado Social de Derecho y definir un catálogo de derechos fundamentales, estableció la arquitectura ética de nuestra convivencia, fijando límites estrictos sobre qué conductas estatales son legítimas y cuáles debían quedar confinadas en el espacio de lo impensable.
 
 ---
 
-### 1.5. Sección 4: El bucle de la inercia: ¿Por qué repetimos la historia?
-* **Subtítulo:** `El bucle de la inercia: ¿Por qué repetimos la historia?`
+### 1.5. Sección 4: El bucle de la inercia
+* **Título:** `4. El bucle de la inercia`
 * **Pregunta Editorial (Hipótesis):**
   > "¿Es posible que la pragmática del poder haya estirado la ventana de lo tolerable al punto de normalizar la erosión del pacto constitucional?"
 * **Cuerpo de Texto:**
@@ -71,23 +70,22 @@ A continuación se presentan los textos exactos que estructuran las distintas se
 
 ---
 
-### 1.7. Sección 6: De los datos a la contingencia histórica
-* **Título:** `De los datos a la contingencia histórica`
+### 1.7. Sección 6: La deriva en el tiempo
+* **Título:** `5. La deriva en el tiempo`
 * **Cuerpo de Texto:**
   > Analizar 19 casos con sus artículos, cifras y condenas puede parecer **complicado** (una tarea de memorizar fechas y culpables). Pero entender la situación es **complejo**: es notar cómo el sistema se adapta, cómo los actores reaccionan y cómo la inercia del poder nos arrastra a todos. Al observar este mapa, dejas de ser un espectador pasivo y te conviertes en un agente del sistema.
 
 ---
 
-### 1.8. Sección 7: Síntesis y Cierre (Conclusiones e Inercia Histórica)
-* **Etiqueta superior:** `SÍNTESIS Y CIERRE`
-* **Título:** `El Cierre de la Inercia: Inercia Institucional, Violencia y el Contrato Social`
+### 1.8. Sección 7: La inercia que nos encierra
+* **Título:** `6. La inercia que nos encierra`
 * **Cuerpo de Texto:**
   > Al cruzar los 19 casos de estudio con la teoría del neo-institucionalismo histórico en Colombia, emerge una explicación de fondo sobre por qué el contrato social surgido de la Constitución de 1991 se encuentra bajo un desgaste continuo. La ventana de lo políticamente aceptable (Overton) no se mueve al azar ni por meras decisiones individuales, sino empujada por los rieles de un modelo de desarrollo que prioriza la inmediatez sobre la estabilidad.
   >
   > En Colombia, la transición entre modelos institucionales (desde el desarrollismo de economía cerrada anterior a 1990 hasta el libre mercado y la apertura de las décadas siguientes) trajo consigo un cambio profundo en cómo el Estado gestiona sus recursos. Cuando la administración pública abandona la garantía material de los derechos fundamentales (como la salud, educación y conectividad rural) debido al desvío sistemático de recursos o la corrupción, erosiona directamente las precondiciones de la autonomía individual (la *libertad para* florecer).
   >
   > Frente a este vacío de legitimidad, la inercia del sistema tiende a autorreforzarse. Para mantener la gobernabilidad en medio de la exclusión económica y la violencia histórica, las distintas administraciones terminan por transgredir las garantías civiles (la *libertad de* no ser interferido), recurriendo a medidas excepcionales, represión mediante la fuerza o espionaje ilícito a la disidencia para encubrir la desviación del pacto social. Así, cada abuso crea un precedente que el siguiente gobierno encuentra más fácil imitar que reformar, consolidando el cierre de la inercia del sistema.
-* **Diagrama de Evolución Económica, Organizacional e Institucional (1958–2020):**
+* **Rutas y decisiones: la evolución del Estado (1958–2020):**
   * **Coyuntura 1: Desarrollismo e Intervención Estatal (1960–1989):** Estado Interventor y Sustitución de Importaciones. Ley 19 de 1958 (creación del DNP), Gestión por Administración por Objetivos (APO). Enfoques: Liderazgo y Toma de Decisiones (LTD), Estrategia Corporativa (EC), Management Estratégico (ME), Ventaja Competitiva (VC).
   * **Transición Institucional (1982–1989):** Descentralización política y administrativa gradual, elección popular de alcaldes y atenuación de centralismo.
   * **Coyuntura 2: Apertura Económica y Libre Mercado (1990–2020):** Libre Mercado y Nueva Gestión Pública (NPM), Ley 152 de 1994 (Planificación Estratégica), Nueva Economía (NE), Reprimarización y Extractivismo. Enfoques: Innovación, Ciencia y Tecnología (IC&T), privatizaciones.
