@@ -1183,6 +1183,249 @@ p {
   }
 }
 
+/* ==========================================================================
+   SIMULADOR DE LA ESFERA PÚBLICA (MOBILE-FIRST)
+   ========================================================================== */
+.overton-simulator-container {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px 16px;
+  margin: 32px auto;
+  max-width: 650px;
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.03);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .overton-simulator-container {
+    padding: 32px;
+  }
+}
+
+.simulator-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.simulator-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-primary);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Badges de Valor */
+.val-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s var(--ease);
+}
+
+.badge-plenas {
+  background-color: rgba(15, 118, 110, 0.1);
+  color: var(--accent-info);
+}
+
+.badge-moderadas {
+  background-color: rgba(133, 77, 14, 0.1);
+  color: var(--accent-novelty);
+}
+
+.badge-bajas {
+  background-color: rgba(153, 27, 27, 0.1);
+  color: var(--accent-gravity);
+}
+
+/* Estilización premium y responsiva de los sliders */
+.control-group input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(28, 25, 23, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  outline: none;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+/* Touch thumb optimizations for mobile (larger clickable area) */
+.control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  box-shadow: 0 2px 6px rgba(28, 25, 23, 0.15);
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  box-shadow: 0 2px 6px rgba(28, 25, 23, 0.15);
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+/* Sliders color accents */
+.slider-de::-webkit-slider-thumb {
+  background-color: var(--accent-gravity);
+}
+.slider-de::-moz-range-thumb {
+  background-color: var(--accent-gravity);
+}
+
+.slider-para::-webkit-slider-thumb {
+  background-color: var(--accent-info);
+}
+.slider-para::-moz-range-thumb {
+  background-color: var(--accent-info);
+}
+
+.control-group input[type="range"]:focus-visible::-webkit-slider-thumb {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 3px rgba(133, 77, 14, 0.3);
+}
+
+.control-group input[type="range"]:focus-visible::-moz-range-thumb {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 3px rgba(133, 77, 14, 0.3);
+}
+
+.control-desc {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Resultados */
+.simulator-results {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.results-meta-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.system-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  transition: all 0.3s var(--ease);
+}
+
+.badge-democracia {
+  background-color: rgba(15, 118, 110, 0.08);
+  color: var(--accent-info);
+  border: 1px solid rgba(15, 118, 110, 0.15);
+}
+
+.badge-tensionada {
+  background-color: rgba(133, 77, 14, 0.08);
+  color: var(--accent-novelty);
+  border: 1px solid rgba(133, 77, 14, 0.15);
+}
+
+.badge-degradada {
+  background-color: rgba(153, 27, 27, 0.08);
+  color: var(--accent-gravity);
+  border: 1px solid rgba(153, 27, 27, 0.15);
+}
+
+.overton-state-box {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: all 0.3s var(--ease);
+}
+
+.overton-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.overton-title span {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.label-democracia { color: var(--accent-info); }
+.label-tensionada { color: var(--accent-novelty); }
+.label-degradada { color: var(--accent-gravity); }
+
+.overton-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.sphere-desc {
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.5;
+  font-style: italic;
+  border-left: 2px solid var(--accent-novelty);
+  padding-left: 14px;
+  transition: border-color 0.3s var(--ease);
+}
+
 /* Focus states y mejoras de accesibilidad */
 .timeline-card-header:focus-visible {
   outline: none;

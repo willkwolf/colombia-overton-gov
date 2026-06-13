@@ -28,6 +28,9 @@ async function initApp() {
     // Configurar listeners interactivos (Progress Bar, etc.)
     setupInteractions();
     
+    // Inicializar Simulador de la Esfera Pública (sliders de Libertad)
+    setupOvertonSimulator();
+    
   } catch (error) {
     console.error("Error al inicializar la aplicación:", error);
     if (timelineContainer) {
@@ -329,6 +332,107 @@ function showTooltip(event, title, value) {
 function hideTooltip() {
   tooltip.style.opacity = "0";
   tooltip.setAttribute("aria-hidden", "true");
+}
+
+// ==========================================================================
+// 5. SIMULADOR DE LA ESFERA PÚBLICA (SLIDERS DE LIBERTAD)
+// ==========================================================================
+function setupOvertonSimulator() {
+  const sliderDe = document.getElementById('slider-libertad-de');
+  const sliderPara = document.getElementById('slider-libertad-para');
+  const labelDe = document.getElementById('label-val-de');
+  const labelPara = document.getElementById('label-val-para');
+  const systemStateBadge = document.getElementById('system-state-badge');
+  const overtonLabel = document.getElementById('overton-state-label');
+  const overtonDesc = document.getElementById('overton-state-desc');
+  const publicSphereDesc = document.getElementById('public-sphere-desc');
+
+  if (!sliderDe || !sliderPara) return;
+
+  function updateSimulator() {
+    const valDe = parseInt(sliderDe.value);
+    const valPara = parseInt(sliderPara.value);
+
+    // 1. Actualizar etiquetas de valor
+    const textDe = valDe === 3 ? "Plenas" : (valDe === 2 ? "Moderadas" : "Bajas / Abuso");
+    const textPara = valPara === 3 ? "Plenos" : (valPara === 2 ? "Limitados" : "Nulos / Desvío");
+    
+    if (labelDe) labelDe.textContent = textDe;
+    if (labelPara) labelPara.textContent = textPara;
+
+    // Remover clases de badges previas y agregar las nuevas
+    if (labelDe) {
+      labelDe.className = "val-badge " + (valDe === 3 ? "badge-plenas" : (valDe === 2 ? "badge-moderadas" : "badge-bajas"));
+    }
+    if (labelPara) {
+      labelPara.className = "val-badge " + (valPara === 3 ? "badge-plenas" : (valPara === 2 ? "badge-moderadas" : "badge-bajas"));
+    }
+
+    // Determinar el estado del sistema en cascada (CAS)
+    if (valDe === 3 && valPara === 3) {
+      // Estado Pleno
+      if (systemStateBadge) {
+        systemStateBadge.textContent = "ESFERA PÚBLICA DEMOCRÁTICA";
+        systemStateBadge.className = "system-badge badge-democracia";
+      }
+      if (overtonLabel) {
+        overtonLabel.textContent = "Impensable";
+        overtonLabel.className = "label-democracia";
+      }
+      if (overtonDesc) {
+        overtonDesc.textContent = "Los abusos de poder y los desvíos de recursos públicos son rechazados de forma unánime.";
+      }
+      if (publicSphereDesc) {
+        publicSphereDesc.textContent = "Los ciudadanos debaten con argumentos racionales; la confianza institucional se mantiene alta y no se toleran transgresiones éticas.";
+      }
+    } else if (valDe === 1 || valPara === 1) {
+      // Estado Degradado
+      if (systemStateBadge) {
+        systemStateBadge.textContent = "ESFERA PÚBLICA DEGRADADA";
+        systemStateBadge.className = "system-badge badge-degradada";
+      }
+      if (overtonLabel) {
+        overtonLabel.textContent = "Aceptable / Normalizado";
+        overtonLabel.className = "label-degradada";
+      }
+      
+      let overtonText = "";
+      if (valDe === 1 && valPara === 1) {
+        overtonText = "El espionaje a la oposición y el desvío crónico de fondos públicos para comprar favores se toleran como la 'rutina de gobernar'.";
+      } else if (valDe === 1) {
+        overtonText = "El espionaje político y el abuso de la fuerza se normalizan como el costo de mantener el orden público.";
+      } else {
+        overtonText = "El desvío de dinero de la salud o educación se asimila de forma resignada como parte del quehacer cotidiano del poder.";
+      }
+      
+      if (overtonDesc) overtonDesc.textContent = overtonText;
+      if (publicSphereDesc) {
+        publicSphereDesc.textContent = "El debate racional colapsa. La ciudadanía asume que la corrupción es inevitable y el debate se reduce a discusiones cínicas sobre quién se beneficia de las rentas.";
+      }
+    } else {
+      // Estado Tensionado (al menos uno es 2, y ninguno es 1)
+      if (systemStateBadge) {
+        systemStateBadge.textContent = "ESFERA PÚBLICA TENSIONADA";
+        systemStateBadge.className = "system-badge badge-tensionada";
+      }
+      if (overtonLabel) {
+        overtonLabel.textContent = "Radical / Discutible";
+        overtonLabel.className = "label-tensionada";
+      }
+      if (overtonDesc) {
+        overtonDesc.textContent = "Se debaten justificaciones sobre tolerar ciertos abusos menores bajo promesas de seguridad, orden público o inmediatez.";
+      }
+      if (publicSphereDesc) {
+        publicSphereDesc.textContent = "Comienza a surgir la desconfianza. El debate público se polariza, y la justificación de 'fines prácticos' empieza a erosionar los valores de la Constitución.";
+      }
+    }
+  }
+
+  sliderDe.addEventListener('input', updateSimulator);
+  sliderPara.addEventListener('input', updateSimulator);
+  
+  // Inicializar estado
+  updateSimulator();
 }
 
 // Inicializar al cargar la página

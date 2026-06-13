@@ -60,6 +60,56 @@
       <p class="section-text text-center" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">
         Cuando se permite una pequeña injusticia con la excusa de "mantener la seguridad", esa frontera invisible se corre. Con el tiempo, cosas más graves que antes nos escandalizaban empiezan a parecernos normales. Es como cuando el agua se calienta poco a poco: si no nos damos cuenta, terminamos por tolerar lo que antes era impensable.
       </p>
+
+      <!-- Simulador de la Esfera Pública -->
+      <div class="overton-simulator-container">
+        <h3 class="simulator-title">
+          Simulador: La Ventana de lo Tolerable en la Esfera Pública
+        </h3>
+        
+        <div class="simulator-controls">
+          <!-- Control: Libertad de -->
+          <div class="control-group">
+            <label for="slider-libertad-de" class="control-label">
+              <span>Garantías Civiles (Libertad DE)</span>
+              <span id="label-val-de" class="val-badge badge-de">Plenas</span>
+            </label>
+            <input type="range" id="slider-libertad-de" min="1" max="3" value="3" step="1" class="slider-de" aria-describedby="desc-de">
+            <span id="desc-de" class="control-desc">El nivel de respeto del Estado a la privacidad y la protesta social.</span>
+          </div>
+
+          <!-- Control: Libertad para -->
+          <div class="control-group">
+            <label for="slider-libertad-para" class="control-label">
+              <span>Derechos Materiales (Libertad PARA)</span>
+              <span id="label-val-para" class="val-badge badge-para">Plenos</span>
+            </label>
+            <input type="range" id="slider-libertad-para" min="1" max="3" value="3" step="1" class="slider-para" aria-describedby="desc-para">
+            <span id="desc-para" class="control-desc">La provisión estatal de salud, educación y recursos locales.</span>
+          </div>
+        </div>
+
+        <!-- Resultados -->
+        <div class="simulator-results">
+          <div class="results-header">
+            <span class="results-meta-title">Estado del Sistema:</span>
+            <span id="system-state-badge" class="system-badge badge-democracia">ESFERA PÚBLICA DEMOCRÁTICA</span>
+          </div>
+
+          <div class="overton-state-box">
+            <div class="overton-title">
+              Ventana de Overton: <span id="overton-state-label" class="label-democracia">Impensable</span>
+            </div>
+            <p id="overton-state-desc" class="overton-desc">
+              Los abusos de poder y los desvíos de recursos públicos son rechazados de forma unánime.
+            </p>
+          </div>
+
+          <p id="public-sphere-desc" class="sphere-desc">
+            Los ciudadanos debaten con argumentos racionales; la confianza institucional se mantiene alta y no se toleran transgresiones éticas.
+          </p>
+        </div>
+      </div>
       
       <!-- Nota Conceptual -->
       <p class="section-text text-center" style="font-size: 1.05rem; line-height: 1.6; max-width: 700px; margin: 0 auto; font-style: italic; color: var(--accent-novelty);">
