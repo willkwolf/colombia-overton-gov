@@ -74,8 +74,8 @@ function renderTimeline(casos) {
       <div class="timeline-badge" aria-hidden="true"></div>
       <div class="timeline-card">
         
-        <!-- Cabecera de la Tarjeta (Tappable) -->
-        <div class="timeline-card-header" role="button" aria-expanded="false" aria-controls="content-${caso.caso_id}">
+        <!-- Cabecera de la Tarjeta (Tappable y Accesible por Teclado) -->
+        <div class="timeline-card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="content-${caso.caso_id}">
           <div class="timeline-card-title-group">
             <span class="timeline-year">${caso.anio_inicio}</span>
             <span class="timeline-title">${caso.caso_nombre_corto}</span>
@@ -102,14 +102,14 @@ function renderTimeline(casos) {
 
             ${caso.monto_detalles || caso.victimas_detalles || caso.condenas_detalles ? `
               <div class="timeline-subnote">
-                ${caso.monto_detalles ? `• <strong>Detalles Monto:</strong> ${caso.monto_detalles}<br>` : ''}
-                ${caso.victimas_detalles ? `• <strong>Detalles Víctimas:</strong> ${caso.victimas_detalles}<br>` : ''}
-                ${caso.condenas_detalles ? `• <strong>Detalles Fallos:</strong> ${caso.condenas_detalles}` : ''}
+                ${caso.monto_detalles ? `<p style="margin-bottom: 6px;"><strong>Monto:</strong> ${caso.monto_detalles}</p>` : ''}
+                ${caso.victimas_detalles ? `<p style="margin-bottom: 6px;"><strong>Impacto social / Víctimas:</strong> ${caso.victimas_detalles}</p>` : ''}
+                ${caso.condenas_detalles ? `<p><strong>Resolución judicial:</strong> ${caso.condenas_detalles}</p>` : ''}
               </div>
             ` : ''}
 
             <div class="timeline-subnote" style="border-left-color: var(--accent-info); background-color: rgba(14, 165, 233, 0.02)">
-              <strong>Evidencia de Responsabilidad / Respaldo:</strong> ${caso.evidencia_responsabilidad}
+              <strong>Evidencia de respaldo:</strong> ${caso.evidencia_responsabilidad}
             </div>
 
             <div class="timeline-tags-group">
@@ -128,19 +128,21 @@ function renderTimeline(casos) {
       </div>
     `;
 
-    // Lógica del Clic/Tap para colapsar y expandir (Accordion)
+    // Lógica del Clic/Tap para colapsar y expandir (Accordion con soporte de Accesibilidad)
     const header = item.querySelector('.timeline-card-header');
     const content = item.querySelector('.timeline-card-content');
     
-    header.addEventListener('click', () => {
+    const toggleAccordion = () => {
       const isExpanded = item.classList.contains('active-item');
       
       // Cerrar todos los demás acordeones
       const allItems = timelineContainer.querySelectorAll('.timeline-item');
       allItems.forEach(i => {
-        i.classList.remove('active-item');
-        i.querySelector('.timeline-card-content').style.maxHeight = null;
-        i.querySelector('.timeline-card-header').setAttribute('aria-expanded', 'false');
+        if (i !== item) {
+          i.classList.remove('active-item');
+          i.querySelector('.timeline-card-content').style.maxHeight = null;
+          i.querySelector('.timeline-card-header').setAttribute('aria-expanded', 'false');
+        }
       });
       
       // Expandir o contraer el actual
@@ -148,6 +150,18 @@ function renderTimeline(casos) {
         item.classList.add('active-item');
         content.style.maxHeight = content.scrollHeight + "px";
         header.setAttribute('aria-expanded', 'true');
+      } else {
+        item.classList.remove('active-item');
+        content.style.maxHeight = null;
+        header.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    header.addEventListener('click', toggleAccordion);
+    header.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault(); // Evitar el scroll predeterminado al presionar la barra espaciadora
+        toggleAccordion();
       }
     });
 
