@@ -258,15 +258,13 @@ function setupScrollytelling(casos) {
     }
     if (sidebarThresholdVal) sidebarThresholdVal.textContent = maxThresholdReached;
     if (sidebarMeterFill) {
-      const isMobile = window.innerWidth <= 900;
-      if (isMobile) {
-        sidebarMeterFill.style.width = `${(maxThresholdReached / 5) * 100}%`;
-        sidebarMeterFill.style.height = '100%';
-      } else {
-        sidebarMeterFill.style.height = `${(maxThresholdReached / 5) * 100}%`;
-        sidebarMeterFill.style.width = '100%';
-      }
+      const percent = (maxThresholdReached / 5) * 100;
+      sidebarMeterFill.style.height = `${percent}%`;
+      sidebarMeterFill.style.width = `${percent}%`;
     }
+
+    // 2.5. Actualizar fragmentos de vidrio (irreversibles, solo visibles en móvil)
+    updateGlassShards(maxThresholdReached);
 
     // 3. Etapa de normalización y descripciones
     let stage = "";
@@ -310,6 +308,17 @@ function setupScrollytelling(casos) {
     if (sidebarStageBadge) sidebarStageBadge.textContent = stage;
     if (sidebarStageDesc) sidebarStageDesc.innerHTML = desc;
     if (sidebarReflection) sidebarReflection.innerHTML = `<strong>Inercia Acumulada:</strong> ${reflection}`;
+  }
+
+  function updateGlassShards(maxThresh) {
+    for (let i = 1; i <= 5; i++) {
+      const shardEl = document.querySelector(`.shard-${i}`);
+      if (shardEl) {
+        if (i <= maxThresh) {
+          shardEl.classList.add('shattered');
+        }
+      }
+    }
   }
 }
 
