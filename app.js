@@ -183,6 +183,9 @@ function setupScrollytelling(casos) {
   const sidebarStageDesc = document.getElementById('status-stage-desc');
   const sidebarReflection = document.getElementById('status-inercia-reflexion');
 
+  // Registrar el máximo umbral de inercia alcanzado para el efecto irreversible de vidrio roto
+  let maxThresholdReached = 0;
+
   // Calcular el índice de inercia acumulada (dependencia de la trayectoria)
   // en una escala de 0 a 5 basada en la acumulación de precedentes graves (gravedad >= 4)
   let graveCount = 0;
@@ -255,6 +258,12 @@ function setupScrollytelling(casos) {
       sidebarMeterFill.style.height = `${(thresh / 5) * 100}%`;
     }
 
+    // 2.5. Actualizar grietas de vidrio (irreversibles)
+    if (thresh > maxThresholdReached) {
+      maxThresholdReached = thresh;
+    }
+    updateGlassCracks(maxThresholdReached);
+
     // 3. Etapa de normalización y descripciones
     let stage = "";
     let desc = "";
@@ -297,6 +306,17 @@ function setupScrollytelling(casos) {
     if (sidebarStageBadge) sidebarStageBadge.textContent = stage;
     if (sidebarStageDesc) sidebarStageDesc.innerHTML = desc;
     if (sidebarReflection) sidebarReflection.innerHTML = `<strong>Inercia Acumulada:</strong> ${reflection}`;
+  }
+
+  function updateGlassCracks(maxThresh) {
+    for (let i = 1; i <= 5; i++) {
+      const crackEl = document.querySelector(`.crack-${i}`);
+      if (crackEl) {
+        if (i <= maxThresh) {
+          crackEl.classList.add('visible');
+        }
+      }
+    }
   }
 }
 
