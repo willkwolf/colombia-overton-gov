@@ -125,15 +125,28 @@ p {
 }
 
 .nav-logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  gap: 1px;
+}
+.logo-main {
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.15em;
-  text-decoration: none;
   color: var(--text-primary);
+  text-transform: uppercase;
 }
-.nav-logo span {
+.logo-main span {
   color: var(--accent-novelty);
+}
+.logo-sub {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
 }
 
 .nav-links {
@@ -1767,6 +1780,32 @@ a.step-item:hover .step-status {
 
 /* Responsive Stepper Styles */
 @media (max-width: 768px) {
+  /* Mobile Header Styles */
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-container {
+    justify-content: center;
+    text-align: center;
+    padding: 0 16px;
+  }
+  
+  .nav-logo {
+    align-items: center;
+    gap: 0;
+  }
+  
+  .logo-main {
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+  }
+  
+  .logo-sub {
+    font-size: 0.75rem;
+    margin-top: 0;
+  }
+
   .ecosystem-stepper {
     grid-template-columns: 1fr;
     gap: 1.5rem;
