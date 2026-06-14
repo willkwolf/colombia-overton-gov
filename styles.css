@@ -1214,8 +1214,16 @@ p {
   font-weight: 600;
   font-size: 1.15rem;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   color: var(--text-primary);
+}
+
+.simulator-intro-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 24px;
 }
 
 .simulator-controls {
@@ -1229,6 +1237,12 @@ p {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.control-main-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .control-label {
@@ -1327,6 +1341,27 @@ p {
 .control-group input[type="range"]:focus-visible::-moz-range-thumb {
   transform: scale(1.25);
   box-shadow: 0 0 0 3px rgba(133, 77, 14, 0.3);
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 4px;
+  margin-top: -6px;
+  margin-bottom: 8px;
+}
+
+.slider-ticks span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
 .control-desc {
@@ -1431,7 +1466,196 @@ p {
   transition: border-color 0.3s var(--ease);
 }
 
-/* Focus states y mejoras de accesibilidad */
+.sphere-desc {
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.5;
+  font-style: italic;
+  border-left: 2px solid var(--accent-novelty);
+  padding-left: 14px;
+  transition: border-color 0.3s var(--ease);
+}
+
+/* ==========================================================================
+   OVERTON VISUAL TRACK & LENS (PEDAGOGICAL REDESIGN)
+   ========================================================================== */
+.overton-visual-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: 32px 0;
+  padding: 16px 8px;
+  gap: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.window-lens {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border: 2px dashed var(--accent-info);
+  background: rgba(15, 118, 110, 0.06);
+  border-radius: 6px;
+  z-index: 1;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 4px 8px;
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.05);
+  box-sizing: border-box;
+}
+
+.lens-text {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--accent-info);
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* Lens states */
+.window-lens.state-democracia {
+  left: 4px;
+  width: calc(33.33% - 4px);
+  border-color: var(--accent-info);
+  border-style: solid;
+  background: rgba(15, 118, 110, 0.08);
+}
+.window-lens.state-democracia .lens-text {
+  color: var(--accent-info);
+}
+
+.window-lens.state-tensionada {
+  left: 4px;
+  width: calc(66.66% - 4px);
+  border-color: var(--accent-novelty);
+  border-style: dashed;
+  background: rgba(133, 77, 14, 0.08);
+}
+.window-lens.state-tensionada .lens-text {
+  color: var(--accent-novelty);
+}
+
+.window-lens.state-degradada {
+  left: 4px;
+  width: calc(100% - 8px);
+  border-color: var(--accent-gravity);
+  border-style: solid;
+  background: rgba(153, 27, 27, 0.08);
+  animation: visualWindowAlert 2s infinite alternate;
+}
+.window-lens.state-degradada .lens-text {
+  color: var(--accent-gravity);
+}
+
+@keyframes visualWindowAlert {
+  0% { box-shadow: 0 4px 12px rgba(153, 27, 27, 0.05); }
+  100% { box-shadow: 0 4px 20px rgba(153, 27, 27, 0.15); }
+}
+
+.track-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.node-emoji {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.node-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.node-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.node-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* Pedagogical result card */
+.pedagogical-result-box {
+  background: var(--surface);
+  border-left: 4px solid var(--accent-info);
+  padding: 16px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 20px;
+  transition: all 0.3s var(--ease);
+}
+
+.pedagogical-result-box.state-democracia {
+  border-left-color: var(--accent-info);
+}
+
+.pedagogical-result-box.state-tensionada {
+  border-left-color: var(--accent-novelty);
+}
+
+.pedagogical-result-box.state-degradada {
+  border-left-color: var(--accent-gravity);
+}
+
+.pedagogical-result-box h4 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.pedagogical-desc {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Responsive visual track vertical stack on small viewports */
+@media (max-width: 500px) {
+  .overton-visual-track {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 8px;
+  }
+  .window-lens {
+    left: 4px;
+    right: 4px;
+    width: auto !important;
+  }
+  .window-lens.state-democracia {
+    top: 4px;
+    height: calc(33.33% - 4px);
+  }
+  .window-lens.state-tensionada {
+    top: 4px;
+    height: calc(66.66% - 4px);
+  }
+  .window-lens.state-degradada {
+    top: 4px;
+    height: calc(100% - 8px);
+  }
+}
 .timeline-card-header:focus-visible {
   outline: none;
   background-color: rgba(133, 77, 14, 0.04);
