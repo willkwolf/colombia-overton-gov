@@ -365,11 +365,8 @@ function setupOvertonSimulator() {
   const systemStateBadge = document.getElementById('system-state-badge');
   const overtonLabel = document.getElementById('overton-state-label');
   const overtonDesc = document.getElementById('overton-state-desc');
-  
-  // Elementos del Rediseño Pedagógico
+  const resultCard = document.getElementById('result-card');
   const windowLens = document.getElementById('window-lens');
-  const pedagogicalDesc = document.getElementById('pedagogical-desc');
-  const pedagogicalBox = document.querySelector('.pedagogical-result-box');
 
   if (!sliderDe || !sliderPara) return;
 
@@ -377,26 +374,27 @@ function setupOvertonSimulator() {
     const valDe = parseInt(sliderDe.value);
     const valPara = parseInt(sliderPara.value);
 
-    // 1. Actualizar etiquetas de valor
+    // 1. Actualizar clases de sliders para color dinámico de tirador
+    sliderDe.className = `slider-de val-${valDe}`;
+    sliderPara.className = `slider-para val-${valPara}`;
+
+    // 2. Actualizar etiquetas de valor
     const textDe = valDe === 3 ? "Fuerte" : (valDe === 2 ? "Débil" : "Crítico");
     const textPara = valPara === 3 ? "Fuerte" : (valPara === 2 ? "Limitado" : "Nulo");
     
-    if (labelDe) labelDe.textContent = textDe;
-    if (labelPara) labelPara.textContent = textPara;
-
-    // Remover clases de badges previas y agregar las nuevas
     if (labelDe) {
+      labelDe.textContent = textDe;
       labelDe.className = "val-badge " + (valDe === 3 ? "badge-plenas" : (valDe === 2 ? "badge-moderadas" : "badge-bajas"));
     }
     if (labelPara) {
+      labelPara.textContent = textPara;
       labelPara.className = "val-badge " + (valPara === 3 ? "badge-plenas" : (valPara === 2 ? "badge-moderadas" : "badge-bajas"));
     }
 
-    // Determinar el estado del sistema en cascada (CAS)
+    // 3. Determinar el estado del sistema y actualizarCopies
     if (valDe === 3 && valPara === 3) {
-      // Estado Pleno
       if (systemStateBadge) {
-        systemStateBadge.textContent = "ESFERA PÚBLICA DEMOCRÁTICA";
+        systemStateBadge.textContent = "DEMOCRÁTICA";
         systemStateBadge.className = "system-badge badge-democracia";
       }
       if (overtonLabel) {
@@ -404,54 +402,42 @@ function setupOvertonSimulator() {
         overtonLabel.className = "label-democracia";
       }
       if (overtonDesc) {
-        overtonDesc.textContent = "Los abusos de poder y los desvíos de recursos públicos son rechazados de forma unánime.";
+        overtonDesc.textContent = "Los abusos de poder son rechazados unánimemente. Hay debate racional y libertades plenas.";
       }
       if (windowLens) {
         windowLens.className = "window-lens state-democracia";
       }
-      if (pedagogicalBox) {
-        pedagogicalBox.className = "pedagogical-result-box state-democracia";
-      }
-      if (pedagogicalDesc) {
-        pedagogicalDesc.textContent = "Vives tranquilo: puedes opinar y protestar libremente sin miedo a que te espíen (Libertad DE), y el Estado te provee de colegios y hospitales de calidad para salir adelante (Libertad PARA).";
+      if (resultCard) {
+        resultCard.className = "result-card state-democracia";
       }
     } else if (valDe === 1 || valPara === 1) {
-      // Estado Degradado
       if (systemStateBadge) {
-        systemStateBadge.textContent = "ESFERA PÚBLICA DEGRADADA";
+        systemStateBadge.textContent = "DEGRADADA";
         systemStateBadge.className = "system-badge badge-degradada";
       }
       if (overtonLabel) {
-        overtonLabel.textContent = "Aceptable / Normalizado";
+        overtonLabel.textContent = "Normalizado / Aceptable";
         overtonLabel.className = "label-degradada";
       }
       if (windowLens) {
         windowLens.className = "window-lens state-degradada";
       }
-      if (pedagogicalBox) {
-        pedagogicalBox.className = "pedagogical-result-box state-degradada";
+      if (resultCard) {
+        resultCard.className = "result-card state-degradada";
       }
       
-      let overtonText = "";
-      let pDescText = "";
-      
+      let descText = "";
       if (valDe === 1 && valPara === 1) {
-        overtonText = "El espionaje a la oposición y el desvío crónico de fondos públicos para comprar favores se toleran como la 'rutina de gobernar'.";
-        pDescText = "🔴 ¡Peligro! Tu escudo protector se rompió y te pueden espiar o silenciar (Libertad DE vulnerada). Al mismo tiempo, el dinero para escuelas y hospitales se desvía para comprar congresistas (Libertad PARA nula). Los abusos graves se vuelven normales.";
+        descText = "Se normaliza el espionaje político y el desvío crónico de fondos para la compra de favores.";
       } else if (valDe === 1) {
-        overtonText = "El espionaje político y el abuso de la fuerza se normalizan como el costo de mantener el orden público.";
-        pDescText = "🔴 ¡Peligro! Tu escudo protector se rompió. El Estado espía a opositores y reprime protestas de forma abusiva, normalizando la persecución como el 'costo del orden' (Libertad DE vulnerada).";
+        descText = "Se normaliza el espionaje y la persecución política como costo inevitable del orden público.";
       } else {
-        overtonText = "El desvío de dinero de la salud o educación se asimila de forma resignada como parte del quehacer cotidiano del poder.";
-        pDescText = "🔴 ¡Peligro! Tus oportunidades desaparecen. El dinero de tu colegio u hospital se desvía sin consecuencias, forzando a la sociedad a pelear por migajas inmediatas en vez de progresar (Libertad PARA nula).";
+        descText = "Se normaliza el desvío de dinero de servicios esenciales, dejando al ciudadano sin oportunidades.";
       }
-      
-      if (overtonDesc) overtonDesc.textContent = overtonText;
-      if (pedagogicalDesc) pedagogicalDesc.textContent = pDescText;
+      if (overtonDesc) overtonDesc.textContent = descText;
     } else {
-      // Estado Tensionado (al menos uno es 2, y ninguno es 1)
       if (systemStateBadge) {
-        systemStateBadge.textContent = "ESFERA PÚBLICA TENSIONADA";
+        systemStateBadge.textContent = "TENSIONADA";
         systemStateBadge.className = "system-badge badge-tensionada";
       }
       if (overtonLabel) {
@@ -459,16 +445,13 @@ function setupOvertonSimulator() {
         overtonLabel.className = "label-tensionada";
       }
       if (overtonDesc) {
-        overtonDesc.textContent = "Se debaten justificaciones sobre tolerar ciertos abusos menores bajo promesas de seguridad, orden público o inmediatez.";
+        overtonDesc.textContent = "Se empiezan a tolerar desvíos menores (espionaje parcial, descuido de servicios) bajo promesas de seguridad o urgencia.";
       }
       if (windowLens) {
         windowLens.className = "window-lens state-tensionada";
       }
-      if (pedagogicalBox) {
-        pedagogicalBox.className = "pedagogical-result-box state-tensionada";
-      }
-      if (pedagogicalDesc) {
-        pedagogicalDesc.textContent = "  ¡Alerta! Tus libertades comienzan a debilitarse. Empiezas a escuchar excusas sobre por qué es aceptable espiar un poco a la gente o descuidar ciertas escuelas rurales bajo promesas de 'seguridad' o 'urgencia'.";
+      if (resultCard) {
+        resultCard.className = "result-card state-tensionada";
       }
     }
   }
