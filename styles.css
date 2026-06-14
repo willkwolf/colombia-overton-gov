@@ -1589,3 +1589,209 @@ p {
   color: var(--text-muted);
 }
 
+/* ==========================================================================
+   ECOSYSTEM BACKLINKS & STEPPER STYLES
+   ========================================================================== */
+:root {
+  --clr-accent: var(--accent-gravity);
+  --clr-accent-dim: rgba(153, 27, 27, 0.08);
+  --clr-accent-mid: rgba(153, 27, 27, 0.35);
+  --clr-border: var(--border);
+  --clr-bg-2: var(--surface);
+  --clr-bg-3: white;
+  --clr-text-bright: var(--text-primary);
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-lg: 4px;
+  --radius: 2px;
+}
+
+/* Stepper Footer Section */
+.ecosystem-stepper-section {
+  padding: 1rem 0 3rem 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ecosystem-stepper-section h3 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.stepper-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 2.2rem;
+}
+
+.ecosystem-stepper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+  position: relative;
+}
+
+/* Connector Line */
+.ecosystem-stepper::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: var(--border);
+  z-index: 1;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  outline: none;
+}
+
+.step-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  transition: all var(--transition);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.step-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.step-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  transition: color var(--transition);
+}
+
+.step-project {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.step-status {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-novelty);
+  margin-top: 2px;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+/* Hover States for Interactive Steps */
+a.step-item:hover .step-badge {
+  border-color: var(--accent-novelty);
+  color: var(--accent-novelty);
+  background: var(--surface);
+  box-shadow: 0 4px 12px rgba(133,77,14,0.1);
+  transform: translateY(-2px);
+}
+
+a.step-item:hover .step-title {
+  color: var(--accent-novelty);
+}
+
+a.step-item:hover .step-status {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Active Step Style */
+.step-item.active {
+  cursor: default;
+}
+
+.step-item.active .step-badge {
+  background: var(--clr-accent-dim);
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(153, 27, 27, 0.25);
+  transform: scale(1.1);
+  animation: ecosystemActivePulse 2.5s infinite alternate;
+}
+
+.step-item.active .step-title {
+  color: var(--clr-accent);
+  font-weight: 700;
+}
+
+.step-item.active .step-status {
+  font-weight: 700;
+  color: var(--clr-accent);
+  opacity: 1;
+}
+
+.footer-divider {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 2.2rem auto;
+  max-width: 1000px;
+}
+
+/* Animations */
+@keyframes ecosystemActivePulse {
+  0% { box-shadow: 0 0 12px rgba(153, 27, 27, 0.1); }
+  100% { box-shadow: 0 0 24px rgba(153, 27, 27, 0.3); }
+}
+
+/* Responsive Stepper Styles */
+@media (max-width: 768px) {
+  .ecosystem-stepper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .ecosystem-stepper::after {
+    display: none;
+  }
+  
+  .step-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .step-badge {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .step-meta {
+    align-items: flex-start;
+  }
+}
+
