@@ -327,12 +327,16 @@ p {
   top: 100px;
   width: 320px;
   flex-shrink: 0;
-  background: transparent;
-  border: none;
-  padding: 32px;
+  background: rgba(253, 251, 247, 0.75); /* Alabastro cálido translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(28, 25, 23, 0.05);
   z-index: 100;
-  transition: top 0.3s var(--ease);
-  overflow: visible; /* Permitir que los fragmentos sobresalgan al quebrarse */
+  transition: all 0.3s var(--ease);
+  overflow: hidden;
 }
 
 .sidebar-content {
@@ -794,13 +798,14 @@ p {
     width: calc(100% + 48px);
     margin: 0 -24px 16px -24px;
     border: none;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid var(--border);
+    background: rgba(253, 251, 247, 0.85); /* Alabastro cálido translúcido */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 12px 24px;
-    box-shadow: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     z-index: 800;
-    overflow: visible;
+    overflow: hidden; /* Cortar la barra de progreso inferior */
   }
   
   .sidebar-content {
@@ -812,12 +817,35 @@ p {
   }
   
   .scrolly-sidebar .ad-badge,
-  .scrolly-sidebar .meter-bar-wrapper,
   .scrolly-sidebar .meter-label,
   .scrolly-sidebar .meter-value-label,
   .scrolly-sidebar .status-inercia-reflexion,
   .scrolly-sidebar .status-stage-desc {
     display: none;
+  }
+  
+  /* Termómetro horizontal para cabecera sticky en móviles */
+  .scrolly-sidebar .meter-bar-wrapper {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(28, 25, 23, 0.05);
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .scrolly-sidebar .meter-bar-ticks {
+    display: none;
+  }
+  
+  .scrolly-sidebar .meter-bar-fill {
+    background: linear-gradient(90deg, var(--accent-info), var(--accent-novelty), var(--accent-gravity));
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
   
   .sidebar-year-header {
@@ -853,13 +881,6 @@ p {
   .status-stage-badge {
     padding: 2px 6px;
     font-size: 0.6rem;
-  }
-  
-  .glass-shards-container {
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid var(--border);
-    box-shadow: none;
   }
 }
 .ad-badge {
@@ -2060,98 +2081,4 @@ a.step-item:hover .step-status {
   }
 }
 
-/* ==========================================================================
-   GLASS SHARDS (PHYSICAL FRACTURE VISUAL EFFECT)
-   ========================================================================== */
-.glass-shards-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(28, 25, 23, 0.06);
-}
-
-.glass-shard {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  will-change: transform;
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-}
-
-/* Glassmorphism base of shards */
-.shard-svg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.shard-poly {
-  fill: rgba(253, 251, 247, 0.65); /* Alabastro cálido translúcido */
-  stroke: rgba(253, 251, 247, 0.65); /* Mismo color que el fondo al inicio para ocultar líneas */
-  stroke-width: 1.2px; /* Ligeramente más grueso para cubrir bordes subpixel */
-  filter: none;
-  transition: stroke 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Shard clip paths to crop the blur backdrop-filter */
-.shard-1 {
-  clip-path: polygon(0% 0%, 55% 0%, 35% 45%, 0% 35%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-.shard-2 {
-  clip-path: polygon(55% 0%, 100% 0%, 100% 45%, 65% 55%, 35% 45%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-.shard-3 {
-  clip-path: polygon(35% 45%, 65% 55%, 50% 100%, 25% 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-.shard-4 {
-  clip-path: polygon(0% 35%, 35% 45%, 25% 100%, 0% 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-.shard-5 {
-  clip-path: polygon(65% 55%, 100% 45%, 100% 100%, 50% 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Shattered properties for specific shards as they crack */
-.glass-shard.shattered .shard-poly {
-  stroke: rgba(255, 255, 255, 0.85); /* Reflejo de luz brillante en el borde roto */
-  stroke-width: 0.8px;
-  filter: drop-shadow(1.5px 1.5px 2px rgba(28, 25, 23, 0.25)); /* Sombra realista de fractura */
-}
-
-/* Shattered transformation offsets (slightly shifted/separated and rotated) */
-.shard-1.shattered {
-  transform: translate(-5px, -3px) rotate(-0.8deg);
-}
-.shard-2.shattered {
-  transform: translate(3px, -4px) rotate(0.6deg);
-}
-.shard-3.shattered {
-  transform: translate(1px, 5px) rotate(0.4deg);
-}
-.shard-4.shattered {
-  transform: translate(-6px, 4px) rotate(-0.5deg);
-}
-.shard-5.shattered {
-  transform: translate(4px, 3px) rotate(0.7deg);
-}
+/* Visual Thermometer details at the top/sidebar */
