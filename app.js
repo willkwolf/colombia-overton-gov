@@ -258,11 +258,11 @@ function setupScrollytelling(casos) {
       sidebarMeterFill.style.height = `${(thresh / 5) * 100}%`;
     }
 
-    // 2.5. Actualizar grietas de vidrio (irreversibles)
+    // 2.5. Actualizar fragmentos de vidrio (irreversibles)
     if (thresh > maxThresholdReached) {
       maxThresholdReached = thresh;
     }
-    updateGlassCracks(maxThresholdReached);
+    updateGlassShards(maxThresholdReached);
 
     // 3. Etapa de normalización y descripciones
     let stage = "";
@@ -308,12 +308,12 @@ function setupScrollytelling(casos) {
     if (sidebarReflection) sidebarReflection.innerHTML = `<strong>Inercia Acumulada:</strong> ${reflection}`;
   }
 
-  function updateGlassCracks(maxThresh) {
+  function updateGlassShards(maxThresh) {
     for (let i = 1; i <= 5; i++) {
-      const crackEl = document.querySelector(`.crack-${i}`);
-      if (crackEl) {
+      const shardEl = document.querySelector(`.shard-${i}`);
+      if (shardEl) {
         if (i <= maxThresh) {
-          crackEl.classList.add('visible');
+          shardEl.classList.add('shattered');
         }
       }
     }
