@@ -252,17 +252,21 @@ function setupScrollytelling(casos) {
     // 1. Año activo
     if (sidebarYear) sidebarYear.textContent = caso.anio_inicio;
 
-    // 2. Umbral y medidor
-    if (sidebarThresholdVal) sidebarThresholdVal.textContent = thresh;
-    if (sidebarMeterFill) {
-      sidebarMeterFill.style.height = `${(thresh / 5) * 100}%`;
-    }
-
-    // 2.5. Actualizar fragmentos de vidrio (irreversibles)
+    // 2. Umbral y medidor (irreversibles)
     if (thresh > maxThresholdReached) {
       maxThresholdReached = thresh;
     }
-    updateGlassShards(maxThresholdReached);
+    if (sidebarThresholdVal) sidebarThresholdVal.textContent = maxThresholdReached;
+    if (sidebarMeterFill) {
+      const isMobile = window.innerWidth <= 900;
+      if (isMobile) {
+        sidebarMeterFill.style.width = `${(maxThresholdReached / 5) * 100}%`;
+        sidebarMeterFill.style.height = '100%';
+      } else {
+        sidebarMeterFill.style.height = `${(maxThresholdReached / 5) * 100}%`;
+        sidebarMeterFill.style.width = '100%';
+      }
+    }
 
     // 3. Etapa de normalización y descripciones
     let stage = "";
@@ -306,17 +310,6 @@ function setupScrollytelling(casos) {
     if (sidebarStageBadge) sidebarStageBadge.textContent = stage;
     if (sidebarStageDesc) sidebarStageDesc.innerHTML = desc;
     if (sidebarReflection) sidebarReflection.innerHTML = `<strong>Inercia Acumulada:</strong> ${reflection}`;
-  }
-
-  function updateGlassShards(maxThresh) {
-    for (let i = 1; i <= 5; i++) {
-      const shardEl = document.querySelector(`.shard-${i}`);
-      if (shardEl) {
-        if (i <= maxThresh) {
-          shardEl.classList.add('shattered');
-        }
-      }
-    }
   }
 }
 
