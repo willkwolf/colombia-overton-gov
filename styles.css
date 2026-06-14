@@ -854,6 +854,13 @@ p {
     padding: 2px 6px;
     font-size: 0.6rem;
   }
+  
+  .glass-shards-container {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+    box-shadow: none;
+  }
 }
 .ad-badge {
   font-family: var(--font-mono);
@@ -2061,6 +2068,10 @@ a.step-item:hover .step-status {
   height: 100%;
   pointer-events: none;
   z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(28, 25, 23, 0.06);
 }
 
 .glass-shard {
@@ -2085,9 +2096,10 @@ a.step-item:hover .step-status {
 
 .shard-poly {
   fill: rgba(253, 251, 247, 0.65); /* Alabastro cálido translúcido */
-  stroke: rgba(255, 255, 255, 0.85); /* Reflejo brillante del borde de corte */
-  stroke-width: 0.8px;
-  filter: drop-shadow(1px 1px 1px rgba(28, 25, 23, 0.15));
+  stroke: rgba(253, 251, 247, 0.65); /* Mismo color que el fondo al inicio para ocultar líneas */
+  stroke-width: 1.2px; /* Ligeramente más grueso para cubrir bordes subpixel */
+  filter: none;
+  transition: stroke 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Shard clip paths to crop the blur backdrop-filter */
@@ -2115,6 +2127,13 @@ a.step-item:hover .step-status {
   clip-path: polygon(65% 55%, 100% 45%, 100% 100%, 50% 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* Shattered properties for specific shards as they crack */
+.glass-shard.shattered .shard-poly {
+  stroke: rgba(255, 255, 255, 0.85); /* Reflejo de luz brillante en el borde roto */
+  stroke-width: 0.8px;
+  filter: drop-shadow(1.5px 1.5px 2px rgba(28, 25, 23, 0.25)); /* Sombra realista de fractura */
 }
 
 /* Shattered transformation offsets (slightly shifted/separated and rotated) */
