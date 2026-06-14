@@ -365,7 +365,11 @@ function setupOvertonSimulator() {
   const systemStateBadge = document.getElementById('system-state-badge');
   const overtonLabel = document.getElementById('overton-state-label');
   const overtonDesc = document.getElementById('overton-state-desc');
-  const publicSphereDesc = document.getElementById('public-sphere-desc');
+  
+  // Elementos del Rediseño Pedagógico
+  const windowLens = document.getElementById('window-lens');
+  const pedagogicalDesc = document.getElementById('pedagogical-desc');
+  const pedagogicalBox = document.querySelector('.pedagogical-result-box');
 
   if (!sliderDe || !sliderPara) return;
 
@@ -374,8 +378,8 @@ function setupOvertonSimulator() {
     const valPara = parseInt(sliderPara.value);
 
     // 1. Actualizar etiquetas de valor
-    const textDe = valDe === 3 ? "Plenas" : (valDe === 2 ? "Moderadas" : "Bajas / Abuso");
-    const textPara = valPara === 3 ? "Plenos" : (valPara === 2 ? "Limitados" : "Nulos / Desvío");
+    const textDe = valDe === 3 ? "Fuerte" : (valDe === 2 ? "Débil" : "Crítico");
+    const textPara = valPara === 3 ? "Fuerte" : (valPara === 2 ? "Limitado" : "Nulo");
     
     if (labelDe) labelDe.textContent = textDe;
     if (labelPara) labelPara.textContent = textPara;
@@ -402,8 +406,14 @@ function setupOvertonSimulator() {
       if (overtonDesc) {
         overtonDesc.textContent = "Los abusos de poder y los desvíos de recursos públicos son rechazados de forma unánime.";
       }
-      if (publicSphereDesc) {
-        publicSphereDesc.textContent = "Los ciudadanos debaten con argumentos racionales; la confianza institucional se mantiene alta y no se toleran transgresiones éticas.";
+      if (windowLens) {
+        windowLens.className = "window-lens state-democracia";
+      }
+      if (pedagogicalBox) {
+        pedagogicalBox.className = "pedagogical-result-box state-democracia";
+      }
+      if (pedagogicalDesc) {
+        pedagogicalDesc.textContent = "Vives tranquilo: puedes opinar y protestar libremente sin miedo a que te espíen (Libertad DE), y el Estado te provee de colegios y hospitales de calidad para salir adelante (Libertad PARA).";
       }
     } else if (valDe === 1 || valPara === 1) {
       // Estado Degradado
@@ -415,20 +425,29 @@ function setupOvertonSimulator() {
         overtonLabel.textContent = "Aceptable / Normalizado";
         overtonLabel.className = "label-degradada";
       }
+      if (windowLens) {
+        windowLens.className = "window-lens state-degradada";
+      }
+      if (pedagogicalBox) {
+        pedagogicalBox.className = "pedagogical-result-box state-degradada";
+      }
       
       let overtonText = "";
+      let pDescText = "";
+      
       if (valDe === 1 && valPara === 1) {
         overtonText = "El espionaje a la oposición y el desvío crónico de fondos públicos para comprar favores se toleran como la 'rutina de gobernar'.";
+        pDescText = "🔴 ¡Peligro! Tu escudo protector se rompió y te pueden espiar o silenciar (Libertad DE vulnerada). Al mismo tiempo, el dinero para escuelas y hospitales se desvía para comprar congresistas (Libertad PARA nula). Los abusos graves se vuelven normales.";
       } else if (valDe === 1) {
         overtonText = "El espionaje político y el abuso de la fuerza se normalizan como el costo de mantener el orden público.";
+        pDescText = "🔴 ¡Peligro! Tu escudo protector se rompió. El Estado espía a opositores y reprime protestas de forma abusiva, normalizando la persecución como el 'costo del orden' (Libertad DE vulnerada).";
       } else {
         overtonText = "El desvío de dinero de la salud o educación se asimila de forma resignada como parte del quehacer cotidiano del poder.";
+        pDescText = "🔴 ¡Peligro! Tus oportunidades desaparecen. El dinero de tu colegio u hospital se desvía sin consecuencias, forzando a la sociedad a pelear por migajas inmediatas en vez de progresar (Libertad PARA nula).";
       }
       
       if (overtonDesc) overtonDesc.textContent = overtonText;
-      if (publicSphereDesc) {
-        publicSphereDesc.textContent = "El debate racional colapsa. La ciudadanía asume que la corrupción es inevitable y el debate se reduce a discusiones cínicas sobre quién se beneficia de las rentas.";
-      }
+      if (pedagogicalDesc) pedagogicalDesc.textContent = pDescText;
     } else {
       // Estado Tensionado (al menos uno es 2, y ninguno es 1)
       if (systemStateBadge) {
@@ -442,8 +461,14 @@ function setupOvertonSimulator() {
       if (overtonDesc) {
         overtonDesc.textContent = "Se debaten justificaciones sobre tolerar ciertos abusos menores bajo promesas de seguridad, orden público o inmediatez.";
       }
-      if (publicSphereDesc) {
-        publicSphereDesc.textContent = "Comienza a surgir la desconfianza. El debate público se polariza, y la justificación de 'fines prácticos' empieza a erosionar los valores de la Constitución.";
+      if (windowLens) {
+        windowLens.className = "window-lens state-tensionada";
+      }
+      if (pedagogicalBox) {
+        pedagogicalBox.className = "pedagogical-result-box state-tensionada";
+      }
+      if (pedagogicalDesc) {
+        pedagogicalDesc.textContent = "  ¡Alerta! Tus libertades comienzan a debilitarse. Empiezas a escuchar excusas sobre por qué es aceptable espiar un poco a la gente o descuidar ciertas escuelas rurales bajo promesas de 'seguridad' o 'urgencia'.";
       }
     }
   }

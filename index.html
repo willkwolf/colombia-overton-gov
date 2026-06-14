@@ -66,29 +66,71 @@
 
       <!-- Simulador de la Esfera Pública -->
       <div class="overton-simulator-container">
-        <h3 class="simulator-title">
-          Simulador: La Ventana de lo Tolerable en la Esfera Pública
-        </h3>
+        <h3 class="simulator-title">Simulador: La Ventana de lo Tolerable</h3>
+        <p class="simulator-intro-desc">Mueve los deslizadores para ver cómo la pérdida de libertades estira lo que consideramos aceptable.</p>
         
         <div class="simulator-controls">
-          <!-- Control: Libertad de -->
+          <!-- Slider 1: Garantías Civiles -->
           <div class="control-group">
             <label for="slider-libertad-de" class="control-label">
-              <span>Garantías Civiles (Libertad DE)</span>
+              <span class="control-main-label">Tu Escudo Protector (Garantías Civiles - Libertad DE)</span>
               <span id="label-val-de" class="val-badge badge-de">Plenas</span>
             </label>
-            <input type="range" id="slider-libertad-de" min="1" max="3" value="3" step="1" class="slider-de" aria-describedby="desc-de">
-            <span id="desc-de" class="control-desc">El nivel de respeto del Estado a la privacidad y la protesta social.</span>
+            <div class="slider-wrapper">
+              <input type="range" id="slider-libertad-de" min="1" max="3" value="3" step="1" class="slider-de" aria-describedby="desc-de">
+              <div class="slider-ticks">
+                <span>🔴 Crítico</span>
+                <span>🟡 Débil</span>
+                <span>🟢 Fuerte</span>
+              </div>
+            </div>
+            <span id="desc-de" class="control-desc">El nivel de respeto a tu privacidad, protesta y libre opinión sin que el Estado abuse de ti.</span>
           </div>
 
-          <!-- Control: Libertad para -->
+          <!-- Slider 2: Oportunidades -->
           <div class="control-group">
             <label for="slider-libertad-para" class="control-label">
-              <span>Derechos Materiales (Libertad PARA)</span>
+              <span class="control-main-label">Tus Oportunidades (Derechos Materiales - Libertad PARA)</span>
               <span id="label-val-para" class="val-badge badge-para">Plenos</span>
             </label>
-            <input type="range" id="slider-libertad-para" min="1" max="3" value="3" step="1" class="slider-para" aria-describedby="desc-para">
-            <span id="desc-para" class="control-desc">La provisión estatal de salud, educación y recursos locales.</span>
+            <div class="slider-wrapper">
+              <input type="range" id="slider-libertad-para" min="1" max="3" value="3" step="1" class="slider-para" aria-describedby="desc-para">
+              <div class="slider-ticks">
+                <span>🔴 Nulo</span>
+                <span>🟡 Limitado</span>
+                <span>🟢 Fuerte</span>
+              </div>
+            </div>
+            <span id="desc-para" class="control-desc">La provisión de colegios públicos, hospitales de calidad y servicios esenciales en tu territorio.</span>
+          </div>
+        </div>
+
+        <!-- REPRESENTACIÓN GRÁFICA DE LA VENTANA DE OVERTON -->
+        <div class="overton-visual-track" aria-hidden="true">
+          <div class="window-lens state-democracia" id="window-lens">
+            <span class="lens-text">LO TOLERABLE</span>
+          </div>
+          
+          <div class="track-node">
+            <span class="node-emoji">🟢</span>
+            <div class="node-meta">
+              <div class="node-title">Debate Sano</div>
+              <div class="node-sub">Discutimos con respeto y no se aceptan trampas.</div>
+            </div>
+          </div>
+          <div class="track-node">
+            <span class="node-emoji">🟡</span>
+            <div class="node-meta">
+              <div class="node-title">Abuso Moderado</div>
+              <div class="node-sub">Se tolera espiar o presionar "un poco" por orden.</div>
+            </div>
+          </div>
+          <div class="track-node">
+            <span class="node-emoji">🔴</span>
+            <div class="node-meta">
+              <div class="node-title">Pacto Roto</div>
+              <div class="node-sub">Comprar votos y el espionaje se vuelven la rutina.</div>
+            </div>
           </div>
         </div>
 
@@ -99,6 +141,14 @@
             <span id="system-state-badge" class="system-badge badge-democracia">ESFERA PÚBLICA DEMOCRÁTICA</span>
           </div>
 
+          <!-- Bloque Pedagógico -->
+          <div class="pedagogical-result-box">
+            <h4>¿Qué significa esto en tu vida diaria?</h4>
+            <p id="pedagogical-desc" class="pedagogical-desc">
+              Vives tranquilo, opinas libremente sin miedo a que te espíen y cuentas con herramientas para estudiar y progresar.
+            </p>
+          </div>
+
           <div class="overton-state-box">
             <div class="overton-title">
               Ventana de Overton: <span id="overton-state-label" class="label-democracia">Impensable</span>
@@ -107,10 +157,6 @@
               Los abusos de poder y los desvíos de recursos públicos son rechazados de forma unánime.
             </p>
           </div>
-
-          <p id="public-sphere-desc" class="sphere-desc">
-            Los ciudadanos debaten con argumentos racionales; la confianza institucional se mantiene alta y no se toleran transgresiones éticas.
-          </p>
         </div>
       </div>
       
