@@ -44,6 +44,27 @@ html {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: font-size 0.2s var(--ease);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-max-w: 1240px;
+  }
+  html {
+    font-size: 18px; /* ~12.5% más grande */
+    line-height: 1.68;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-max-w: 1320px;
+  }
+  html {
+    font-size: 18.5px; /* ~15.6% más grande */
+    line-height: 1.7;
+  }
 }
 
 body {
@@ -80,6 +101,7 @@ h1, h2, h3, h4 {
 
 p {
   font-weight: 300;
+  letter-spacing: 0.012em; /* Aire entre caracteres para lectura fresca */
 }
 
 /* ==========================================================================
