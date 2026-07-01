@@ -31,6 +31,12 @@ async function initApp() {
     // Inicializar Simulador de la Esfera Pública (sliders de Libertad)
     setupOvertonSimulator();
     
+    // Inicializar Glosario Interactivo
+    setupGlossary();
+    
+    // Inicializar Resaltado de Sección de Navegación y Badge de Estado
+    setupActiveNavLink();
+    
   } catch (error) {
     console.error("Error al inicializar la aplicación:", error);
     if (timelineContainer) {
@@ -308,6 +314,11 @@ function setupScrollytelling(casos) {
     if (sidebarStageBadge) sidebarStageBadge.textContent = stage;
     if (sidebarStageDesc) sidebarStageDesc.innerHTML = desc;
     if (sidebarReflection) sidebarReflection.innerHTML = `<strong>Inercia Acumulada:</strong> ${reflection}`;
+    
+    // Sincronizar el badge de la barra de navegación en tiempo real
+    if (typeof activeSectionId !== 'undefined' && ['timeline-section', 'dependencia-linea', 'conclusiones-seccion'].includes(activeSectionId)) {
+      updateNavbarStatusContext(activeSectionId);
+    }
   }
 
   function updateGlassShards(maxThresh) {
@@ -456,6 +467,11 @@ function setupOvertonSimulator() {
         resultCard.className = "result-card state-tensionada";
       }
     }
+    
+    // Sincronizar el badge de la barra de navegación en tiempo real
+    if (typeof activeSectionId !== 'undefined' && ['lente-overton', 'anatomia-libertad', 'pacto-social', 'viaje-hero'].includes(activeSectionId)) {
+      updateNavbarStatusContext(activeSectionId);
+    }
   }
 
   sliderDe.addEventListener('input', updateSimulator);
@@ -463,6 +479,220 @@ function setupOvertonSimulator() {
   
   // Inicializar estado
   updateSimulator();
+}
+
+// Variables de estado global de navegación y glosario
+let activeSectionId = '';
+let activeGlossaryTerm = null;
+
+// ==========================================================================
+// 6. GLOSARIO INTERACTIVO (ACCESIBILIDAD Y REDUCCIÓN DE FRICCIÓN COGNITIVA)
+// ==========================================================================
+function setupGlossary() {
+  const terms = document.querySelectorAll('.glossary-term');
+  const glossaryData = {
+    "ventana-overton": {
+      title: "La Ventana de Overton",
+      desc: "Teoría política que describe el rango de ideas, conductas o políticas que son consideradas aceptables por la sociedad en un momento dado. Lo que queda fuera se considera inaceptable o impensable."
+    },
+    "isaiah-berlin": {
+      title: "Isaiah Berlin y la Libertad",
+      desc: "Filósofo que distinguió entre libertad negativa ('libertad de' abusos o interferencias) y libertad positiva ('libertad para' tener las condiciones materiales y sociales de decidir)."
+    },
+    "estado-social-derecho": {
+      title: "Estado Social de Derecho",
+      desc: "Modelo que exige que el Estado garantice no solo libertades individuales y la ley, sino también condiciones de vida dignas (educación, salud, trabajo) para toda la población."
+    },
+    "dependencia-trayectoria": {
+      title: "Dependencia de la Trayectoria",
+      desc: "Concepto (Path Dependence) que explica cómo las decisiones pasadas y las costumbres heredadas crean caminos o 'rieles' que limitan y determinan el rumbo del presente."
+    },
+    "sistema-adaptativo-complejo": {
+      title: "Sistema Adaptativo Complejo",
+      desc: "Un sistema formado por múltiples agentes independientes que interactúan entre sí, aprenden y se adaptan constantemente, de modo que el comportamiento colectivo no se puede controlar desde un solo punto."
+    },
+    "esfera-publica": {
+      title: "Esfera Pública / Debate Público",
+      desc: "Concepto de Jürgen Habermas que define el espacio de debate racional donde la ciudadanía discute asuntos de interés general basándose en la verdad y el bien común, libre de la fuerza del poder estatal."
+    },
+    "atractor-democratico": {
+      title: "Atractor Democrático",
+      desc: "El punto de equilibrio hacia el cual tiende un sistema político sano, caracterizado por la resolución pacífica de conflictos y el cumplimiento colectivo de las reglas constitucionales."
+    }
+  };
+
+  terms.forEach(term => {
+    const termKey = term.getAttribute('data-term');
+    const data = glossaryData[termKey];
+    if (!data) return;
+
+    // Hacer el elemento accesible por teclado
+    term.setAttribute('tabindex', '0');
+    term.setAttribute('role', 'button');
+    term.setAttribute('aria-haspopup', 'true');
+
+    const show = (e) => {
+      e.stopPropagation();
+      activeGlossaryTerm = term;
+      
+      // Mostrar y posicionar tooltip
+      tooltip.innerHTML = `
+        <strong>${data.title}</strong>
+        <span style="color: var(--text-primary); font-size: 0.85rem; font-family: var(--font-body); font-weight: 300;">${data.desc}</span>
+      `;
+      tooltip.style.opacity = "1";
+      tooltip.setAttribute("aria-hidden", "false");
+      
+      // Posicionamiento centrado arriba del elemento
+      const rect = term.getBoundingClientRect();
+      // Esperar un tick para que el navegador dibuje el tooltip y así obtener su offsetWidth real
+      setTimeout(() => {
+        const tooltipWidth = tooltip.offsetWidth || 260;
+        const tooltipHeight = tooltip.offsetHeight || 100;
+        
+        const leftPos = rect.left + window.scrollX + (rect.width - tooltipWidth) / 2;
+        const topPos = rect.top + window.scrollY - tooltipHeight - 12;
+        
+        tooltip.style.left = `${Math.max(12, Math.min(leftPos, window.innerWidth - tooltipWidth - 12))}px`;
+        tooltip.style.top = `${topPos}px`;
+      }, 0);
+    };
+
+    const hide = () => {
+      if (activeGlossaryTerm === term) {
+        tooltip.style.opacity = "0";
+        tooltip.setAttribute("aria-hidden", "true");
+        activeGlossaryTerm = null;
+      }
+    };
+
+    // Eventos Desktop
+    term.addEventListener('mouseenter', show);
+    term.addEventListener('mouseleave', hide);
+
+    // Eventos Táctiles y Click (con stopPropagation para evitar que el click fuera lo cierre al instante)
+    term.addEventListener('click', (e) => {
+      if (activeGlossaryTerm === term) {
+        hide();
+      } else {
+        show(e);
+      }
+    });
+
+    // Accesibilidad por teclado
+    term.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (activeGlossaryTerm === term) {
+          hide();
+        } else {
+          show(e);
+        }
+      }
+    });
+    
+    term.addEventListener('focus', show);
+    term.addEventListener('blur', hide);
+  });
+
+  // Cerrar tooltip al hacer click fuera en el documento
+  document.addEventListener('click', () => {
+    if (activeGlossaryTerm) {
+      tooltip.style.opacity = "0";
+      tooltip.setAttribute("aria-hidden", "true");
+      activeGlossaryTerm = null;
+    }
+  });
+
+  // También en eventos touch para móviles
+  document.addEventListener('touchstart', () => {
+    if (activeGlossaryTerm) {
+      tooltip.style.opacity = "0";
+      tooltip.setAttribute("aria-hidden", "true");
+      activeGlossaryTerm = null;
+    }
+  });
+}
+
+// ==========================================================================
+// 7. RESALTADO DE NAVEGACIÓN Y BADGE CONTEXTUAL DE ESTADO (NAVBAR INDICATOR)
+// ==========================================================================
+function setupActiveNavLink() {
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '-30% 0px -60% 0px', // Gatillo centrado en viewport
+    threshold: 0
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active-nav-link');
+          } else {
+            link.classList.remove('active-nav-link');
+          }
+        });
+        
+        // Actualizar contextualización del indicador de la barra de navegación
+        updateNavbarStatusContext(id);
+      }
+    });
+  }, observerOptions);
+  
+  sections.forEach(section => observer.observe(section));
+}
+
+function updateNavbarStatusContext(sectionId) {
+  activeSectionId = sectionId;
+  const navStatusContainer = document.getElementById('nav-status-indicator');
+  const navStatusLabel = document.getElementById('nav-status-label');
+  const navStatusVal = document.getElementById('nav-status-val');
+  
+  if (!navStatusContainer || !navStatusVal) return;
+  
+  // Mostrar u ocultar badge según sección
+  if (['lente-overton', 'anatomia-libertad', 'pacto-social', 'viaje-hero'].includes(sectionId)) {
+    navStatusContainer.classList.add('visible');
+    navStatusLabel.textContent = "Esfera Pública: ";
+    
+    // Obtener estado actual del simulador (leyendo el badge en pantalla)
+    const simulatorBadge = document.getElementById('system-state-badge');
+    if (simulatorBadge) {
+      navStatusVal.textContent = simulatorBadge.textContent;
+      // Aplicar las mismas clases de color
+      navStatusVal.className = 'status-indicator-val ' + simulatorBadge.className.replace('system-badge ', '');
+    }
+  } else if (['timeline-section', 'dependencia-linea', 'conclusiones-seccion'].includes(sectionId)) {
+    navStatusContainer.classList.add('visible');
+    navStatusLabel.textContent = "Normalización: ";
+    
+    // Obtener estado de normalización actual de la línea de tiempo
+    const timelineBadge = document.getElementById('status-stage-badge');
+    if (timelineBadge) {
+      const stageName = timelineBadge.textContent;
+      navStatusVal.textContent = stageName;
+      
+      // Aplicar colores correspondientes
+      if (stageName === 'IMPENSABLE') {
+        navStatusVal.className = 'status-indicator-val badge-democracia';
+      } else if (stageName === 'RADICAL') {
+        navStatusVal.className = 'status-indicator-val badge-tensionada';
+      } else if (stageName.includes('ACEPTABLE')) {
+        navStatusVal.className = 'status-indicator-val val-aceptable';
+      } else if (stageName === 'NORMALIZADO') {
+        navStatusVal.className = 'status-indicator-val badge-degradada';
+      }
+    }
+  } else {
+    // Fuera de estas secciones (ej. Hero, Footer), ocultar el indicador para reducir la carga cognitiva
+    navStatusContainer.classList.remove('visible');
+  }
 }
 
 // Inicializar al cargar la página
