@@ -1306,8 +1306,8 @@ p {
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 24px 16px;
-  margin: 32px auto;
+  padding: 16px 14px;
+  margin: 16px auto;
   max-width: 650px;
   text-align: left;
   box-shadow: 0 4px 20px rgba(28, 25, 23, 0.03);
@@ -1316,7 +1316,8 @@ p {
 
 @media (min-width: 768px) {
   .overton-simulator-container {
-    padding: 32px;
+    padding: 24px 32px;
+    margin: 28px auto;
   }
 }
 
@@ -1325,7 +1326,7 @@ p {
   font-weight: 600;
   font-size: 1.15rem;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--text-primary);
 }
 
@@ -1334,21 +1335,28 @@ p {
   color: var(--text-muted);
   text-align: center;
   margin-top: 0;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 /* Selectores Kaizen (Pestañas) */
 .simulator-selectors {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 600px) {
+  .simulator-selectors {
+    gap: 20px;
+    margin-bottom: 24px;
+  }
 }
 
 .selector-row {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
 @media (min-width: 600px) {
@@ -1380,6 +1388,13 @@ p {
   font-size: 0.76rem;
   color: var(--text-muted);
   line-height: 1.4;
+  min-height: 52px; /* Altura mínima para evitar saltos en móvil al cambiar texto */
+}
+
+@media (min-width: 600px) {
+  .selector-active-desc {
+    min-height: 38px; /* Altura mínima en desktop (caben 2 líneas) */
+  }
 }
 
 .tab-group {
@@ -1535,6 +1550,13 @@ p {
   padding-top: 18px;
   margin-top: 8px;
   text-align: left;
+  min-height: 90px; /* Evita que salte el resto de la página al cambiar el resultado en móvil */
+}
+
+@media (min-width: 600px) {
+  .simulator-narrative-container {
+    min-height: 52px; /* Altura mínima estable para desktop (2 líneas) */
+  }
 }
 
 .simulator-narrative-text {
