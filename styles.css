@@ -207,52 +207,7 @@ p {
   border-radius: 2px;
 }
 
-/* Badge de estado en la barra de navegación */
-.nav-status-indicator {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75rem;
-  padding: 6px 12px;
-  border-radius: 20px;
-  background-color: rgba(28, 25, 23, 0.02);
-  border: 1px solid var(--border);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-5px);
-  transition: opacity 0.4s var(--ease), visibility 0.4s var(--ease), transform 0.4s var(--ease);
-}
 
-.nav-status-indicator.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.status-indicator-label {
-  font-family: var(--font-body);
-  font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.status-indicator-val {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-/* Colores e intensidades especiales */
-.status-indicator-val.val-aceptable {
-  background-color: rgba(154, 52, 18, 0.08);
-  color: #9a3412;
-  border: 1px solid rgba(154, 52, 18, 0.15);
-}
 
 .nav-links a.nav-cta {
   border: 1px solid var(--border);
@@ -1963,11 +1918,6 @@ a.step-item:hover .step-status {
   100% { box-shadow: 0 0 24px rgba(153, 27, 27, 0.3); }
 }
 
-@media (max-width: 900px) {
-  .nav-status-indicator {
-    display: none !important;
-  }
-}
 
 /* Responsive Stepper Styles */
 @media (max-width: 768px) {

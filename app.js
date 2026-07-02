@@ -314,11 +314,7 @@ function setupScrollytelling(casos) {
     if (sidebarStageBadge) sidebarStageBadge.textContent = stage;
     if (sidebarStageDesc) sidebarStageDesc.innerHTML = desc;
     if (sidebarReflection) sidebarReflection.innerHTML = `<strong>Inercia Acumulada:</strong> ${reflection}`;
-    
-    // Sincronizar el badge de la barra de navegación en tiempo real
-    if (typeof activeSectionId !== 'undefined' && ['timeline-section', 'dependencia-linea', 'conclusiones-seccion'].includes(activeSectionId)) {
-      updateNavbarStatusContext(activeSectionId);
-    }
+
   }
 
   function updateGlassShards(maxThresh) {
@@ -509,11 +505,7 @@ function setupOvertonSimulator() {
       }
       updateSegmentsOpacity(2);
     }
-    
-    // Sincronizar el badge de la barra de navegación en tiempo real
-    if (typeof activeSectionId !== 'undefined' && ['lente-overton', 'anatomia-libertad', 'pacto-social', 'viaje-hero'].includes(activeSectionId)) {
-      updateNavbarStatusContext(activeSectionId);
-    }
+
   }
 
   sliderDe.addEventListener('input', updateSimulator);
@@ -680,9 +672,7 @@ function setupActiveNavLink() {
             link.classList.remove('active-nav-link');
           }
         });
-        
-        // Actualizar contextualización del indicador de la barra de navegación
-        updateNavbarStatusContext(id);
+
       }
     });
   }, observerOptions);
@@ -690,52 +680,6 @@ function setupActiveNavLink() {
   sections.forEach(section => observer.observe(section));
 }
 
-function updateNavbarStatusContext(sectionId) {
-  activeSectionId = sectionId;
-  const navStatusContainer = document.getElementById('nav-status-indicator');
-  const navStatusLabel = document.getElementById('nav-status-label');
-  const navStatusVal = document.getElementById('nav-status-val');
-  
-  if (!navStatusContainer || !navStatusVal) return;
-  
-  // Mostrar u ocultar badge según sección
-  if (['lente-overton', 'anatomia-libertad', 'pacto-social', 'viaje-hero'].includes(sectionId)) {
-    navStatusContainer.classList.add('visible');
-    navStatusLabel.textContent = "Esfera Pública: ";
-    
-    // Obtener estado actual del simulador (leyendo el badge en pantalla)
-    const simulatorBadge = document.getElementById('system-state-badge');
-    if (simulatorBadge) {
-      navStatusVal.textContent = simulatorBadge.textContent;
-      // Aplicar las mismas clases de color
-      navStatusVal.className = 'status-indicator-val ' + simulatorBadge.className.replace('system-badge ', '');
-    }
-  } else if (['timeline-section', 'dependencia-linea', 'conclusiones-seccion'].includes(sectionId)) {
-    navStatusContainer.classList.add('visible');
-    navStatusLabel.textContent = "Normalización: ";
-    
-    // Obtener estado de normalización actual de la línea de tiempo
-    const timelineBadge = document.getElementById('status-stage-badge');
-    if (timelineBadge) {
-      const stageName = timelineBadge.textContent;
-      navStatusVal.textContent = stageName;
-      
-      // Aplicar colores correspondientes
-      if (stageName === 'IMPENSABLE') {
-        navStatusVal.className = 'status-indicator-val badge-democracia';
-      } else if (stageName === 'RADICAL') {
-        navStatusVal.className = 'status-indicator-val badge-tensionada';
-      } else if (stageName.includes('ACEPTABLE')) {
-        navStatusVal.className = 'status-indicator-val val-aceptable';
-      } else if (stageName === 'NORMALIZADO') {
-        navStatusVal.className = 'status-indicator-val badge-degradada';
-      }
-    }
-  } else {
-    // Fuera de estas secciones (ej. Hero, Footer), ocultar el indicador para reducir la carga cognitiva
-    navStatusContainer.classList.remove('visible');
-  }
-}
 
 // Inicializar al cargar la página
 window.addEventListener('DOMContentLoaded', initApp);
