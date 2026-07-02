@@ -383,15 +383,36 @@ function setupOvertonSimulator() {
 
   if (!sliderDe || !sliderPara) return;
 
+  // Configurar comportamiento interactivo de botones (tabs)
+  const setupTabGroup = (groupId, inputId) => {
+    const group = document.getElementById(groupId);
+    if (!group) return;
+    const buttons = group.querySelectorAll('.tab-btn');
+    const input = document.getElementById(inputId);
+    if (!buttons.length || !input) return;
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-checked', 'false');
+        });
+        button.classList.add('active');
+        button.setAttribute('aria-checked', 'true');
+        input.value = button.dataset.value;
+        input.dispatchEvent(new Event('input'));
+      });
+    });
+  };
+
+  setupTabGroup('group-libertad-de', 'slider-libertad-de');
+  setupTabGroup('group-libertad-para', 'slider-libertad-para');
+
   function updateSimulator() {
     const valDe = parseInt(sliderDe.value);
     const valPara = parseInt(sliderPara.value);
 
-    // 1. Actualizar clases de sliders para color dinámico de tirador
-    sliderDe.className = `slider-de val-${valDe}`;
-    sliderPara.className = `slider-para val-${valPara}`;
-
-    // 2. Actualizar etiquetas de valor
+    // 2. Actualizar etiquetas de valor (si existen)
     const textDe = valDe === 3 ? "Fuerte" : (valDe === 2 ? "Débil" : "Crítico");
     const textPara = valPara === 3 ? "Fuerte" : (valPara === 2 ? "Limitado" : "Nulo");
     
@@ -404,7 +425,7 @@ function setupOvertonSimulator() {
       labelPara.className = "val-badge " + (valPara === 3 ? "badge-plenas" : (valPara === 2 ? "badge-moderadas" : "badge-bajas"));
     }
 
-    // 3. Determinar el estado del sistema y actualizarCopies
+    // 3. Determinar el estado del sistema y actualizar copias
     if (valDe === 3 && valPara === 3) {
       if (systemStateBadge) {
         systemStateBadge.textContent = "DEMOCRÁTICA";
@@ -421,7 +442,7 @@ function setupOvertonSimulator() {
         windowLens.className = "window-lens state-democracia";
       }
       if (resultCard) {
-        resultCard.className = "result-card state-democracia";
+        resultCard.className = "simulator-narrative-container state-democracia";
       }
     } else if (valDe === 1 || valPara === 1) {
       if (systemStateBadge) {
@@ -436,7 +457,7 @@ function setupOvertonSimulator() {
         windowLens.className = "window-lens state-degradada";
       }
       if (resultCard) {
-        resultCard.className = "result-card state-degradada";
+        resultCard.className = "simulator-narrative-container state-degradada";
       }
       
       let descText = "";
@@ -464,7 +485,7 @@ function setupOvertonSimulator() {
         windowLens.className = "window-lens state-tensionada";
       }
       if (resultCard) {
-        resultCard.className = "result-card state-tensionada";
+        resultCard.className = "simulator-narrative-container state-tensionada";
       }
     }
     

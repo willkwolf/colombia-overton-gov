@@ -74,89 +74,62 @@
       <!-- Simulador de la Esfera Pública -->
       <div class="overton-simulator-container">
         <h3 class="simulator-title">Simulador: La <span class="glossary-term" data-term="ventana-overton">Ventana de lo Tolerable</span></h3>
-        <p class="simulator-intro-desc">Mueve los deslizadores para ver cómo la pérdida de libertades estira lo que consideramos aceptable.</p>
+        <p class="simulator-intro-desc">Elige el nivel de libertades para ver cómo se expande la frontera de lo que la sociedad tolera.</p>
         
-        <div class="simulator-controls">
-          <!-- Slider 1: Garantías Civiles -->
-          <div class="control-group">
-            <label for="slider-libertad-de" class="control-label">
-              <span class="control-main-label">Garantías Civiles (Libertad DE)</span>
-              <span id="label-val-de" class="val-badge badge-de">Fuerte</span>
-            </label>
-            <div class="slider-wrapper">
-              <input type="range" id="slider-libertad-de" min="1" max="3" value="3" step="1" class="slider-de val-3" aria-describedby="desc-de">
-              <div class="slider-ticks">
-                <span>🔴 Crítico</span>
-                <span>🟡 Débil</span>
-                <span>🟢 Fuerte</span>
-              </div>
+        <!-- Inputs ocultos para mantener compatibilidad con JS -->
+        <input type="hidden" id="slider-libertad-de" value="3">
+        <input type="hidden" id="slider-libertad-para" value="3">
+
+        <div class="simulator-selectors">
+          <!-- Control 1: Garantías Civiles -->
+          <div class="selector-row">
+            <span class="selector-label" id="desc-de">Garantías Civiles (Libertad DE)</span>
+            <div class="tab-group" id="group-libertad-de" data-input-id="slider-libertad-de" role="radiogroup" aria-labelledby="desc-de">
+              <button type="button" class="tab-btn" data-value="1" role="radio" aria-checked="false">Crítico</button>
+              <button type="button" class="tab-btn" data-value="2" role="radio" aria-checked="false">Débil</button>
+              <button type="button" class="tab-btn active" data-value="3" role="radio" aria-checked="true">Fuerte</button>
             </div>
-            <span id="desc-de" class="control-desc">¿El Estado respeta tu privacidad, protesta y libre opinión sin abusar de ti?</span>
           </div>
 
-          <!-- Slider 2: Oportunidades -->
-          <div class="control-group">
-            <label for="slider-libertad-para" class="control-label">
-              <span class="control-main-label">Derechos Materiales (Libertad PARA)</span>
-              <span id="label-val-para" class="val-badge badge-para">Fuerte</span>
-            </label>
-            <div class="slider-wrapper">
-              <input type="range" id="slider-libertad-para" min="1" max="3" value="3" step="1" class="slider-para val-3" aria-describedby="desc-para">
-              <div class="slider-ticks">
-                <span>🔴 Nulo</span>
-                <span>🟡 Limitado</span>
-                <span>🟢 Fuerte</span>
-              </div>
+          <!-- Control 2: Oportunidades -->
+          <div class="selector-row">
+            <span class="selector-label" id="desc-para">Derechos Materiales (Libertad PARA)</span>
+            <div class="tab-group" id="group-libertad-para" data-input-id="slider-libertad-para" role="radiogroup" aria-labelledby="desc-para">
+              <button type="button" class="tab-btn" data-value="1" role="radio" aria-checked="false">Nulo</button>
+              <button type="button" class="tab-btn" data-value="2" role="radio" aria-checked="false">Limitado</button>
+              <button type="button" class="tab-btn active" data-value="3" role="radio" aria-checked="true">Fuerte</button>
             </div>
-            <span id="desc-para" class="control-desc">¿El Estado provee colegios públicos, hospitales y servicios esenciales de calidad?</span>
           </div>
         </div>
 
-        <!-- REPRESENTACIÓN GRÁFICA DE LA VENTANA DE OVERTON -->
-        <div class="overton-visual-track" aria-hidden="true">
+        <!-- ESCALA VISUAL HORIZONTAL DE LA VENTANA DE OVERTON -->
+        <div class="overton-visual-scale" aria-hidden="true">
           <div class="window-lens state-democracia" id="window-lens">
-            <span class="lens-text">LO TOLERABLE</span>
+            <span class="lens-text">VENTANA DE LO TOLERABLE</span>
           </div>
-          
-          <div class="track-node">
-            <span class="node-emoji">🟢</span>
-            <div class="node-meta">
-              <div class="node-title">Debate Sano</div>
-              <div class="node-sub">Discutimos con respeto y no se aceptan trampas.</div>
-            </div>
+          <div class="scale-segment">
+            <span class="segment-num">01</span>
+            <span class="segment-title">Debate Sano</span>
           </div>
-          <div class="track-node">
-            <span class="node-emoji">🟡</span>
-            <div class="node-meta">
-              <div class="node-title">Abuso Moderado</div>
-              <div class="node-sub">Se tolera espiar o presionar "un poco" por orden.</div>
-            </div>
+          <div class="scale-segment">
+            <span class="segment-num">02</span>
+            <span class="segment-title">Abuso Moderado</span>
           </div>
-          <div class="track-node">
-            <span class="node-emoji">🔴</span>
-            <div class="node-meta">
-              <div class="node-title">Pacto Roto</div>
-              <div class="node-sub">Comprar votos y el espionaje se vuelven la rutina.</div>
-            </div>
+          <div class="scale-segment">
+            <span class="segment-num">03</span>
+            <span class="segment-title">Pacto Roto</span>
           </div>
         </div>
 
-        <!-- Resultados Simplificados -->
-        <div class="simulator-results">
-          <div class="result-card state-democracia" id="result-card">
-            <div class="result-card-header">
-              <span class="result-label">Estado de la <span class="glossary-term" data-term="esfera-publica">Esfera Pública</span>:</span>
-              <span id="system-state-badge" class="system-badge badge-democracia">DEMOCRÁTICA</span>
-            </div>
-            <div class="result-card-body">
-              <div class="overton-status-title">
-                Límite de lo tolerable: <span id="overton-state-label" class="label-democracia">Impensable</span>
-              </div>
-              <p id="overton-state-desc" class="overton-desc">
-                Los abusos de poder son rechazados unánimemente. Hay debate racional y libertades plenas.
-              </p>
-            </div>
-          </div>
+        <!-- Resultados Narrativos Cohesivos -->
+        <div class="simulator-narrative-container" id="result-card">
+          <p class="simulator-narrative-text">
+            Bajo este escenario, la esfera pública se torna
+            <span id="system-state-badge" class="system-badge badge-democracia">DEMOCRÁTICA</span>.
+            El límite de lo tolerable llega hasta un nivel
+            <span id="overton-state-label" class="label-democracia">Impensable</span>:
+            <span id="overton-state-desc" class="overton-desc">Los abusos de poder son rechazados unánimemente. Hay debate racional y libertades plenas.</span>
+          </p>
         </div>
       </div>
       
