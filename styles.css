@@ -1501,29 +1501,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(28, 25, 23, 0.08);
+  box-shadow: 0 4px 14px rgba(28, 25, 23, 0.15); /* Más sombra para darle relieve de marco */
   width: calc(33.33% - 4px);
-  border: 1px solid var(--text-primary);
-  background: rgba(253, 251, 247, 0.75);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.window-lens .lens-text {
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  background-color: var(--surface);
-  color: var(--text-primary);
-  padding: 0 6px;
-  white-space: nowrap;
-  opacity: 0.9;
-  transition: opacity 0.3s var(--ease);
+  border: 2px solid var(--text-primary); /* Más tinta (borde de marco de 2px) */
+  background: rgba(253, 251, 247, 0.45); /* Vidrio semi-translúcido más claro para máxima legibilidad del texto inferior */
+  backdrop-filter: blur(1.5px); /* Suave desenfoque para dar sensación de cristal sin enturbiar el texto */
+  -webkit-backdrop-filter: blur(1.5px);
 }
 
 /* Desplazamiento de la Ventana */
@@ -1537,13 +1520,6 @@ p {
 
 .window-lens.pos-3 {
   left: calc(66.66% - 1px);
-}
-
-/* Lens states (Neutrales) */
-.window-lens.state-democracia .lens-text,
-.window-lens.state-tensionada .lens-text,
-.window-lens.state-degradada .lens-text {
-  color: var(--text-primary);
 }
 
 /* Resultados Narrativos Cohesivos */
