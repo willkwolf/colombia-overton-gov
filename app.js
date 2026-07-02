@@ -693,7 +693,22 @@ function setupActiveNavLink() {
 function updateSimulatorShareLinks(stateName, overtonDescText) {
   // Construir una URL limpia sin hashes de anclas
   const pageUrl = window.location.href.split('#')[0];
-  const textMsg = `En el simulador de la Ventana de Overton de Colombia obtuve un sistema de ESFERA PÚBLICA: ${stateName}. Límite de lo tolerable: "${overtonDescText}". Descúbrelo aquí:`;
+  
+  let textMsg = "";
+  if (stateName === "DEMOCRÁTICA") {
+    textMsg = `Mi percepción sobre la esfera pública en Colombia se alinea con un Disenso Racional: las garantías y el debate crítico son aún viables. Mide tu percepción aquí:`;
+  } else if (stateName === "TENSIONADA") {
+    textMsg = `Mi percepción sobre la esfera pública en Colombia es de una Democracia Vigilada: las libertades y derechos empiezan a verse restringidos. Mide tu percepción aquí:`;
+  } else {
+    // DEGRADADA (Pacto de Impunidad)
+    let detail = "el desvío de recursos y el espionaje político ya están normalizados";
+    if (overtonDescText.includes("persecución política")) {
+      detail = "el espionaje y la persecución política ya están normalizados";
+    } else if (overtonDescText.includes("desvío de dinero")) {
+      detail = "el desvío de recursos vitales de los ciudadanos ya está normalizado";
+    }
+    textMsg = `Siento que la esfera pública en Colombia ha derivado en un Pacto de Impunidad: donde ${detail}. Mide tu percepción aquí:`;
+  }
   
   const encodedText = encodeURIComponent(textMsg);
   const encodedUrl = encodeURIComponent(pageUrl);
