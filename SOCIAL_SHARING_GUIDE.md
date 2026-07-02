@@ -44,7 +44,9 @@ Utilizar únicamente URLs nativas de compartición (Web Intents). Esto se proces
 *   **WhatsApp**:
     `https://api.whatsapp.com/send?text={TEXTO_ENCODED}%20{URL_ENCODED}`
 
-*Nota: Todos los textos y URLs deben estar formateados mediante `encodeURIComponent()` en JavaScript para evitar roturas de caracteres especiales.*
+*Nota 1: Todos los textos y URLs deben estar formateados mediante `encodeURIComponent()` en JavaScript para evitar roturas de caracteres especiales.*
+
+*Nota 2 (Secreto de Facebook/LinkedIn): A diferencia de X y WhatsApp, Facebook y LinkedIn ignoran los parámetros de texto personalizados en el URL por políticas de prevención de spam. Extraen la información de previsualización (título, descripción, imagen) directamente de los tags de metadatos Open Graph (`og:title` y `og:description`) declarados en la cabecera `<head>` de la página. Por tanto, para cambiar el texto compartido en estas redes, siempre debes configurar dichos meta tags en el HTML.*
 
 ### 3.2 Copiado al Portapapeles Inteligente (Instagram y General)
 Dado que redes como Instagram no permiten compartir enlaces directamente desde un anchor web, proveer siempre un botón de **Copiar Enlace** con la siguiente lógica:
