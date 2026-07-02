@@ -238,6 +238,14 @@ function setupScrollytelling(casos) {
           // Resaltar tarjeta actual
           entry.target.classList.add('active-scrolly-card');
           
+          // Desbloquear secuencialmente la tarjeta actual y todas las anteriores para que sigan legibles
+          for (let i = 0; i <= caseIndex; i++) {
+            const prevEl = document.getElementById(`item-${casos[i].caso_id}`);
+            if (prevEl) {
+              prevEl.classList.add('unlocked');
+            }
+          }
+          
           // Actualizar panel lateral
           const data = casesWithThreshold[caseIndex];
           updateSidebar(data);

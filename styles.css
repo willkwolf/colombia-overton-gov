@@ -520,7 +520,8 @@ p {
   transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
   transform: translateY(10px);
 }
-.timeline-item.active-scrolly-card {
+.timeline-item.active-scrolly-card,
+.timeline-item.unlocked {
   opacity: 1;
   transform: translateY(0);
 }
