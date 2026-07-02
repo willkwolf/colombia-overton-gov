@@ -373,15 +373,32 @@ function hideTooltip() {
 function setupOvertonSimulator() {
   const sliderDe = document.getElementById('slider-libertad-de');
   const sliderPara = document.getElementById('slider-libertad-para');
-  const labelDe = document.getElementById('label-val-de');
-  const labelPara = document.getElementById('label-val-para');
   const systemStateBadge = document.getElementById('system-state-badge');
   const overtonLabel = document.getElementById('overton-state-label');
   const overtonDesc = document.getElementById('overton-state-desc');
   const resultCard = document.getElementById('result-card');
   const windowLens = document.getElementById('window-lens');
+  const activeDescDe = document.getElementById('active-desc-de');
+  const activeDescPara = document.getElementById('active-desc-para');
+
+  const seg1 = document.getElementById('segment-1');
+  const seg2 = document.getElementById('segment-2');
+  const seg3 = document.getElementById('segment-3');
 
   if (!sliderDe || !sliderPara) return;
+
+  // Diccionario de textos descriptivos cohesivos y constitucionales
+  const descDeMap = {
+    3: "El Estado respeta y salvaguarda tu privacidad, libre opinión y protesta sin interferencias.",
+    2: "Se toleran abusos y vigilancia parcial bajo justificaciones de orden público o seguridad nacional.",
+    1: "El espionaje político y la persecución estatal se normalizan como herramientas de control rutinario."
+  };
+
+  const descParaMap = {
+    3: "El Estado garantiza el acceso universal a servicios esenciales (salud, educación) de alta calidad.",
+    2: "Los servicios públicos fundamentales son deficientes y quedan expuestos al clientelismo menor.",
+    1: "Desvío crónico de fondos de servicios esenciales para financiar la compra de votos y favores políticos."
+  };
 
   // Configurar comportamiento interactivo de botones (tabs)
   const setupTabGroup = (groupId, inputId) => {
@@ -408,25 +425,24 @@ function setupOvertonSimulator() {
   setupTabGroup('group-libertad-de', 'slider-libertad-de');
   setupTabGroup('group-libertad-para', 'slider-libertad-para');
 
+  // Controlar atenuación de opacidad de los segmentos fuera de la ventana
+  const updateSegmentsOpacity = (activeNum) => {
+    if (seg1) seg1.classList.toggle('out-of-window', activeNum !== 1);
+    if (seg2) seg2.classList.toggle('out-of-window', activeNum !== 2);
+    if (seg3) seg3.classList.toggle('out-of-window', activeNum !== 3);
+  };
+
   function updateSimulator() {
     const valDe = parseInt(sliderDe.value);
     const valPara = parseInt(sliderPara.value);
 
-    // 2. Actualizar etiquetas de valor (si existen)
-    const textDe = valDe === 3 ? "Fuerte" : (valDe === 2 ? "Débil" : "Crítico");
-    const textPara = valPara === 3 ? "Fuerte" : (valPara === 2 ? "Limitado" : "Nulo");
-    
-    if (labelDe) {
-      labelDe.textContent = textDe;
-      labelDe.className = "val-badge " + (valDe === 3 ? "badge-plenas" : (valDe === 2 ? "badge-moderadas" : "badge-bajas"));
-    }
-    if (labelPara) {
-      labelPara.textContent = textPara;
-      labelPara.className = "val-badge " + (valPara === 3 ? "badge-plenas" : (valPara === 2 ? "badge-moderadas" : "badge-bajas"));
-    }
+    // Actualizar descripciones activas bajo los botones
+    if (activeDescDe) activeDescDe.textContent = descDeMap[valDe];
+    if (activeDescPara) activeDescPara.textContent = descParaMap[valPara];
 
-    // 3. Determinar el estado del sistema y actualizar copias
+    // Determinar el estado del sistema y desplazar la ventana deslizante
     if (valDe === 3 && valPara === 3) {
+      // Estado 1: Democrática -> Ventana en segmento 1 (Debate Sano)
       if (systemStateBadge) {
         systemStateBadge.textContent = "DEMOCRÁTICA";
         systemStateBadge.className = "system-badge badge-democracia";
@@ -439,12 +455,14 @@ function setupOvertonSimulator() {
         overtonDesc.textContent = "Los abusos de poder son rechazados unánimemente. Hay debate racional y libertades plenas.";
       }
       if (windowLens) {
-        windowLens.className = "window-lens state-democracia";
+        windowLens.className = "window-lens pos-1 state-democracia";
       }
       if (resultCard) {
         resultCard.className = "simulator-narrative-container state-democracia";
       }
+      updateSegmentsOpacity(1);
     } else if (valDe === 1 || valPara === 1) {
+      // Estado 3: Degradada -> Ventana en segmento 3 (Pacto Roto)
       if (systemStateBadge) {
         systemStateBadge.textContent = "DEGRADADA";
         systemStateBadge.className = "system-badge badge-degradada";
@@ -454,7 +472,7 @@ function setupOvertonSimulator() {
         overtonLabel.className = "label-degradada";
       }
       if (windowLens) {
-        windowLens.className = "window-lens state-degradada";
+        windowLens.className = "window-lens pos-3 state-degradada";
       }
       if (resultCard) {
         resultCard.className = "simulator-narrative-container state-degradada";
@@ -469,7 +487,9 @@ function setupOvertonSimulator() {
         descText = "Se normaliza el desvío de dinero de servicios esenciales, dejando al ciudadano sin oportunidades.";
       }
       if (overtonDesc) overtonDesc.textContent = descText;
+      updateSegmentsOpacity(3);
     } else {
+      // Estado 2: Tensionada -> Ventana en segmento 2 (Abuso Moderado)
       if (systemStateBadge) {
         systemStateBadge.textContent = "TENSIONADA";
         systemStateBadge.className = "system-badge badge-tensionada";
@@ -482,11 +502,12 @@ function setupOvertonSimulator() {
         overtonDesc.textContent = "Se empiezan a tolerar desvíos menores (espionaje parcial, descuido de servicios) bajo promesas de seguridad o urgencia.";
       }
       if (windowLens) {
-        windowLens.className = "window-lens state-tensionada";
+        windowLens.className = "window-lens pos-2 state-tensionada";
       }
       if (resultCard) {
         resultCard.className = "simulator-narrative-container state-tensionada";
       }
+      updateSegmentsOpacity(2);
     }
     
     // Sincronizar el badge de la barra de navegación en tiempo real

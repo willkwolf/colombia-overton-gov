@@ -74,7 +74,7 @@
       <!-- Simulador de la Esfera Pública -->
       <div class="overton-simulator-container">
         <h3 class="simulator-title">Simulador: La <span class="glossary-term" data-term="ventana-overton">Ventana de lo Tolerable</span></h3>
-        <p class="simulator-intro-desc">Elige el nivel de libertades para ver cómo se expande la frontera de lo que la sociedad tolera.</p>
+        <p class="simulator-intro-desc">Elige el nivel de libertades para ver cómo se desplaza la ventana de lo aceptable en la política.</p>
         
         <!-- Inputs ocultos para mantener compatibilidad con JS -->
         <input type="hidden" id="slider-libertad-de" value="3">
@@ -83,21 +83,27 @@
         <div class="simulator-selectors">
           <!-- Control 1: Garantías Civiles -->
           <div class="selector-row">
-            <span class="selector-label" id="desc-de">Garantías Civiles (Libertad DE)</span>
+            <div class="selector-meta">
+              <span class="selector-label" id="desc-de">Garantías Civiles (Libertad DE)</span>
+              <span class="selector-active-desc" id="active-desc-de">Cargando...</span>
+            </div>
             <div class="tab-group" id="group-libertad-de" data-input-id="slider-libertad-de" role="radiogroup" aria-labelledby="desc-de">
-              <button type="button" class="tab-btn" data-value="1" role="radio" aria-checked="false">Crítico</button>
-              <button type="button" class="tab-btn" data-value="2" role="radio" aria-checked="false">Débil</button>
-              <button type="button" class="tab-btn active" data-value="3" role="radio" aria-checked="true">Fuerte</button>
+              <button type="button" class="tab-btn" data-value="1" role="radio" aria-checked="false">Anuladas</button>
+              <button type="button" class="tab-btn" data-value="2" role="radio" aria-checked="false">Restringidas</button>
+              <button type="button" class="tab-btn active" data-value="3" role="radio" aria-checked="true">Plenas</button>
             </div>
           </div>
 
           <!-- Control 2: Oportunidades -->
           <div class="selector-row">
-            <span class="selector-label" id="desc-para">Derechos Materiales (Libertad PARA)</span>
+            <div class="selector-meta">
+              <span class="selector-label" id="desc-para">Derechos Materiales (Libertad PARA)</span>
+              <span class="selector-active-desc" id="active-desc-para">Cargando...</span>
+            </div>
             <div class="tab-group" id="group-libertad-para" data-input-id="slider-libertad-para" role="radiogroup" aria-labelledby="desc-para">
-              <button type="button" class="tab-btn" data-value="1" role="radio" aria-checked="false">Nulo</button>
-              <button type="button" class="tab-btn" data-value="2" role="radio" aria-checked="false">Limitado</button>
-              <button type="button" class="tab-btn active" data-value="3" role="radio" aria-checked="true">Fuerte</button>
+              <button type="button" class="tab-btn" data-value="1" role="radio" aria-checked="false">Inexistentes</button>
+              <button type="button" class="tab-btn" data-value="2" role="radio" aria-checked="false">Precarios</button>
+              <button type="button" class="tab-btn active" data-value="3" role="radio" aria-checked="true">Plenos</button>
             </div>
           </div>
         </div>
@@ -107,15 +113,15 @@
           <div class="window-lens state-democracia" id="window-lens">
             <span class="lens-text">VENTANA DE LO TOLERABLE</span>
           </div>
-          <div class="scale-segment">
+          <div class="scale-segment" id="segment-1">
             <span class="segment-num">01</span>
             <span class="segment-title">Debate Sano</span>
           </div>
-          <div class="scale-segment">
+          <div class="scale-segment" id="segment-2">
             <span class="segment-num">02</span>
             <span class="segment-title">Abuso Moderado</span>
           </div>
-          <div class="scale-segment">
+          <div class="scale-segment" id="segment-3">
             <span class="segment-num">03</span>
             <span class="segment-title">Pacto Roto</span>
           </div>
@@ -126,7 +132,7 @@
           <p class="simulator-narrative-text">
             Bajo este escenario, la esfera pública se torna
             <span id="system-state-badge" class="system-badge badge-democracia">DEMOCRÁTICA</span>.
-            El límite de lo tolerable llega hasta un nivel
+            El límite de lo tolerable se sitúa en un nivel
             <span id="overton-state-label" class="label-democracia">Impensable</span>:
             <span id="overton-state-desc" class="overton-desc">Los abusos de poder son rechazados unánimemente. Hay debate racional y libertades plenas.</span>
           </p>
