@@ -438,7 +438,7 @@ function setupOvertonSimulator() {
 
     // Determinar el estado del sistema y desplazar la ventana deslizante
     if (valDe === 3 && valPara === 3) {
-      // Estado 1: Democrática -> Ventana en segmento 1 (Debate Sano)
+      // Estado 1: Democrática -> Ventana en segmento 1 (Disenso Racional)
       if (systemStateBadge) {
         systemStateBadge.textContent = "DEMOCRÁTICA";
         systemStateBadge.className = "system-badge badge-democracia";
@@ -458,7 +458,7 @@ function setupOvertonSimulator() {
       }
       updateSegmentsOpacity(1);
     } else if (valDe === 1 || valPara === 1) {
-      // Estado 3: Degradada -> Ventana en segmento 3 (Pacto Roto)
+      // Estado 3: Degradada -> Ventana en segmento 3 (Pacto de Impunidad)
       if (systemStateBadge) {
         systemStateBadge.textContent = "DEGRADADA";
         systemStateBadge.className = "system-badge badge-degradada";
@@ -485,7 +485,7 @@ function setupOvertonSimulator() {
       if (overtonDesc) overtonDesc.textContent = descText;
       updateSegmentsOpacity(3);
     } else {
-      // Estado 2: Tensionada -> Ventana en segmento 2 (Abuso Moderado)
+      // Estado 2: Tensionada -> Ventana en segmento 2 (Democracia Vigilada)
       if (systemStateBadge) {
         systemStateBadge.textContent = "TENSIONADA";
         systemStateBadge.className = "system-badge badge-tensionada";
