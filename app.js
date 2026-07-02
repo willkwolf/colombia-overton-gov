@@ -37,6 +37,9 @@ async function initApp() {
     // Inicializar Resaltado de Sección de Navegación y Badge de Estado
     setupActiveNavLink();
     
+    // Inicializar Compartición y Copiado al Portapapeles
+    setupClipboardSharing();
+    
   } catch (error) {
     console.error("Error al inicializar la aplicación:", error);
     if (timelineContainer) {
@@ -506,6 +509,10 @@ function setupOvertonSimulator() {
       updateSegmentsOpacity(2);
     }
 
+    // Actualizar links de compartir del simulador en tiempo real
+    const stateName = systemStateBadge ? systemStateBadge.textContent : "";
+    const overtonDescText = overtonDesc ? overtonDesc.textContent : "";
+    updateSimulatorShareLinks(stateName, overtonDescText);
   }
 
   sliderDe.addEventListener('input', updateSimulator);
@@ -678,6 +685,58 @@ function setupActiveNavLink() {
   }, observerOptions);
   
   sections.forEach(section => observer.observe(section));
+}
+
+// ==========================================================================
+// 8. FUNCIONALIDADES DE COMPARTIR Y COPIAR AL PORTAPAPELES
+// ==========================================================================
+function updateSimulatorShareLinks(stateName, overtonDescText) {
+  // Construir una URL limpia sin hashes de anclas
+  const pageUrl = window.location.href.split('#')[0];
+  const textMsg = `En el simulador de la Ventana de Overton de Colombia obtuve un sistema de ESFERA PÚBLICA: ${stateName}. Límite de lo tolerable: "${overtonDescText}". Descúbrelo aquí:`;
+  
+  const encodedText = encodeURIComponent(textMsg);
+  const encodedUrl = encodeURIComponent(pageUrl);
+  
+  const xBtn = document.getElementById('share-sim-x');
+  const fbBtn = document.getElementById('share-sim-fb');
+  const liBtn = document.getElementById('share-sim-li');
+  const waBtn = document.getElementById('share-sim-wa');
+  
+  if (xBtn) xBtn.href = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+  if (fbBtn) fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+  if (liBtn) liBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+  if (waBtn) waBtn.href = `https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`;
+}
+
+function setupClipboardSharing() {
+  const pageUrl = window.location.href.split('#')[0];
+  
+  const copySimBtn = document.getElementById('share-sim-copy');
+  const copyProjBtn = document.getElementById('share-proj-copy');
+  
+  const tooltipSim = document.getElementById('copy-tooltip-sim');
+  const tooltipProj = document.getElementById('copy-tooltip-proj');
+  
+  function copyText(tooltip) {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      if (tooltip) {
+        tooltip.classList.add('show');
+        setTimeout(() => {
+          tooltip.classList.remove('show');
+        }, 2000);
+      }
+    }).catch(err => {
+      console.error('Error al copiar enlace: ', err);
+    });
+  }
+  
+  if (copySimBtn) {
+    copySimBtn.addEventListener('click', () => copyText(tooltipSim));
+  }
+  if (copyProjBtn) {
+    copyProjBtn.addEventListener('click', () => copyText(tooltipProj));
+  }
 }
 
 

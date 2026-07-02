@@ -128,6 +128,27 @@
             <span id="overton-state-label" class="label-democracia">Impensable</span>:
             <span id="overton-state-desc" class="overton-desc">Los abusos de poder son rechazados unánimemente. Hay debate racional y libertades plenas.</span>
           </p>
+          <div class="simulator-share-row">
+            <span class="share-label">Compartir simulación:</span>
+            <div class="share-buttons-group">
+              <a href="#" class="share-btn share-x" id="share-sim-x" target="_blank" rel="noopener" aria-label="Compartir simulación en X">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="#" class="share-btn share-fb" id="share-sim-fb" target="_blank" rel="noopener" aria-label="Compartir simulación en Facebook">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+              </a>
+              <a href="#" class="share-btn share-li" id="share-sim-li" target="_blank" rel="noopener" aria-label="Compartir simulación en LinkedIn">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="#" class="share-btn share-wa" id="share-sim-wa" target="_blank" rel="noopener" aria-label="Compartir simulación en WhatsApp">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.727-1.458L0 24zm6.59-4.846c1.6.95 2.8 1.4 4.8 1.4 5.5 0 10-4.5 10-10s-4.5-10-10-10-10 4.5-10 10c0 2 .5 3.5 1.4 5.1L1.85 22.1l4.797-1.946zM17.486 14.14c-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-3.519-1.758-4.717-3.21-5.187-4.025-.3-.525.05-.5.35-.8.275-.275.3-.375.45-.625.05-.1-.025-.225-.1-.375-.075-.15-.675-1.625-.925-2.225-.244-.588-.493-.508-.675-.515-.175-.007-.375-.01-.575-.01-.2 0-.525.075-.8 3.75-.275.3-1.05 1.625-2.55 2.925-1.5 1.3-2.775 1.625-3.1 1.7-.325.075-1.125.25-1.675.225-.55-.025-1.7-.9-1.85-2.525z"/></svg>
+              </a>
+              <button type="button" class="share-btn copy-btn" id="share-sim-copy" aria-label="Copiar enlace de simulación">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span class="copy-tooltip" id="copy-tooltip-sim">¡Copiado!</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -492,9 +513,37 @@
         <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px; color: var(--text-primary); text-align: center; font-style: italic;">
           ¿Nos condena la inercia del pasado a ignorar la ley, o tenemos la capacidad de asumir la Constitución como una regla de juego compartida y real?
         </p>
-        <p style="font-size: 0.95rem; line-height: 1.6; font-weight: 600; text-align: center; color: var(--accent-novelty); margin-top: 20px;">
+        <p style="font-size: 0.95rem; line-height: 1.6; font-weight: 600; text-align: center; color: var(--accent-novelty); margin-top: 20px; margin-bottom: 32px;">
           La verdadera tarea es reflexionar: ¿cómo podemos organizarnos para que el pacto de 1991 deje de ser una inercia de papel y sea una práctica activa de nuestro presente?
         </p>
+
+        <!-- Compartir Proyecto -->
+        <div class="share-project-box">
+          <span class="share-project-label">Comparte esta investigación</span>
+          <div class="share-project-buttons">
+            <a href="https://twitter.com/intent/tweet?text=¿Cómo%20se%20desplazan%20los%20límites%20de%20lo%20aceptable%20en%20nuestra%20democracia?%20Explora%20este%20análisis%20del%20impacto%20institucional%20en%20Colombia%20bajo%20la%20Ventana%20de%20Overton.&url=https://willkwolf.github.io/colombia-overton-gov/" class="share-project-btn" target="_blank" rel="noopener" aria-label="Compartir en X">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X (Twitter)</span>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://willkwolf.github.io/colombia-overton-gov/" class="share-project-btn" target="_blank" rel="noopener" aria-label="Compartir en Facebook">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://willkwolf.github.io/colombia-overton-gov/" class="share-project-btn" target="_blank" rel="noopener" aria-label="Compartir en LinkedIn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://api.whatsapp.com/send?text=¿Cómo%20se%20desplazan%20los%20límites%20de%20lo%20aceptable%20en%20nuestra%20democracia?%20Explora%20este%20análisis%20del%20impacto%20institucional%20en%20Colombia%20bajo%20la%20Ventana%20de%20Overton:%20https://willkwolf.github.io/colombia-overton-gov/" class="share-project-btn" target="_blank" rel="noopener" aria-label="Compartir en WhatsApp">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.727-1.458L0 24zm6.59-4.846c1.6.95 2.8 1.4 4.8 1.4 5.5 0 10-4.5 10-10s-4.5-10-10-10-10 4.5-10 10c0 2 .5 3.5 1.4 5.1L1.85 22.1l4.797-1.946zM17.486 14.14c-.3-.15-1.775-.875-2.05-.975-.275-.1-.475-.15-.675.15-.2.3-.775.975-.95 1.175-.175.2-.35.225-.65.075-3.519-1.758-4.717-3.21-5.187-4.025-.3-.525.05-.5.35-.8.275-.275.3-.375.45-.625.05-.1-.025-.225-.1-.375-.075-.15-.675-1.625-.925-2.225-.244-.588-.493-.508-.675-.515-.175-.007-.375-.01-.575-.01-.2 0-.525.075-.8 3.75-.275.3-1.05 1.625-2.55 2.925-1.5 1.3-2.775 1.625-3.1 1.7-.325.075-1.125.25-1.675.225-.55-.025-1.7-.9-1.85-2.525z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <button type="button" class="share-project-btn copy-btn" id="share-proj-copy" aria-label="Copiar enlace de investigación">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copiar Enlace</span>
+              <span class="copy-tooltip" id="copy-tooltip-proj">¡Copiado!</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
