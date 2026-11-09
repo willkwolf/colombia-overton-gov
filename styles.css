@@ -1613,6 +1613,299 @@ p {
 /* ==========================================================================
    KAIZEN OPTIMIZATIONS (3-MINUTE ATTENTION & CARDS)
    ========================================================================== */
+/* ==========================================================================
+   ACORDEÓN PEDAGÓGICO DE TRAYECTORIA E INERCIA (SECCIÓN 6 - VERGARA VARELA)
+   ========================================================================== */
+.trajectory-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 820px;
+  margin: 0 auto 28px auto;
+  text-align: left;
+}
+
+.trajectory-row {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.25s var(--ease);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(28, 25, 23, 0.02);
+}
+
+.trajectory-row:hover {
+  border-color: rgba(224, 86, 56, 0.35);
+  box-shadow: 0 4px 16px rgba(28, 25, 23, 0.04);
+}
+
+.trajectory-row[open] {
+  border-left: 4px solid var(--accent-novelty);
+  box-shadow: 0 6px 20px rgba(28, 25, 23, 0.06);
+}
+
+.trajectory-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  gap: 16px;
+  background-color: transparent;
+  transition: background-color 0.2s var(--ease);
+}
+
+.trajectory-summary::-webkit-details-marker {
+  display: none;
+}
+
+.trajectory-summary:hover {
+  background-color: rgba(28, 25, 23, 0.015);
+}
+
+.trajectory-summary:focus-visible {
+  outline: 2px solid var(--accent-novelty);
+  outline-offset: -2px;
+}
+
+.trajectory-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1;
+}
+
+.trajectory-num {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-novelty);
+  background-color: rgba(224, 86, 56, 0.08);
+  border: 1px solid rgba(224, 86, 56, 0.2);
+  padding: 6px 10px;
+  border-radius: 6px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trajectory-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.trajectory-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.trajectory-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.trajectory-concept {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-info);
+  background: rgba(44, 122, 123, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.trajectory-title {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.trajectory-lead {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 640px;
+}
+
+.trajectory-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: rgba(28, 25, 23, 0.03);
+  border: 1px solid var(--border);
+  transition: all 0.2s var(--ease);
+}
+
+.trajectory-row:hover .trajectory-action {
+  border-color: rgba(224, 86, 56, 0.3);
+  background-color: rgba(224, 86, 56, 0.06);
+}
+
+.trajectory-toggle-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.trajectory-row:hover .trajectory-toggle-label {
+  color: var(--accent-novelty);
+}
+
+.trajectory-chevron {
+  color: var(--text-muted);
+  transition: transform 0.25s var(--ease);
+}
+
+.trajectory-row[open] .trajectory-chevron {
+  transform: rotate(180deg);
+  color: var(--accent-novelty);
+}
+
+/* Cuerpo desplegable */
+.trajectory-body {
+  padding: 0 24px 24px 24px;
+  border-top: 1px solid rgba(28, 25, 23, 0.06);
+  background-color: rgba(255, 255, 255, 0.4);
+  animation: fadeInAccordion 0.25s ease-out;
+}
+
+@keyframes fadeInAccordion {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.trajectory-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  padding-top: 20px;
+}
+
+.trajectory-col h4.trajectory-subhead {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trajectory-col p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.trajectory-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trajectory-bullets li {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 18px;
+}
+
+.trajectory-bullets li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent-novelty);
+  font-weight: 700;
+}
+
+.trajectory-col-evidence {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.evidence-quote-box p {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.evidence-source {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-info);
+  font-weight: 500;
+}
+
+/* Responsividad para móviles y pantallas reducidas */
+@media (max-width: 768px) {
+  .trajectory-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 18px;
+    gap: 12px;
+  }
+  .trajectory-action {
+    align-self: flex-end;
+    margin-top: -6px;
+  }
+  .trajectory-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 16px;
+  }
+  .trajectory-body {
+    padding: 0 18px 18px 18px;
+  }
+  .trajectory-left {
+    gap: 12px;
+  }
+  .trajectory-title {
+    font-size: 1.05rem;
+  }
+}
+
 .cas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

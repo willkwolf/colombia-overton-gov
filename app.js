@@ -355,6 +355,21 @@ function setupInteractions() {
       document.getElementById('progress-bar-container').setAttribute('aria-valuenow', Math.round(scrolled));
     }
   });
+
+  // Configurar Acordeón Pedagógico de Trayectoria (Sección 6)
+  setupTrajectoryAccordion();
+}
+
+function setupTrajectoryAccordion() {
+  const rows = document.querySelectorAll('.trajectory-row');
+  rows.forEach(row => {
+    row.addEventListener('toggle', () => {
+      const label = row.querySelector('.trajectory-toggle-label');
+      if (label) {
+        label.textContent = row.open ? 'Cerrar' : 'Explorar';
+      }
+    });
+  });
 }
 
 // Global Tooltip functions
