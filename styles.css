@@ -2242,3 +2242,212 @@ a.step-item:hover .step-status {
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   KAIZEN KZN-ED-001: REFINAMIENTO EDITORIAL, VOZ AUTORAL Y ERGONOMÍA UI/UX
+   ========================================================================== */
+
+/* 1. SEÑALÉTICA EPISTÉMICA (SEPARACIÓN VOZ PERSONAL VS. HECHOS JUDICIALES) */
+.epistemic-badge-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.epistemic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  line-height: 1.4;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.epistemic-badge .badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Modo Ensayo / Reflexión Personal */
+.epistemic-badge.epistemic-essay {
+  background-color: rgba(224, 86, 56, 0.06);
+  color: var(--accent-novelty);
+  border-color: rgba(224, 86, 56, 0.25);
+  font-weight: 500;
+}
+.epistemic-badge.epistemic-essay .badge-dot {
+  background-color: var(--accent-novelty);
+}
+
+/* Modo Archivo Factual / Sentencias Judiciales */
+.epistemic-badge.epistemic-facts {
+  background-color: rgba(44, 122, 123, 0.08);
+  color: var(--accent-info);
+  border-color: rgba(44, 122, 123, 0.3);
+  font-weight: 600;
+}
+.epistemic-badge.epistemic-facts .badge-dot {
+  background-color: var(--accent-info);
+}
+
+/* Modo Modelo Teórico / Institucionalismo */
+.epistemic-badge.epistemic-model {
+  background-color: rgba(133, 77, 14, 0.06);
+  color: var(--accent-novelty);
+  border-color: rgba(133, 77, 14, 0.25);
+  font-weight: 500;
+}
+.epistemic-badge.epistemic-model .badge-dot {
+  background-color: var(--accent-novelty);
+}
+
+/* 2. TIPOGRAFÍA Y CAJA DE LA VOZ AUTORAL */
+.author-voice-lead {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.45;
+  color: var(--text-primary);
+  max-width: 760px;
+  margin: 0 auto 20px auto;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.author-voice-box {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-left: 3px solid var(--accent-novelty);
+  border-radius: 0 8px 8px 0;
+  padding: 24px 28px;
+  max-width: 760px;
+  margin: 0 auto 36px auto;
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(28, 25, 23, 0.03);
+}
+
+.author-voice-box p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.author-voice-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* 3. NAVEGACIÓN MÓVIL HORIZONTAL (PILL-SCROLL) */
+.mobile-nav-scroll {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-scroll {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding: 8px 16px 10px 16px;
+    border-top: 1px solid var(--border);
+    scrollbar-width: none;
+    background-color: rgba(248, 246, 240, 0.98);
+  }
+  .mobile-nav-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-nav-pill {
+    flex-shrink: 0;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s var(--ease);
+  }
+  .mobile-nav-pill:active,
+  .mobile-nav-pill:hover {
+    color: var(--text-primary);
+    border-color: var(--accent-novelty);
+    background-color: rgba(224, 86, 56, 0.05);
+  }
+  .mobile-nav-pill.active-pill {
+    color: var(--accent-novelty);
+    border-color: var(--accent-novelty);
+    background-color: rgba(224, 86, 56, 0.08);
+    font-weight: 600;
+  }
+
+  /* Ajuste de cabecera sticky en mobile */
+  .scrolly-sidebar {
+    height: 52px !important;
+    background-color: rgba(248, 246, 240, 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+
+  /* Stepper de 2 columnas en móvil */
+  .ecosystem-stepper {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    max-width: 100% !important;
+  }
+  .step-item {
+    padding: 10px 12px !important;
+    min-height: 64px;
+  }
+  .step-badge {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 0.75rem !important;
+  }
+  .step-meta .step-title {
+    font-size: 0.65rem !important;
+  }
+  .step-meta .step-project {
+    font-size: 0.78rem !important;
+  }
+  .step-meta .step-status {
+    font-size: 0.65rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ecosystem-stepper {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .author-voice-lead {
+    font-size: 1.35rem;
+  }
+  .author-voice-box {
+    padding: 18px 20px;
+  }
+  .tab-group {
+    display: flex;
+    width: 100%;
+  }
+  .tab-btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 6px;
+    font-size: 0.74rem;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -669,6 +669,7 @@ function setupGlossary() {
 function setupActiveNavLink() {
   const sections = document.querySelectorAll('section[id], header[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
+  const mobilePills = document.querySelectorAll('.mobile-nav-pill');
   
   const observerOptions = {
     root: null,
@@ -687,7 +688,13 @@ function setupActiveNavLink() {
             link.classList.remove('active-nav-link');
           }
         });
-
+        mobilePills.forEach(pill => {
+          if (pill.getAttribute('href') === `#${id}`) {
+            pill.classList.add('active-pill');
+          } else {
+            pill.classList.remove('active-pill');
+          }
+        });
       }
     });
   }, observerOptions);
