@@ -1,0 +1,29 @@
+{
+  "name": "colombia-overton-gov",
+  "version": "1.0.0",
+  "description": "Colombia Overton Gov — Análisis del impacto institucional y la tensión democrática sobre la Constitución de 1991 (1991–2026)",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx serve .",
+    "build:data": "python scripts/build_database.py",
+    "wiki": "openwiki docs",
+    "wiki:serve": "npx docsify serve docs"
+  },
+  "keywords": [
+    "colombia",
+    "overton-window",
+    "constitution-1991",
+    "data-journalism",
+    "scrollytelling",
+    "political-science",
+    "path-dependence",
+    "habermas",
+    "openwiki"
+  ],
+  "author": "William Camilo Artunduaga Viana",
+  "license": "CC-BY-NC-SA-4.0",
+  "devDependencies": {
+    "docsify-cli": "^4.4.4",
+    "openwiki": "^0.8.0"
+  }
+}
