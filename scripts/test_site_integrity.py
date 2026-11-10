@@ -112,8 +112,7 @@ def test_dom_contracts_and_sections():
         'viaje-hero',
         'timeline-section',
         'dependencia-linea',
-        'conclusiones-seccion',
-        'difusion-investigacion'
+        'conclusiones-seccion'
     ]
     for s_id in required_sections:
         assert s_id in parser.ids, f"Falta sección obligatoria: #{s_id}"
@@ -141,7 +140,7 @@ def test_dom_contracts_and_sections():
     for el_id in critical_elements:
         assert el_id in parser.ids, f"Falta elemento crítico: #{el_id}"
 
-    print("  ✓ Todas las 7 secciones + sección autónoma de difusión presentes.")
+    print("  ✓ Todas las 7 secciones del ensayo presentes sin sobre-extensiones.")
     print("  ✓ Todos los elementos del Scrollytelling, Simulador y Acordeón verificados.")
 
 def test_epistemic_signal_and_content():
@@ -160,28 +159,26 @@ def test_epistemic_signal_and_content():
     assert "En este breve ensayo exploro cómo decisiones" in html_content, "Falta párrafo autoral exacto"
     assert "La reflexión va más allá de ver cómo una fractura del pacto social" in html_content, "Falta conclusión autoral de voz"
 
-    # 3. Sección 6: 3 filas colapsables de trayectoria (sin cajas residuales)
+    # 3. Sección 6: 3 filas colapsables de trayectoria (sin cajas residuales ni links sobre-extendidos)
     assert 'class="trajectory-accordion"' in html_content, "Falta acordeón de trayectoria en Sección 6"
     assert 'id="row-complejidad"' in html_content, "Falta fila 01 en Sección 6"
     assert 'id="row-extractivismo"' in html_content, "Falta fila 02 en Sección 6"
     assert 'id="row-deliberacion"' in html_content, "Falta fila 03 en Sección 6"
     assert 'historical-periodization-box' not in html_content, "El bloque residual 1958-2020 debe estar removido"
-    assert "Vergara Varela, R. (2020)" in html_content or "Vergara Varela" in html_content, "Falta mención a Vergara Varela en Sección 6"
+    assert "DOC-TEO-003 en OpenWiki" not in html_content, "Error: Link sobre-extendido a DOC-TEO-003 presente"
 
-    # 4. Sección 7: Desacoplada y sin diagramas duplicados
+    # 4. Sección 7: Conclusiones y difusión integradas limpiamente
     sec7_match = re.search(r'<section id="conclusiones-seccion".*?</section>', html_content, re.DOTALL)
     assert sec7_match, "No se pudo aislar la Sección 7"
     sec7_text = sec7_match.group(0)
     assert 'timeline-historical-grid' not in sec7_text, "Error: El diagrama 1958-2020 sigue duplicado en Sección 7"
-    assert 'share-project-box' not in sec7_text, "Error: Los CTA de compartir siguen dentro de Sección 7"
+    assert 'share-project-box' in sec7_text, "Los CTA de difusión deben residir en la Sección 7"
     assert 'escenarios-container' in sec7_text, "Faltan los 3 escenarios dialécticos en Sección 7"
 
-    # 5. Sección autónoma de difusión
-    diff_match = re.search(r'<section id="difusion-investigacion".*?</section>', html_content, re.DOTALL)
-    assert diff_match, "Falta sección autónoma de difusión"
-    diff_text = diff_match.group(0)
-    assert 'share-project-box' in diff_text, "Los CTA deben residir en la sección autónoma"
-    assert 'open-data-access-card' in diff_text, "Falta la tarjeta de datos abiertos en la sección autónoma"
+    # 5. Ausencia total de sobre-extensiones
+    assert 'open-data-access-card' not in html_content, "Error: Tarjeta sobre-extendida open-data-access-card presente"
+    assert 'difusion-investigacion' not in html_content, "Error: Sección artificial difusion-investigacion presente"
+    assert 'Archivo Abierto & Acción Cívica' not in html_content, "Error: Badge sobre-extendido presente"
 
     # 6. Autoría canónica y cita en el footer
     assert "William Camilo Artunduaga Viana" in html_content, "Falta nombre canónico del autor"
@@ -190,8 +187,7 @@ def test_epistemic_signal_and_content():
 
     print("  ✓ Separación epistémica fáctico-interpretativa cumplida.")
     print("  ✓ Voz personal y autoría canónica de William Camilo Artunduaga Viana preservadas.")
-    print("  ✓ Sección 6 contiene teoría sin duplicados.")
-    print("  ✓ Sección 7 limpia y CTA de difusión desacoplados.")
+    print("  ✓ Sección 6 y 7 depuradas sin enlaces sobre-extendidos ni tarjetas artificiales.")
 
 def test_styles_responsive_and_accessibility():
     """Valida consistencia en styles.css, breakpoints y diseño del footer."""
