@@ -696,20 +696,23 @@ function setupActiveNavLink() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active-nav-link');
-          } else {
-            link.classList.remove('active-nav-link');
-          }
-        });
-        mobilePills.forEach(pill => {
-          if (pill.getAttribute('href') === `#${id}`) {
-            pill.classList.add('active-pill');
-          } else {
-            pill.classList.remove('active-pill');
-          }
-        });
+        const hasMatchingLink = Array.from(navLinks).some(link => link.getAttribute('href') === `#${id}`);
+        if (hasMatchingLink) {
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active-nav-link');
+            } else {
+              link.classList.remove('active-nav-link');
+            }
+          });
+          mobilePills.forEach(pill => {
+            if (pill.getAttribute('href') === `#${id}`) {
+              pill.classList.add('active-pill');
+            } else {
+              pill.classList.remove('active-pill');
+            }
+          });
+        }
       }
     });
   }, observerOptions);
