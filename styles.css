@@ -2409,69 +2409,7 @@ p {
    KAIZEN KZN-ED-001: REFINAMIENTO EDITORIAL, VOZ AUTORAL Y ERGONOMÍA UI/UX
    ========================================================================== */
 
-/* 1. SEÑALÉTICA EPISTÉMICA (SEPARACIÓN VOZ PERSONAL VS. HECHOS JUDICIALES) */
-.epistemic-badge-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-
-.epistemic-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 999px;
-  line-height: 1.4;
-  border: 1px solid var(--border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-}
-
-.epistemic-badge .badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-/* Modo Ensayo / Reflexión Personal */
-.epistemic-badge.epistemic-essay {
-  background-color: rgba(224, 86, 56, 0.06);
-  color: var(--accent-novelty);
-  border-color: rgba(224, 86, 56, 0.25);
-  font-weight: 500;
-}
-.epistemic-badge.epistemic-essay .badge-dot {
-  background-color: var(--accent-novelty);
-}
-
-/* Modo Archivo Factual / Sentencias Judiciales */
-.epistemic-badge.epistemic-facts {
-  background-color: rgba(44, 122, 123, 0.08);
-  color: var(--accent-info);
-  border-color: rgba(44, 122, 123, 0.3);
-  font-weight: 600;
-}
-.epistemic-badge.epistemic-facts .badge-dot {
-  background-color: var(--accent-info);
-}
-
-/* Modo Modelo Teórico / Institucionalismo */
-.epistemic-badge.epistemic-model {
-  background-color: rgba(133, 77, 14, 0.06);
-  color: var(--accent-novelty);
-  border-color: rgba(133, 77, 14, 0.25);
-  font-weight: 500;
-}
-.epistemic-badge.epistemic-model .badge-dot {
-  background-color: var(--accent-novelty);
-}
-
-/* 2. TIPOGRAFÍA Y CAJA DE LA VOZ AUTORAL */
+/* 1. TIPOGRAFÍA Y CAJA DE LA VOZ AUTORAL */
 .author-voice-lead {
   font-family: var(--font-display);
   font-size: 1.6rem;

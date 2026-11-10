@@ -149,10 +149,8 @@ def test_epistemic_signal_and_content():
     with open(INDEX_HTML, 'r', encoding='utf-8') as f:
         html_content = f.read()
 
-    # 1. Señalética de badges
-    assert 'epistemic-essay' in html_content, "Falta badge epistemic-essay"
-    assert 'epistemic-facts' in html_content, "Falta badge epistemic-facts"
-    assert 'epistemic-model' in html_content, "Falta badge epistemic-model"
+    # 1. Ausencia total de epistemic-badges (diseño limpio y libre de ruido visual)
+    assert 'epistemic-badge' not in html_content, "Error: Quedan badges epistémicos residuales en index.html"
 
     # 2. Voz autoral fiel
     assert "Algunas noticias generan indignación inmediata" in html_content, "Falta voz autoral en Sección 1"
