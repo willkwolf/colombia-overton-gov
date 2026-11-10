@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npx serve .",
     "build:data": "python scripts/build_database.py",
+    "test": "python scripts/test_site_integrity.py",
     "wiki": "openwiki docs",
     "wiki:serve": "npx docsify serve docs"
   },

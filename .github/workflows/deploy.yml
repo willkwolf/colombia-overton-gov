@@ -33,6 +33,9 @@ jobs:
       - name: Compile Data Pipeline
         run: python scripts/build_database.py
 
+      - name: Run Integrity & Governance Tests
+        run: python scripts/test_site_integrity.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

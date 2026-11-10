@@ -44,6 +44,16 @@
     "categoria": "Derechos Fundamentales",
     "descripcion": "Se garantiza el derecho a la honra. La ley señalará la forma de su protección."
   },
+  "22": {
+    "titulo": "Derecho y deber de la paz",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "La paz es un derecho y un deber de obligatorio cumplimiento. Fundamento ético de la convivencia social y constitucional."
+  },
+  "25": {
+    "titulo": "Derecho al trabajo en condiciones dignas",
+    "categoria": "Derechos Fundamentales",
+    "descripcion": "El trabajo es un derecho y una obligación social y goza, en todas sus modalidades, de la especial protección del Estado. Toda persona tiene derecho a un trabajo en condiciones dignas y justas."
+  },
   "28": {
     "titulo": "Derecho a la libertad personal",
     "categoria": "Derechos Fundamentales",
@@ -94,6 +104,11 @@
     "categoria": "Deberes",
     "descripcion": "La calidad de ciudadano enaltece a todos los miembros de la comunidad nacional. Todos están en el deber de engrandecerla y dignificarla. El ejercicio de los derechos y libertades implica responsabilidades."
   },
+  "102": {
+    "titulo": "Dominio público y territorio de la Nación",
+    "categoria": "Organización Territorial",
+    "descripcion": "El territorio, con los bienes públicos que de él forman parte, pertenece a la Nación, garantizando la soberanía y destinación al interés colectivo."
+  },
   "107": {
     "titulo": "Partidos políticos y personería jurídica",
     "categoria": "Organización del Estado",
@@ -123,6 +138,11 @@
     "titulo": "Servidores públicos",
     "categoria": "Función Pública",
     "descripcion": "Los miembros de las corporaciones públicas, los empleados y trabajadores del Estado y de sus entidades descentralizadas territorialmente y por servicios son servidores públicos al servicio del Estado y de la comunidad."
+  },
+  "133": {
+    "titulo": "Representación popular y mandato cívico",
+    "categoria": "Rama Legislativa",
+    "descripcion": "Los miembros de cuerpos colegiados de elección directa representan al pueblo, y deberán actuar consultando la justicia y el bien común. El elegido es responsable políticamente ante la sociedad."
   },
   "356": {
     "titulo": "Sistema General de Participaciones (SGP)",
