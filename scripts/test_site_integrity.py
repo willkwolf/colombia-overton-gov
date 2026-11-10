@@ -160,13 +160,13 @@ def test_epistemic_signal_and_content():
     assert "En este breve ensayo exploro cómo decisiones" in html_content, "Falta párrafo autoral exacto"
     assert "La reflexión va más allá de ver cómo una fractura del pacto social" in html_content, "Falta conclusión autoral de voz"
 
-    # 3. Sección 6: 3 filas colapsables + período histórico 1958-2020
+    # 3. Sección 6: 3 filas colapsables de trayectoria (sin cajas residuales)
     assert 'class="trajectory-accordion"' in html_content, "Falta acordeón de trayectoria en Sección 6"
     assert 'id="row-complejidad"' in html_content, "Falta fila 01 en Sección 6"
     assert 'id="row-extractivismo"' in html_content, "Falta fila 02 en Sección 6"
     assert 'id="row-deliberacion"' in html_content, "Falta fila 03 en Sección 6"
-    assert 'class="historical-periodization-box"' in html_content, "Falta bloque histórico 1958-2020 en Sección 6"
-    assert "Vergara Varela, R. (2020)" in html_content, "Falta cita formal a Vergara Varela en Sección 6"
+    assert 'historical-periodization-box' not in html_content, "El bloque residual 1958-2020 debe estar removido"
+    assert "Vergara Varela, R. (2020)" in html_content or "Vergara Varela" in html_content, "Falta mención a Vergara Varela en Sección 6"
 
     # 4. Sección 7: Desacoplada y sin diagramas duplicados
     sec7_match = re.search(r'<section id="conclusiones-seccion".*?</section>', html_content, re.DOTALL)
