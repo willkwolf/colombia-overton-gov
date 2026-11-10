@@ -183,9 +183,14 @@ def test_epistemic_signal_and_content():
     assert 'share-project-box' in diff_text, "Los CTA deben residir en la sección autónoma"
     assert 'open-data-access-card' in diff_text, "Falta la tarjeta de datos abiertos en la sección autónoma"
 
+    # 6. Autoría canónica y cita en el footer
+    assert "William Camilo Artunduaga Viana" in html_content, "Falta nombre canónico del autor"
+    assert "Artunduaga Viana, W. C. (2026)" in html_content, "Falta cita bibliográfica canónica del autor"
+    assert "Wolf, W." not in html_content, "Error: Nombre inventado residual 'Wolf, W.' encontrado"
+
     print("  ✓ Separación epistémica fáctico-interpretativa cumplida.")
-    print("  ✓ Voz personal del autor preservada al pie de la letra.")
-    print("  ✓ Sección 6 contiene teoría y período histórico 1958-2020 sin duplicados.")
+    print("  ✓ Voz personal y autoría canónica de William Camilo Artunduaga Viana preservadas.")
+    print("  ✓ Sección 6 contiene teoría sin duplicados.")
     print("  ✓ Sección 7 limpia y CTA de difusión desacoplados.")
 
 def test_styles_responsive_and_accessibility():
@@ -205,7 +210,7 @@ def test_styles_responsive_and_accessibility():
 
     # 3. Footer unificado y alineado
     assert 'max-width: 1040px;' in css, "El footer debe estar unificado a 1040px"
-    assert '.ecosystem-stepper' in css, "Falta .ecosystem-stepper"
+    assert '.footer-readme-btn' in css, "Falta .footer-readme-btn en CSS"
     assert '.footer-bottom-grid' in css, "Falta .footer-bottom-grid en 2 columnas"
     assert '.footer-divider' in css, "Falta .footer-divider"
 

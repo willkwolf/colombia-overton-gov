@@ -1036,13 +1036,67 @@ p {
   margin: 36px 0;
 }
 
-/* Footer Top (Grilla de 3 columnas alineada) */
+/* Footer Top (Grilla balanceada de 2 columnas) */
 .footer-top {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 36px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
   width: 100%;
   text-align: left;
+}
+
+.footer-docs-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 14px 0;
+}
+
+.footer-readme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(224, 86, 56, 0.12);
+  border: 1px solid rgba(224, 86, 56, 0.35);
+  color: var(--accent-novelty);
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s var(--ease);
+}
+
+.footer-readme-btn:hover {
+  background: var(--accent-novelty);
+  color: #fff;
+  border-color: var(--accent-novelty);
+  transform: translateY(-1px);
+}
+
+.footer-quick-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.footer-quick-links a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s var(--ease);
+}
+
+.footer-quick-links a:hover {
+  color: var(--text-primary);
+}
+
+.link-sep {
+  color: rgba(255, 255, 255, 0.2);
 }
 
 .footer-brand {
@@ -2076,144 +2130,12 @@ p {
   --radius: 2px;
 }
 
-/* Stepper del Ecosistema */
-.ecosystem-stepper-section {
-  width: 100%;
-  margin-bottom: 8px;
-  text-align: center;
-}
-
-.ecosystem-stepper-section h3 {
-  font-family: var(--font-display);
-  font-size: 2.1rem;
-  font-weight: 400;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-  letter-spacing: 0.01em;
-}
-
-.stepper-subtitle {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-}
-
-.ecosystem-stepper {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  width: 100%;
-}
-
-.step-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 8px;
-  padding: 16px 10px;
-  min-height: 112px;
-  transition: all 0.25s var(--ease);
-  box-sizing: border-box;
-}
-
-.step-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(224, 86, 56, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-}
-
-.step-badge {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  transition: all 0.25s var(--ease);
-}
-
-.step-item:hover .step-badge {
-  border-color: var(--accent-novelty);
-  color: var(--accent-novelty);
-}
-
-.step-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  width: 100%;
-  text-align: center;
-}
-
-.step-title {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.step-project {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.25;
-}
-
-.step-status {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--accent-novelty);
-  margin-top: 4px;
-  letter-spacing: 0.03em;
-}
-
-/* Tarjeta Activa */
-.step-item.active {
-  background: rgba(224, 86, 56, 0.08);
-  border-color: var(--accent-novelty);
-  box-shadow: 0 0 20px rgba(224, 86, 56, 0.15);
-  cursor: default;
-}
-
-.step-item.active .step-badge {
-  background: var(--accent-novelty);
-  border-color: var(--accent-novelty);
-  color: #fff;
-}
-
-.step-item.active .step-project {
-  color: #fff;
-}
-
-.step-item.active .step-status {
-  color: #fff;
-  font-weight: 700;
-}
-
-@media (max-width: 900px) {
-  .ecosystem-stepper {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-}
-
 @media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
   /* Mobile Header Styles */
   .nav-links {
     display: none;
@@ -2702,39 +2624,9 @@ p {
     -webkit-backdrop-filter: blur(8px) !important;
     border-bottom: 1px solid var(--border) !important;
   }
-
-  /* Stepper de 2 columnas en móvil */
-  .ecosystem-stepper {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 100%;
-  }
-  .step-item {
-    padding: 12px 10px;
-    min-height: 96px;
-  }
-  .step-badge {
-    width: 28px;
-    height: 28px;
-    font-size: 0.75rem;
-    margin-bottom: 6px;
-  }
-  .step-meta .step-title {
-    font-size: 0.65rem;
-  }
-  .step-meta .step-project {
-    font-size: 0.78rem;
-  }
-  .step-meta .step-status {
-    font-size: 0.65rem;
-  }
 }
 
 @media (max-width: 480px) {
-  .ecosystem-stepper {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
   .author-voice-lead {
     font-size: 1.35rem;
   }
